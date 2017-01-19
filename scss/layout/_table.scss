@@ -1,0 +1,31 @@
+.table-striped {
+  width: 100%;
+
+  thead {
+    .th-icon {
+      width: 10%;
+    }
+    .th-badge-title {
+      width: 40%;
+    }
+    .th-date {
+      width: 15%;
+    }
+    .th-course-title {
+      width: 35%;
+    }
+  }
+  & > tbody > tr:nth-of-type(odd) {
+    background-color: $color-1;
+    color: $color-4;
+  }
+  & > tbody > tr:nth-of-type(even) {
+    background-color: $color-1;
+    color: $color-4;
+  }
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > td {
+  border: none;
+}

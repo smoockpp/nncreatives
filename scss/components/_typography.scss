@@ -1,0 +1,63 @@
+.navbar-brand {
+  color: $color-3 !important;
+}
+
+.heading {
+  text-align: center;
+  padding: 10px 0;
+  color: $color-1;
+  text-shadow: 1px 1px 1px transparentize($color-2, .7);
+}
+
+#treehouse {
+  .heading {
+    padding: 0;
+    color: $color-2;
+    text-shadow: none;
+  }
+  .heading-p {
+    margin-top: 10px;
+  }
+  .pagination > li > a,
+  .pagination > li > span {
+
+  }
+}
+
+div.underline {
+  margin: 0 auto 2em;
+  display: block;
+  height: 5px;
+  width: 50px;
+  background-color: $color-6;
+}
+
+#github {
+  margin-top: 10rem;
+  .container {
+    text-align: right;
+  }
+  .panel-heading {
+    background-color: transparent;
+    .panel-title {
+      background-color: transparent;
+      color: $white;
+      a {
+        .glyphicon {
+          margin-top: 2em;
+        }
+      }
+    }
+  }
+  .panel-body-link {
+    display: inline-block;
+    font-size: 1.2em;
+  }
+}
+
+
+p.heading-p {
+  color: $color-5;
+  font-size: 1.5em;
+  text-align: center;
+}
