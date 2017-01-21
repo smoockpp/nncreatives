@@ -12134,28 +12134,28 @@ var displayGithub = function displayGithub(data) {
 	console.log(avatar);
 	var gitDiv = $('#github .container');
 	var githubHTML = "";
-	githubHTML += "\n    <div class=\"github-avatar\">\n      <img class=\"img-circle\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n    </div>\n    <div class=\"github-name\">\n      <h3 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h3>\n      <h4 class=\"heading\">" + location + "</h4>\n      <button type=\"button\" class=\"btn btn-primary\">Contact me</button>\n    </div>\n    <div class=\"panel-group\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n     <div class=\"panel panel-default\">\n       <div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n         <h4 class=\"panel-title\">\n           <a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n             My repositories\n             <br>\n             <span class=\"glyphicon glyphicon-menu-down\" aria-hidden=\"true\"></span>\n           </a>\n         </h4>\n       </div>\n       <div id=\"collapseOne\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n         <div class=\"panel-body\">\n\n         </div>\n       </div>\n     </div>\n     </div>\n  ";
+	githubHTML += "\n\n    <div class=\"github-name col-xs-12 col-sm-6\">\n      <div class=\"github-avatar\">\n        <img class=\"img-circle\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n      </div>\n      <h3 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h3>\n      <h4 class=\"heading\">" + location + "</h4>\n      <button type=\"button\" class=\"btn btn-primary\">Contact me</button>\n    </div>\n    <div class=\"panel-group col-xs-12 col-sm-6\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n     <div class=\"panel panel-default\">\n       <div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n         <h4 class=\"panel-title\">\n           <a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n             My repositories\n             <br>\n             <span class=\"glyphicon glyphicon-menu-down\" aria-hidden=\"true\"></span>\n           </a>\n         </h4>\n       </div>\n       <div id=\"collapseOne\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n         <div class=\"panel-body\">\n\n         </div>\n       </div>\n     </div>\n     </div>\n  ";
 	$(gitDiv).append(githubHTML);
 
 	var repos = profile[0].repos_url;
 	var repositories = void 0;
 	var reposHTML = "";
 
-	var xmlhttp = new XMLHttpRequest();
+	var xhr = new XMLHttpRequest();
 
-	xmlhttp.onreadystatechange = function () {
-		if (xmlhttp.readyState == XMLHttpRequest.DONE) {
-			if (xmlhttp.status == 200) {
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState == XMLHttpRequest.DONE) {
+			if (xhr.status == 200) {
 				var reposArray = [];
-				repositories = $.parseJSON(xmlhttp.responseText);
+				repositories = $.parseJSON(xhr.responseText);
 				console.log(repositories);
 				for (var repo in repositories) {
-					reposHTML += "\n             <a class=\"panel-body-link\" href=\"" + repositories[repo].html_url + "\">" + repositories[repo].name + "</a>\n\n             ";
+					reposHTML += "\n             <a class=\"panel-body-link\" target=\"_blank\" href=\"" + repositories[repo].html_url + "\">" + repositories[repo].name + "</a>\n\n             ";
 				}
 
 				$('.panel-body').append(reposHTML);
 				console.log(reposArray);
-			} else if (xmlhttp.status == 400) {
+			} else if (xhr.status == 400) {
 				alert('There was an error 400');
 			} else {
 				alert('something else other than 200 was returned');
@@ -12163,8 +12163,8 @@ var displayGithub = function displayGithub(data) {
 		}
 	};
 
-	xmlhttp.open("GET", repos, true);
-	xmlhttp.send();
+	xhr.open("GET", repos, true);
+	xhr.send();
 
 	// $.getJSON(repos, function(json) {
 	//   console.log(json);
@@ -12233,5 +12233,38 @@ $('.navbar-toggle').click(function () {
 	}
 });
 
-treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
-// github('https://api.github.com/users/smoockpp');
+// Fix repositories panel
+
+// Change location after hash for each page
+
+
+// $(function(){
+//   let links = ['/index.html', '/about.html', '/portfolio.html', '/contact.html'];
+//   let location = window.location.pathname;
+//
+//   console.log(location);
+//   $.each(links, function(i, v) {
+//     if ( location == links[v] ) {
+//       console.log(links[v]);
+//       location = '/';
+//     }
+//   });
+//
+//
+//
+//
+// });
+
+$(function () {
+	var loc = $(location).attr('pathname');
+	console.log(loc);
+
+	switch (loc) {
+		case '/index.html':
+			treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
+			github('https://api.github.com/users/smoockpp');
+			break;
+		case '/portfolio.html':
+			break;
+	}
+});

@@ -16,3 +16,6 @@ $('.navbar-toggle').click(function() {
     $('nav').removeClass('sticky');
   }
 });
+
+
+// Fix repositories panel

@@ -63,12 +63,19 @@
 
 #github {
   background-image: radial-gradient($color-6, darken($color-6, 10%));
+  .underline {
+    background-color: $color-4;
+  }
+  .heading {
+    margin-bottom: 0;
+  }
   .github-avatar {
     img {
       margin: 0 auto;
       max-width: 128px;
       max-height: 128px;
     }
+
   }
   .github-name {
     text-align: center;
@@ -84,6 +91,10 @@
       box-shadow: inset 0 0 10px darken($color-4, 5%);
       border: none;
     }
+
+  }
+  .panel-group {
+
   }
   .panel {
     max-width: 300px;
@@ -91,11 +102,20 @@
     text-align: center;
     background-color: transparent;
     box-shadow: 0 1px 0px darken($color-6, 10%);
+    @media #{$brk-narrow} {
+      max-width: 100%;
+
+    }
   }
   .panel-default {
     border: none;
   }
   .panel-body {
+    position: absolute;
+    left: 0;
+    top: 40px;
+    width: 100%;
+    background-image: radial-gradient($color-3, darken($color-3, 10%));
     border-top: 2px solid darken($color-6, 20%);
   }
 }

@@ -188,15 +188,16 @@ const displayGithub = (data) => {
   const gitDiv = $('#github .container');
   let githubHTML = ``;
   githubHTML += `
-    <div class="github-avatar">
-      <img class="img-circle" src="${avatar}" alt="${name} avatar photo">
-    </div>
-    <div class="github-name">
+
+    <div class="github-name col-xs-12 col-sm-6">
+      <div class="github-avatar">
+        <img class="img-circle" src="${avatar}" alt="${name} avatar photo">
+      </div>
       <h3 class="heading">${name} <span class="alias">(${alias})</span></h3>
       <h4 class="heading">${location}</h4>
       <button type="button" class="btn btn-primary">Contact me</button>
     </div>
-    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel-group col-xs-12 col-sm-6" id="accordion" role="tablist" aria-multiselectable="true">
      <div class="panel panel-default">
        <div class="panel-heading" role="tab" id="headingOne">
          <h4 class="panel-title">
@@ -222,17 +223,17 @@ const displayGithub = (data) => {
   let repositories;
   let reposHTML = ``;
 
-  var xmlhttp = new XMLHttpRequest();
+  var xhr = new XMLHttpRequest();
 
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == XMLHttpRequest.DONE ) {
-       if (xmlhttp.status == 200) {
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState == XMLHttpRequest.DONE ) {
+       if (xhr.status == 200) {
           let reposArray = [];
-           repositories = $.parseJSON(xmlhttp.responseText);
+           repositories = $.parseJSON(xhr.responseText);
            console.log(repositories);
            for (const repo in repositories) {
              reposHTML += `
-             <a class="panel-body-link" href="${repositories[repo].html_url}">${repositories[repo].name}</a>
+             <a class="panel-body-link" target="_blank" href="${repositories[repo].html_url}">${repositories[repo].name}</a>
 
              `;
            }
@@ -240,7 +241,7 @@ const displayGithub = (data) => {
            $('.panel-body').append(reposHTML);
           console.log(reposArray);
        }
-       else if (xmlhttp.status == 400) {
+       else if (xhr.status == 400) {
           alert('There was an error 400');
        }
        else {
@@ -249,8 +250,8 @@ const displayGithub = (data) => {
     }
   };
 
-    xmlhttp.open("GET", repos, true);
-    xmlhttp.send();
+    xhr.open("GET", repos, true);
+    xhr.send();
 
 
 

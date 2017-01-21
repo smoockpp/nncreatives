@@ -1,8 +1,49 @@
 footer {
+  position: relative;
   background-image: radial-gradient(darken($color-7, 5%), darken($color-7, 10%));
-  .git {
-    img {
-      width: 64px;
+  .foo-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin: 2em auto 0;
+    padding: 1em 0 2em;
+    text-align: center;
+    li {
+      display: block;
+      a {
+        display: block;
+        padding: 1em 2em;
+        @media #{$brk-tablets} {
+          padding: .5em 1em;
+        }
+      }
+    }
+    li.social {
+      .social-list {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        .social-icons {
+          img {
+            margin: 5px;
+            width: 35px;
+            height: 35px;
+            @media #{$brk-tablets} {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+      }
+      @media #{$brk-tablets} {
+        margin-left: auto;
+      }
+    }
+    @media #{$brk-tablets} {
+      flex-direction: row;
     }
   }
+
 }

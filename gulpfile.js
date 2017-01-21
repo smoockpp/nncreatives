@@ -20,6 +20,7 @@ gulp.task('concatScripts', function() {
       'scripts/overlay.js',
       'scripts/sticky-nav.js',
       'scripts/fixes.js',
+      'scripts/location-handler.js',
       'scripts/main.js'])
 
 
@@ -73,6 +74,7 @@ gulp.task('watchFiles', function() {
   gulp.watch('scripts/overlay.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/sticky-nav.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/fixes.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/location-handler.js', ['concatScripts', 'minifyScripts']).on('change', reload);
 });
 
 

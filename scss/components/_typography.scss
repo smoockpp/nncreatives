@@ -51,7 +51,10 @@ div.underline {
   }
   .panel-body-link {
     display: inline-block;
-    font-size: 1.2em;
+    color: $color-4;
+
+    margin: 3px;
+    font-size: 1em;
   }
 }
 
