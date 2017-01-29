@@ -12197,12 +12197,6 @@ $('.navbar-toggle').click(function () {
 
 // Fix repositories panel
 
-var projectDiv = $('.project');
-
-projectDiv.hover(function () {
-	$(this).children('h5').css('height', '100%');
-});
-
 // Change location after hash for each page
 
 

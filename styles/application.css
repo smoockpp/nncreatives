@@ -6182,10 +6182,10 @@ footer {
     width: 40%;
     color: #4a8696; }
   .table-striped thead .th-date {
-    width: 15%;
+    width: 10%;
     color: #4a8696; }
   .table-striped thead .th-course-title {
-    width: 35%;
+    width: 40%;
     color: #4a8696; }
   .table-striped > tbody > tr:nth-of-type(odd) {
     background-color: transparent;
@@ -6200,7 +6200,7 @@ footer {
 
 .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
   background-color: #C4DEDF;
-  padding: 15px 25px;
+  padding: 10px 20px;
   border: none;
   border-bottom: 2px solid #427785;
   color: #755e27;
@@ -6209,12 +6209,13 @@ footer {
 .pagination > li > a, .pagination > li > span {
   border: none;
   color: #C6A556;
-  padding: 15px 25px; }
+  padding: 10px 20px; }
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
   border: none;
   background-color: #e2e2e2;
-  color: #eee; }
+  color: #eee;
+  opacity: .5; }
 
 .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
   border: none;
@@ -6250,27 +6251,42 @@ footer {
     cursor: pointer; }
     #projects .project .heading {
       position: relative;
-      height: 35px;
+      height: 50px;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.8);
-      margin: 0 auto; }
+      background-color: #84B5C2;
+      margin: 0 auto;
+      transition: font-size .3s;
+      box-shadow: inset 0 0 25px #62a0b1; }
     #projects .project img {
       margin: 0 auto;
       width: 100%;
       height: 100%; }
+    #projects .project:hover .heading {
+      font-size: 1.5em; }
     #projects .project:hover:after {
+      height: calc(100% - 50px); }
+    #projects .project:after {
+      transition: height .3s ease-in-out;
       font-family: 'Glyphicons Halflings';
       font-size: 2em;
       text-align: center;
-      line-height: 7;
+      line-height: 3;
       content: '\e003';
       position: absolute;
       bottom: 0;
       display: block;
       margin: 0;
       width: calc(100% - 30px);
-      height: calc(100% - 35px);
-      background-color: rgba(0, 0, 0, 0.8); }
+      height: 0;
+      background-color: #84B5C2;
+      box-shadow: inset 0 0 50px #62a0b1;
+      opacity: .9; }
+      @media (min-width: 480px) {
+        #projects .project:after {
+          line-height: 5; } }
+      @media (min-width: 1024px) {
+        #projects .project:after {
+          line-height: 7; } }
 
 .typewriter {
   position: relative;
