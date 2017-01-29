@@ -1,39 +1,30 @@
-.navbar-brand {
-  color: $color-3 !important;
-}
 
 .heading {
   text-align: center;
   padding: 10px 0;
   color: $color-1;
-  text-shadow: 1px 1px 1px transparentize($color-2, .7);
+
 }
 
-#treehouse {
-  .heading {
-    padding: 0;
-    color: $color-2;
-    text-shadow: none;
-  }
-  .heading-p {
-    margin-top: 10px;
-  }
-  .pagination > li > a,
-  .pagination > li > span {
 
-  }
-}
 
 div.underline {
-  margin: 0 auto 2em;
+  margin: -5px auto 2em;
   display: block;
   height: 5px;
   width: 50px;
-  background-color: $color-6;
+  background-color: $color-3;
 }
 
 #github {
-  margin-top: 10rem;
+
+
+  // .heading {
+  //   color: $color-2;
+  //   margin-top: 0;
+  //   padding: 20px;
+  //
+  // }
   .container {
     text-align: right;
   }
@@ -42,6 +33,7 @@ div.underline {
     .panel-title {
       background-color: transparent;
       color: $white;
+      font-size: 1.25em;
       a {
         .glyphicon {
           margin-top: 2em;

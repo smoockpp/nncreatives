@@ -60,26 +60,25 @@ const displayTreehouse = (json) => {
       case '1':
         createBadges(1, 5);
         prev.parent().addClass('disabled');
-        prev.parent().hide();
+        
         break;
       case '2':
         createBadges(6, 10);
         console.log('badges 6 10');
         prev.parent().removeClass('disabled');
         next.parent().removeClass('disabled');
-        prev.parent().show();
-        next.parent().show();
+        
         break;
       case '3':
         createBadges(11, 15);
         next.parent().addClass('disabled');
-        next.parent().hide();
+        
         break;
 
       default:
         createBadges(1, 5);
         prev.parent().addClass('disabled');
-        prev.parent().hide();
+        
     }
   }
 
@@ -185,87 +184,25 @@ const displayGithub = (data) => {
 
 
   console.log(avatar);
-  const gitDiv = $('#github .container');
-  let githubHTML = ``;
-  githubHTML += `
+  const avatarDiv = $('#github .container');
 
-    <div class="github-name col-xs-12 col-sm-6">
-      <div class="github-avatar">
-        <img class="img-circle" src="${avatar}" alt="${name} avatar photo">
-      </div>
-      <h3 class="heading">${name} <span class="alias">(${alias})</span></h3>
-      <h4 class="heading">${location}</h4>
-      <button type="button" class="btn btn-primary">Contact me</button>
+  let githubAvatar = ``;
+  githubAvatar += `
+  <div class="row">
+    <div class="github-avatar col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2">
+      <img class="img-circle" src="${avatar}" alt="${name} avatar photo">
+
     </div>
-    <div class="panel-group col-xs-12 col-sm-6" id="accordion" role="tablist" aria-multiselectable="true">
-     <div class="panel panel-default">
-       <div class="panel-heading" role="tab" id="headingOne">
-         <h4 class="panel-title">
-           <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-             My repositories
-             <br>
-             <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
-           </a>
-         </h4>
-       </div>
-       <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-         <div class="panel-body">
+    <div class="github-repos col-xs-12 col-sm-6 col-lg-4 col-lg-offset-0">
+    <h4 class="heading">${name} <span class="alias">(${alias})</span></h4>
+    <h5 class="heading">${location}</h5>
 
-         </div>
-       </div>
-     </div>
-     </div>
+    <button type="button" class="btn btn-primary btn-sm">My repos</button>
+    <button type="button" class="btn btn-primary btn-sm">Hire me</button>
+    </div>
+  </div>
   `;
-  $(gitDiv).append(githubHTML);
-
-
-  let repos = profile[0].repos_url;
-  let repositories;
-  let reposHTML = ``;
-
-  var xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == XMLHttpRequest.DONE ) {
-       if (xhr.status == 200) {
-          let reposArray = [];
-           repositories = $.parseJSON(xhr.responseText);
-           console.log(repositories);
-           for (const repo in repositories) {
-             reposHTML += `
-             <a class="panel-body-link" target="_blank" href="${repositories[repo].html_url}">${repositories[repo].name}</a>
-
-             `;
-           }
-
-           $('.panel-body').append(reposHTML);
-          console.log(reposArray);
-       }
-       else if (xhr.status == 400) {
-          alert('There was an error 400');
-       }
-       else {
-           alert('something else other than 200 was returned');
-       }
-    }
-  };
-
-    xhr.open("GET", repos, true);
-    xhr.send();
-
-
-
-
-  // $.getJSON(repos, function(json) {
-  //   console.log(json);
-  //
-  //   if (json.length == 0) {
-  //     reposHTML += `<p>No repos!</p></div>`;
-  //   } else {
-  //
-  //   }
-  // });
-
+  $(avatarDiv).append(githubAvatar);
 
 
 }

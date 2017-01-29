@@ -6,11 +6,28 @@
   margin-bottom: 0;
   z-index: 9999;
   .navbar-header {
+    .navbar-brand {
+      color: $color-4 !important;
+    }
     .navbar-toggle {
       .icon-bar {
-        background-color: $color-3;
+        background-color: $color-4;
       }
 
+    }
+  }
+  .nav {
+    li {
+      a {
+        @media #{$brk-narrow} {
+          color: $color-4 !important;
+        }
+
+      }
+    }
+    li.active a {
+      background-color: $color-3;
+      color: $color-4 !important;
     }
   }
 }
@@ -24,30 +41,38 @@
   animation: sticky-in .5s ease 0s 1 normal forwards running;
   .container {
     .navbar-header {
+      .navbar-brand {
+        color: $color-4 !important;
+      }
       .navbar-toggle {
         .icon-bar {
           background-color: $color-4;
         }
       }
-      .navbar-brand {
-        color: $color-4 !important;
-      }
+
     }
     #navbar {
-      .nav {
-        li {
-          a {
-            @media #{$brk-narrow} {
-              color: $color-4 !important;
-            }
 
-          }
-        }
+      .nav {
+
         li.active {
           a {
             @media #{$brk-narrow} {
-              color: $color-1 !important;
+              color: $color-3 !important;
+              background-color: $color-4;
             }
+          }
+        }
+        li {
+          a {
+
+            @media #{$brk-narrow} {
+              color: $color-4 !important;
+              &:hover {
+                color: $color-3 !important;
+              }
+            }
+
           }
         }
       }

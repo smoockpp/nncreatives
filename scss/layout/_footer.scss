@@ -1,6 +1,7 @@
 footer {
   position: relative;
-  background-image: radial-gradient(darken($color-7, 5%), darken($color-7, 10%));
+  background-image: radial-gradient(darken($color-3, 5%), darken($color-3, 10%));
+  border-top: 15px solid darken($color-3, 15%);
   .foo-nav {
     display: flex;
     flex-direction: column;
@@ -14,6 +15,7 @@ footer {
       a {
         display: block;
         padding: 1em 2em;
+        color: $color-4;
         @media #{$brk-tablets} {
           padding: .5em 1em;
         }
@@ -35,6 +37,9 @@ footer {
               height: 25px;
             }
           }
+        }
+        @media #{$brk-narrow} {
+          margin-top: 0;
         }
       }
       @media #{$brk-tablets} {

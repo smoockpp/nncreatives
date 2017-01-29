@@ -12021,26 +12021,25 @@ var displayTreehouse = function displayTreehouse(json) {
 			case '1':
 				createBadges(1, 5);
 				prev.parent().addClass('disabled');
-				prev.parent().hide();
+
 				break;
 			case '2':
 				createBadges(6, 10);
 				console.log('badges 6 10');
 				prev.parent().removeClass('disabled');
 				next.parent().removeClass('disabled');
-				prev.parent().show();
-				next.parent().show();
+
 				break;
 			case '3':
 				createBadges(11, 15);
 				next.parent().addClass('disabled');
-				next.parent().hide();
+
 				break;
 
 			default:
 				createBadges(1, 5);
 				prev.parent().addClass('disabled');
-				prev.parent().hide();
+
 		}
 	}
 
@@ -12132,50 +12131,11 @@ var displayGithub = function displayGithub(data) {
 	var alias = profile[0].login;
 
 	console.log(avatar);
-	var gitDiv = $('#github .container');
-	var githubHTML = "";
-	githubHTML += "\n\n    <div class=\"github-name col-xs-12 col-sm-6\">\n      <div class=\"github-avatar\">\n        <img class=\"img-circle\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n      </div>\n      <h3 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h3>\n      <h4 class=\"heading\">" + location + "</h4>\n      <button type=\"button\" class=\"btn btn-primary\">Contact me</button>\n    </div>\n    <div class=\"panel-group col-xs-12 col-sm-6\" id=\"accordion\" role=\"tablist\" aria-multiselectable=\"true\">\n     <div class=\"panel panel-default\">\n       <div class=\"panel-heading\" role=\"tab\" id=\"headingOne\">\n         <h4 class=\"panel-title\">\n           <a role=\"button\" data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapseOne\" aria-expanded=\"true\" aria-controls=\"collapseOne\">\n             My repositories\n             <br>\n             <span class=\"glyphicon glyphicon-menu-down\" aria-hidden=\"true\"></span>\n           </a>\n         </h4>\n       </div>\n       <div id=\"collapseOne\" class=\"panel-collapse collapse\" role=\"tabpanel\" aria-labelledby=\"headingOne\">\n         <div class=\"panel-body\">\n\n         </div>\n       </div>\n     </div>\n     </div>\n  ";
-	$(gitDiv).append(githubHTML);
+	var avatarDiv = $('#github .container');
 
-	var repos = profile[0].repos_url;
-	var repositories = void 0;
-	var reposHTML = "";
-
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState == XMLHttpRequest.DONE) {
-			if (xhr.status == 200) {
-				var reposArray = [];
-				repositories = $.parseJSON(xhr.responseText);
-				console.log(repositories);
-				for (var repo in repositories) {
-					reposHTML += "\n             <a class=\"panel-body-link\" target=\"_blank\" href=\"" + repositories[repo].html_url + "\">" + repositories[repo].name + "</a>\n\n             ";
-				}
-
-				$('.panel-body').append(reposHTML);
-				console.log(reposArray);
-			} else if (xhr.status == 400) {
-				alert('There was an error 400');
-			} else {
-				alert('something else other than 200 was returned');
-			}
-		}
-	};
-
-	xhr.open("GET", repos, true);
-	xhr.send();
-
-	// $.getJSON(repos, function(json) {
-	//   console.log(json);
-	//
-	//   if (json.length == 0) {
-	//     reposHTML += `<p>No repos!</p></div>`;
-	//   } else {
-	//
-	//   }
-	// });
-
+	var githubAvatar = "";
+	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2\">\n      <img class=\"img-circle\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos col-xs-12 col-sm-6 col-lg-4 col-lg-offset-0\">\n    <h4 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
+	$(avatarDiv).append(githubAvatar);
 };
 
 // const iconWrapper = $('.icon-wrapper');
@@ -12214,6 +12174,8 @@ $(window).scroll(function () {
 	}
 });
 
+'use strict';
+
 var paginationLinks = $('ul.pagination li a');
 
 paginationLinks.click(function (e) {
@@ -12234,6 +12196,12 @@ $('.navbar-toggle').click(function () {
 });
 
 // Fix repositories panel
+
+var projectDiv = $('.project');
+
+projectDiv.hover(function () {
+	$(this).children('h5').css('height', '100%');
+});
 
 // Change location after hash for each page
 
@@ -12260,6 +12228,10 @@ $(function () {
 	console.log(loc);
 
 	switch (loc) {
+		case '/':
+			treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
+			github('https://api.github.com/users/smoockpp');
+			break;
 		case '/index.html':
 			treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
 			github('https://api.github.com/users/smoockpp');

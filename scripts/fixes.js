@@ -1,3 +1,5 @@
+'use strict';
+
 const paginationLinks = $('ul.pagination li a');
 
 paginationLinks.click(function(e) {
@@ -19,3 +21,9 @@ $('.navbar-toggle').click(function() {
 
 
 // Fix repositories panel
+
+let projectDiv = $('.project');
+
+projectDiv.hover(function() {
+  $(this).children('h5').css('height', '100%');
+});
