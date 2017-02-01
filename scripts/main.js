@@ -18,4 +18,14 @@ $(function() {
     case '/portfolio.html':
       break;
   }
+
+  $(document).ready(function() {
+      // run test on initial page load
+      checkSize();
+
+      $(window).resize(checkSize);
+  });
+
+  // run test on resize of the window
+
 });

@@ -12134,7 +12134,7 @@ var displayGithub = function displayGithub(data) {
 	var avatarDiv = $('#github .container');
 
 	var githubAvatar = "";
-	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2\">\n      <img class=\"img-circle\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos col-xs-12 col-sm-6 col-lg-4 col-lg-offset-0\">\n    <h4 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
+	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar \">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos \">\n    <h4 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
 	$(avatarDiv).append(githubAvatar);
 };
 
@@ -12195,7 +12195,20 @@ $('.navbar-toggle').click(function () {
 	}
 });
 
-// Fix repositories panel
+//Function to the css rule
+function checkSize() {
+	if ($(".icon-wrapper").css("float") == "none") {
+		$('.github-avatar').removeClass('col-xs-6');
+		$('.github-avatar').addClass('col-xs-12');
+		$('.github-repos').removeClass('col-xs-6');
+		$('.github-repos').addClass('col-xs-12');
+	} else if ($(".icon-wrapper").css("float") == "left") {
+		$('.github-avatar').removeClass('col-xs-12');
+		$('.github-avatar').addClass('col-xs-6');
+		$('.github-repos').removeClass('col-xs-12');
+		$('.github-repos').addClass('col-xs-6');
+	}
+}
 
 // Change location after hash for each page
 
@@ -12237,4 +12250,13 @@ $(function () {
 		case '/portfolio.html':
 			break;
 	}
+
+	$(document).ready(function () {
+		// run test on initial page load
+		checkSize();
+
+		$(window).resize(checkSize);
+	});
+
+	// run test on resize of the window
 });

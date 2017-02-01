@@ -46,13 +46,18 @@
       }
     }
     @media #{$brk-tablets} {
-      width: 33%;
+      width: 30%;
+      margin-left: 2.5%;
       float: left;
 
     }
     @media (orientation: landscape) {
       width: 30%;
       margin-left: 2.5%;
+    }
+    @media #{$brk-narrow} {
+      width: 32%;
+      margin-left: 1%;
     }
   }
 }

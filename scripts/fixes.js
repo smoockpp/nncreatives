@@ -20,4 +20,17 @@ $('.navbar-toggle').click(function() {
 });
 
 
-// Fix repositories panel
+//Function to the css rule
+function checkSize(){
+    if ($(".icon-wrapper").css("float") == "none" ){
+      $('.github-avatar').removeClass('col-xs-6');
+      $('.github-avatar').addClass('col-xs-12');
+      $('.github-repos').removeClass('col-xs-6');
+      $('.github-repos').addClass('col-xs-12');
+    } else if ($(".icon-wrapper").css("float") == "left" ) {
+      $('.github-avatar').removeClass('col-xs-12');
+      $('.github-avatar').addClass('col-xs-6');
+      $('.github-repos').removeClass('col-xs-12');
+      $('.github-repos').addClass('col-xs-6');
+    }
+}

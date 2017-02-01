@@ -1,6 +1,6 @@
 .gh-heading {
   margin-bottom: 0;
-  color: darken($color-7, 50%) !important;
+  color: $color-5 !important;
   margin-top: 7rem;
   padding: 20px;
 
@@ -9,18 +9,10 @@
 #github {
   margin-top: 2rem;
   padding: 0;
-  background-image: radial-gradient(darken($color-6, 20%), darken($color-6, 10%));
+  background-image: radial-gradient(darken($color-7, 20%), darken($color-7, 10%));
   .row {
     padding-top: 2em;
     padding-bottom: 2em;
-    .col-xs-12 {
-      @media #{$brk-tablets} {
-        width: 50%;
-      }
-      @media #{$brk-full-width} {
-        width: 33.333%;
-      }
-    }
   }
   .underline {
     background-color: $color-4;
@@ -33,7 +25,11 @@
       margin: 0 auto;
       max-width: 192px;
       max-height: 192px;
-      box-shadow: -1px 1px 6px darken($color-6, 40%);
+      box-shadow: 0 0 6px darken($color-6, 70%);
+      border-top: 15px solid $color-3;
+      border-bottom: 15px solid $color-3;
+      border-top-right-radius: 20px;
+      border-bottom-left-radius: 20px;
       &:hover {
         transform: skew(10deg, -10deg);
         transform-origin: top center;
@@ -70,7 +66,7 @@
     transition: all .5s;
     width: 150px;
     margin: .5em auto;
-    box-shadow: inset 0 0 50px darken($color-7, 10%), 0 0 2px darken($color-7, 35%);
+    box-shadow: inset 0 0 50px darken($color-6, 10%), 0 0 3px darken($color-6, 60%);
     border: none;
     border-radius: 0;
     background-color: darken($color-7, 15%);
@@ -80,7 +76,7 @@
       font-size: 1.25em;
     }
     &:hover {
-      -webkit-animation: btn-anim 3s infinite; /* Safari 4.0 - 8.0 */
+      -webkit-animation: btn-anim 3s infinite;
       animation: btn-anim 3s infinite;
       transform-origin: center center;
       background-color: darken($color-7, 30%);

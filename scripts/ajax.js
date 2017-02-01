@@ -60,25 +60,25 @@ const displayTreehouse = (json) => {
       case '1':
         createBadges(1, 5);
         prev.parent().addClass('disabled');
-        
+
         break;
       case '2':
         createBadges(6, 10);
         console.log('badges 6 10');
         prev.parent().removeClass('disabled');
         next.parent().removeClass('disabled');
-        
+
         break;
       case '3':
         createBadges(11, 15);
         next.parent().addClass('disabled');
-        
+
         break;
 
       default:
         createBadges(1, 5);
         prev.parent().addClass('disabled');
-        
+
     }
   }
 
@@ -189,11 +189,11 @@ const displayGithub = (data) => {
   let githubAvatar = ``;
   githubAvatar += `
   <div class="row">
-    <div class="github-avatar col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2">
-      <img class="img-circle" src="${avatar}" alt="${name} avatar photo">
+    <div class="github-avatar ">
+      <img class="img" src="${avatar}" alt="${name} avatar photo">
 
     </div>
-    <div class="github-repos col-xs-12 col-sm-6 col-lg-4 col-lg-offset-0">
+    <div class="github-repos ">
     <h4 class="heading">${name} <span class="alias">(${alias})</span></h4>
     <h5 class="heading">${location}</h5>
 
