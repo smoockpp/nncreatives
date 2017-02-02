@@ -26,6 +26,7 @@ $(function() {
       $(window).resize(checkSize);
   });
 
+  
   // run test on resize of the window
 
 });

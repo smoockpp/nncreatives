@@ -8,8 +8,9 @@
 
 #github {
   margin-top: 2rem;
-  padding: 0;
+  padding: 50px 0;
   background-image: radial-gradient(darken($color-7, 20%), darken($color-7, 10%));
+  border-top: 10px solid darken($color-7, 25%);
   .row {
     padding-top: 2em;
     padding-bottom: 2em;
@@ -46,6 +47,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align: right;
     .heading {
       padding: 0;
     }

@@ -6104,8 +6104,9 @@ footer {
 
 #github {
   margin-top: 2rem;
-  padding: 0;
-  background-image: radial-gradient(#4a8696, #62a0b1); }
+  padding: 50px 0;
+  background-image: radial-gradient(#4a8696, #62a0b1);
+  border-top: 10px solid #427785; }
   #github .row {
     padding-top: 2em;
     padding-bottom: 2em; }
@@ -6133,7 +6134,8 @@ footer {
   #github .github-repos {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
+    justify-content: space-between;
+    text-align: right; }
     #github .github-repos .heading {
       padding: 0; }
     @media (min-width: 1200px) {
@@ -6190,11 +6192,25 @@ footer {
     width: 40%;
     color: #4a8696; }
   .table-striped > tbody > tr:nth-of-type(odd) {
+    cursor: pointer;
     background-color: transparent;
     color: #624f21; }
+    .table-striped > tbody > tr:nth-of-type(odd) a {
+      color: #624f21; }
+    .table-striped > tbody > tr:nth-of-type(odd):hover {
+      color: #000; }
+      .table-striped > tbody > tr:nth-of-type(odd):hover a {
+        color: #000; }
   .table-striped > tbody > tr:nth-of-type(even) {
+    cursor: pointer;
     background-color: transparent;
     color: #624f21; }
+    .table-striped > tbody > tr:nth-of-type(even) a {
+      color: #624f21; }
+    .table-striped > tbody > tr:nth-of-type(even):hover {
+      color: #000; }
+      .table-striped > tbody > tr:nth-of-type(even):hover a {
+        color: #000; }
 
 .table > thead > tr > th,
 .table > tbody > tr > td {
@@ -6206,12 +6222,14 @@ footer {
   border: none;
   border-bottom: 2px solid #427785;
   color: #755e27;
-  transform: scale(1.1, 1.1); }
+  transform: scale(1.1, 1.1);
+  cursor: pointer; }
 
 .pagination > li > a, .pagination > li > span {
   border: none;
   color: #C6A556;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  cursor: pointer; }
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
   border: none;

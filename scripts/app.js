@@ -12108,15 +12108,27 @@ var displayTreehouse = function displayTreehouse(json) {
 		}
 		var badgesHTML = "";
 		for (var key in badges) {
-			badgesHTML += "\n        <tr data-href=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
+			badgesHTML += "\n        <tr>\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td><a class=\"course-link\" href=\"" + badges[key].url + "\" target=\"_blank\">" + badges[key].courses[1].title + "</a></td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
 
 			// console.log(badges[key].icon_url);
 		}
-		$('tr').click(function () {
 
-			window.open($(this).attr('data-href'));
-		});
 		$(badgesDiv).html(badgesHTML);
+
+		var tableRow = $('tbody tr');
+		tableRow.click(function () {
+			var courseLink = $(this).children('td').children('.course-link').attr('href');
+			var win = window.open(courseLink, '_blank');
+			if (win) {
+				//Browser has allowed it to be opened
+				win.focus();
+			} else {
+				//Browser has blocked it
+				alert('Please allow popups for this website');
+			}
+
+			console.log(courseLink);
+		});
 		// console.log(badgesHTML);
 	}
 };
@@ -12134,7 +12146,7 @@ var displayGithub = function displayGithub(data) {
 	var avatarDiv = $('#github .container');
 
 	var githubAvatar = "";
-	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar \">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos \">\n    <h4 class=\"heading\">" + name + " <span class=\"alias\">(" + alias + ")</span></h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
+	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar \">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos \">\n    <h4 class=\"heading\">" + name + "</h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
 	$(avatarDiv).append(githubAvatar);
 };
 
@@ -12176,14 +12188,7 @@ $(window).scroll(function () {
 
 'use strict';
 
-var paginationLinks = $('ul.pagination li a');
-
-paginationLinks.click(function (e) {
-	e.preventDefault();
-});
-
 // Fix logo and collapse button colors when nav not sticky
-
 var nav = $('#navbar');
 var logo = $('.navbar-brand');
 
@@ -12195,18 +12200,24 @@ $('.navbar-toggle').click(function () {
 	}
 });
 
+var paginationLinks = $('ul.pagination li a');
+
+paginationLinks.click(function (e) {
+	e.preventDefault();
+});
+
 //Function to the css rule
 function checkSize() {
 	if ($(".icon-wrapper").css("float") == "none") {
-		$('.github-avatar').removeClass('col-xs-6');
+		$('.github-avatar').removeClass('col-xs-4 col-xs-offset-1');
 		$('.github-avatar').addClass('col-xs-12');
-		$('.github-repos').removeClass('col-xs-6');
+		$('.github-repos').removeClass('col-xs-4 col-xs-offset-1');
 		$('.github-repos').addClass('col-xs-12');
 	} else if ($(".icon-wrapper").css("float") == "left") {
 		$('.github-avatar').removeClass('col-xs-12');
-		$('.github-avatar').addClass('col-xs-6');
+		$('.github-avatar').addClass('col-xs-4 col-xs-offset-1');
 		$('.github-repos').removeClass('col-xs-12');
-		$('.github-repos').addClass('col-xs-6');
+		$('.github-repos').addClass('col-xs-4 col-xs-offset-1');
 	}
 }
 

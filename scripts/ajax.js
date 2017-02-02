@@ -151,9 +151,9 @@ const displayTreehouse = (json) => {
     var badgesHTML = ``;
     for (const key in badges) {
       badgesHTML += `
-        <tr data-href="${badges[key].url}">
+        <tr>
           <td><img src="${badges[key].icon_url}" class="badge-icon"></td>
-          <td>${badges[key].courses[1].title}</td>
+          <td><a class="course-link" href="${badges[key].url}" target="_blank">${badges[key].courses[1].title}</a></td>
           <td>${badges[key].earned_date.substring(0, 10)}</td>
           <td>${badges[key].courses[0].title}</td>
         </tr>
@@ -161,11 +161,26 @@ const displayTreehouse = (json) => {
 
       // console.log(badges[key].icon_url);
     }
-    $('tr').click(function() {
 
-      window.open($(this).attr('data-href'));
-    });
+
+
+
     $(badgesDiv).html(badgesHTML);
+
+    let tableRow = $('tbody tr');
+    tableRow.click(function() {
+      let courseLink = $(this).children('td').children('.course-link').attr('href');
+      let win = window.open(courseLink, '_blank');
+      if (win) {
+          //Browser has allowed it to be opened
+          win.focus();
+      } else {
+          //Browser has blocked it
+          alert('Please allow popups for this website');
+      }
+
+      console.log(courseLink);
+    });
     // console.log(badgesHTML);
   }
 
@@ -194,7 +209,7 @@ const displayGithub = (data) => {
 
     </div>
     <div class="github-repos ">
-    <h4 class="heading">${name} <span class="alias">(${alias})</span></h4>
+    <h4 class="heading">${name}</h4>
     <h5 class="heading">${location}</h5>
 
     <button type="button" class="btn btn-primary btn-sm">My repos</button>

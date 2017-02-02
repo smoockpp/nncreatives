@@ -20,12 +20,33 @@
     }
   }
   & > tbody > tr:nth-of-type(odd) {
+    cursor: pointer;
     background-color: transparent;
     color: darken($color-3, 30%);
+    a {
+      color: darken($color-3, 30%);
+    }
+    &:hover {
+      color: $color-2;
+      a {
+        color: $color-2;
+      }
+    }
   }
   & > tbody > tr:nth-of-type(even) {
+    cursor: pointer;
     background-color: transparent;
     color: darken($color-3, 30%);
+    a {
+      color: darken($color-3, 30%);
+
+    }
+    &:hover {
+      color: $color-2;
+      a {
+        color: $color-2;
+      }
+    }
   }
 }
 
@@ -41,12 +62,14 @@
   border-bottom: 2px solid darken($color-7, 25%);
   color: darken($color-3, 25%);
   transform: scale(1.1, 1.1);
+  cursor: pointer;
 }
 
 .pagination > li > a, .pagination > li > span {
   border: none;
   color: $color-3;
   padding: 10px 20px;
+  cursor: pointer;
 }
 
 .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
