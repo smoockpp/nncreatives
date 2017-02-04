@@ -1,6 +1,6 @@
 let data;
 
-const treehouseRequest = (url) => {
+const xhrRequest = (callback, url) => {
     let xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function() {
@@ -9,7 +9,7 @@ const treehouseRequest = (url) => {
              data = JSON.parse(xhr.responseText);
 
              console.log(data);
-             displayTreehouse(data);
+             callback(data);
            }
            else if (xhr.status == 400) {
               console.log('There was an error 400');
@@ -23,31 +23,10 @@ const treehouseRequest = (url) => {
     xhr.send();
 };
 
-const github = (url) => {
-  let xhr = new XMLHttpRequest();
-
-  xhr.onreadystatechange = function() {
-    if (xhr.readyState == XMLHttpRequest.DONE ) {
-       if (xhr.status == 200) {
-         data = xhr.responseText;
-
-         console.log(data);
-         displayGithub(data);
-       }
-       else if (xhr.status == 400) {
-          console.log('There was an error 400');
-       }
-       else {
-           console.log('something else other than 200 was returned');
-       }
-    }
-  }
-  xhr.open("GET", url, true);
-  xhr.send();
-}
 
 
-const displayTreehouse = (json) => {
+
+const displayTreehouse = (data) => {
   var badgesDiv = document.getElementsByClassName('json-data');
   var activePage = $('ul.pagination li.active a').attr('data-target');
   var pages = $('ul.pagination li a');
@@ -146,7 +125,7 @@ const displayTreehouse = (json) => {
   function createBadges(from, to) {
     let badges = [];
     for (let i = from; i <= to; i++ ) {
-      badges.push(json.badges[Object.keys(json.badges)[Object.keys(json.badges).length - i]]);
+      badges.push(data.badges[Object.keys(data.badges)[Object.keys(data.badges).length - i]]);
     }
     var badgesHTML = ``;
     for (const key in badges) {
@@ -189,7 +168,7 @@ const displayTreehouse = (json) => {
 
 const displayGithub = (data) => {
   let profile = [];
-  profile.push(JSON.parse(data));
+  profile.push(data);
   console.log(profile);
   const avatar = profile[0].avatar_url;
   const name = profile[0].name;
@@ -218,6 +197,17 @@ const displayGithub = (data) => {
   </div>
   `;
   $(avatarDiv).append(githubAvatar);
+  const profileImage = $('.github-avatar img');
+
+  profileImage.click(function() {
+    $(this).draggabale
+  });
+
+}
 
 
+const displayProjects = (data) => {
+  let projects = [];
+  projects.push(data);
+  console.log(projects);
 }

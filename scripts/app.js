@@ -11966,7 +11966,7 @@ if (typeof jQuery === 'undefined') {
 
 var data = void 0;
 
-var treehouseRequest = function treehouseRequest(url) {
+var xhrRequest = function xhrRequest(callback, url) {
 	var xhr = new XMLHttpRequest();
 
 	xhr.onreadystatechange = function () {
@@ -11975,7 +11975,7 @@ var treehouseRequest = function treehouseRequest(url) {
 				data = JSON.parse(xhr.responseText);
 
 				console.log(data);
-				displayTreehouse(data);
+				callback(data);
 			} else if (xhr.status == 400) {
 				console.log('There was an error 400');
 			} else {
@@ -11987,28 +11987,7 @@ var treehouseRequest = function treehouseRequest(url) {
 	xhr.send();
 };
 
-var github = function github(url) {
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState == XMLHttpRequest.DONE) {
-			if (xhr.status == 200) {
-				data = xhr.responseText;
-
-				console.log(data);
-				displayGithub(data);
-			} else if (xhr.status == 400) {
-				console.log('There was an error 400');
-			} else {
-				console.log('something else other than 200 was returned');
-			}
-		}
-	};
-	xhr.open("GET", url, true);
-	xhr.send();
-};
-
-var displayTreehouse = function displayTreehouse(json) {
+var displayTreehouse = function displayTreehouse(data) {
 	var badgesDiv = document.getElementsByClassName('json-data');
 	var activePage = $('ul.pagination li.active a').attr('data-target');
 	var pages = $('ul.pagination li a');
@@ -12104,7 +12083,7 @@ var displayTreehouse = function displayTreehouse(json) {
 	function createBadges(from, to) {
 		var badges = [];
 		for (var i = from; i <= to; i++) {
-			badges.push(json.badges[Object.keys(json.badges)[Object.keys(json.badges).length - i]]);
+			badges.push(data.badges[Object.keys(data.badges)[Object.keys(data.badges).length - i]]);
 		}
 		var badgesHTML = "";
 		for (var key in badges) {
@@ -12135,7 +12114,7 @@ var displayTreehouse = function displayTreehouse(json) {
 
 var displayGithub = function displayGithub(data) {
 	var profile = [];
-	profile.push(JSON.parse(data));
+	profile.push(data);
 	console.log(profile);
 	var avatar = profile[0].avatar_url;
 	var name = profile[0].name;
@@ -12148,6 +12127,17 @@ var displayGithub = function displayGithub(data) {
 	var githubAvatar = "";
 	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar \">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos \">\n    <h4 class=\"heading\">" + name + "</h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
 	$(avatarDiv).append(githubAvatar);
+	var profileImage = $('.github-avatar img');
+
+	profileImage.click(function () {
+		$(this).draggabale;
+	});
+};
+
+var displayProjects = function displayProjects(data) {
+	var projects = [];
+	projects.push(data);
+	console.log(projects);
 };
 
 // const iconWrapper = $('.icon-wrapper');
@@ -12209,15 +12199,15 @@ paginationLinks.click(function (e) {
 //Function to the css rule
 function checkSize() {
 	if ($(".icon-wrapper").css("float") == "none") {
-		$('.github-avatar').removeClass('col-xs-4 col-xs-offset-1');
+		$('.github-avatar').removeClass('col-xs-5 col-xs-offset-1');
 		$('.github-avatar').addClass('col-xs-12');
-		$('.github-repos').removeClass('col-xs-4 col-xs-offset-1');
+		$('.github-repos').removeClass('col-xs-5');
 		$('.github-repos').addClass('col-xs-12');
 	} else if ($(".icon-wrapper").css("float") == "left") {
 		$('.github-avatar').removeClass('col-xs-12');
-		$('.github-avatar').addClass('col-xs-4 col-xs-offset-1');
+		$('.github-avatar').addClass('col-xs-5 col-xs-offset-1');
 		$('.github-repos').removeClass('col-xs-12');
-		$('.github-repos').addClass('col-xs-4 col-xs-offset-1');
+		$('.github-repos').addClass('col-xs-5');
 	}
 }
 
@@ -12247,22 +12237,27 @@ $(function () {
 
 	switch (loc) {
 		case '/':
-			treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
-			github('https://api.github.com/users/smoockpp');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
+			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/index.html':
-			treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
-			github('https://api.github.com/users/smoockpp');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
+			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/nncreatives/':
-			treehouseRequest('https://teamtreehouse.com/nikolaynikolov2.json');
-			github('https://api.github.com/users/smoockpp');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
+			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/portfolio.html':
+			xhrRequest(displayProjects, 'data/projects.json');
 			break;
 	}
 
 	$(document).ready(function () {
+		$('.carousel').carousel({
+			interval: 5000
+		});
+
 		// run test on initial page load
 		checkSize();
 

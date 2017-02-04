@@ -111,12 +111,34 @@
   border-radius: 1px;
   border: none;
   .modal-header {
+    background-color: $color-7;
+    padding: 0;
+    .close {
+      font-size: 32px;
+      color: $color-4;
+      padding: 15px 20px;
+      opacity: 1;
+    }
     .modal-title {
-      color: $color-5;
-      border-bottom: 2px solid $color-3;
+      padding: 30px;
+      color: $color-4;
+      border-bottom: 10px solid $color-3;
     }
   }
   .modal-body {
+    .row {
+      .col-xs-6 {
+        text-align: left;
+        padding-bottom: 2em;
+        @media #{$brk-narrow} {
+          text-align: right;
+        }
+        @media #{$brk-wide} {
+          padding-bottom: 3em;
+        }
+      }
+
+    }
     .modal-title {
       color: $color-5;
       border-bottom: 1px solid $color-3;
@@ -128,32 +150,37 @@
     }
     .html {
       display: inline-block;
-      padding: 10px 15px;
+      padding: 5px 10px;
       background-color: $color-html;
       margin: 10px 0 10px 5px;
+      text-align: center;
     }
     .css {
       display: inline-block;
-      padding: 10px 15px;
+      padding: 5px 10px;
       background-color: $color-css;
       margin: 10px 0 10px 5px;
+      text-align: center;
     }
     .grade {
       color: $color-5;
       margin-top: 10px;
-      padding-top: 10px 15px;
+      padding: 5px 10px;
       font-size: 1.2em;
     }
-    .col-xs-6:last-child {
-      text-align: right;
-    }
+
 
   }
   .modal-footer {
+    background-color: $color-3;
+    border-top: 10px solid $color-7;
     button {
       border: none;
-      border-bottom: 1px solid $color-5;
+      border-bottom: 2px solid $color-4;
       border-radius: 0;
+      background-color: transparent;
+      color: $color-4;
+      font-weight: 600;
     }
   }
 }

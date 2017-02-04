@@ -23,19 +23,17 @@ paginationLinks.click(function(e) {
 
 
 
-
-
 //Function to the css rule
 function checkSize(){
     if ($(".icon-wrapper").css("float") == "none" ){
-      $('.github-avatar').removeClass('col-xs-4 col-xs-offset-1');
+      $('.github-avatar').removeClass('col-xs-5 col-xs-offset-1');
       $('.github-avatar').addClass('col-xs-12');
-      $('.github-repos').removeClass('col-xs-4 col-xs-offset-1');
+      $('.github-repos').removeClass('col-xs-5');
       $('.github-repos').addClass('col-xs-12');
     } else if ($(".icon-wrapper").css("float") == "left" ) {
       $('.github-avatar').removeClass('col-xs-12');
-      $('.github-avatar').addClass('col-xs-4 col-xs-offset-1');
+      $('.github-avatar').addClass('col-xs-5 col-xs-offset-1');
       $('.github-repos').removeClass('col-xs-12');
-      $('.github-repos').addClass('col-xs-4 col-xs-offset-1');
+      $('.github-repos').addClass('col-xs-5');
     }
 }
