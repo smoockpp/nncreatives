@@ -20,10 +20,10 @@ $(function() {
       xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
       break;
     case '/portfolio.html':
-      xhrRequest(displayProjects, 'https://github.com/smoockpp/nncreatives/blob/master/data/projects.json');
+      xhrRequest(displayProjects, 'data/projects.json');
       break;
     case '/nncreatives/portfolio.html':
-      xhrRequest(displayProjects, 'https://github.com/smoockpp/nncreatives/blob/master/data/projects.json');
+      xhrRequest(displayProjects, 'data/projects.json');
       break;
   }
 
