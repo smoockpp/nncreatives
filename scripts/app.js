@@ -12093,7 +12093,6 @@ var displayTreehouse = function displayTreehouse(data) {
 		}
 
 		$(badgesDiv).html(badgesHTML);
-
 		var tableRow = $('tbody tr');
 		tableRow.click(function () {
 			var courseLink = $(this).children('td').children('.course-link').attr('href');
@@ -12105,10 +12104,8 @@ var displayTreehouse = function displayTreehouse(data) {
 				//Browser has blocked it
 				alert('Please allow popups for this website');
 			}
-
 			console.log(courseLink);
 		});
-		// console.log(badgesHTML);
 	}
 };
 
@@ -12136,8 +12133,29 @@ var displayGithub = function displayGithub(data) {
 
 var displayProjects = function displayProjects(data) {
 	var projects = [];
-	projects.push(data);
-	console.log(projects);
+	var projectsDiv = $('#projects-row');
+	var projectsDivHTML = "";
+
+	$.each(data, function (x, y) {
+		var projectId = data[x].id;
+		var projectName = data[x].name;
+		var projectThumb = data[x].thumb_url;
+		var projectImg = data[x].img_url;
+		var projectDescription = data[x].description;
+		var skills = [];
+		var skillsHTML = '';
+		$.each(data[x].skills, function (a, b) {
+			var skill = data[x].skills[a];
+			skillsHTML += '<p class="' + skill + '">' + skill + '</p>';
+		});
+		var projectGrade = data[x].grade;
+		var projectIoUrl = data[x].github_io_url;
+		var projectRepoUrl = data[x].github_repo_url;
+		console.log(data[x]);
+		projectsDivHTML += "\n    <div class=\"project col-xs-6 col-sm-4 col-lg-3\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h5 class=\"heading\">" + projectName + "</h5>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n              <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n              <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <h4 class=\"modal-title\">Project description</h4>\n                    <p class=\"modal-p\">\n                      " + projectDescription + "\n                    </p>\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Skills used</h4>\n                    " + skillsHTML + "\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Grade</h4>\n                    <p class=\"grade\">\"" + projectGrade + "\"</p>\n                  </div>\n                  <div class=\"col-xs-12 col-sm-6 col-md-3\">\n                    <h4 class=\"modal-title\">Links</h4>\n                    <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n                    <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n                  </div>\n                </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-default\" >Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>";
+	});
+
+	projectsDiv.html(projectsDivHTML);
 };
 
 // const iconWrapper = $('.icon-wrapper');

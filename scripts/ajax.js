@@ -141,11 +141,7 @@ const displayTreehouse = (data) => {
       // console.log(badges[key].icon_url);
     }
 
-
-
-
     $(badgesDiv).html(badgesHTML);
-
     let tableRow = $('tbody tr');
     tableRow.click(function() {
       let courseLink = $(this).children('td').children('.course-link').attr('href');
@@ -157,12 +153,9 @@ const displayTreehouse = (data) => {
           //Browser has blocked it
           alert('Please allow popups for this website');
       }
-
       console.log(courseLink);
     });
-    // console.log(badgesHTML);
   }
-
 };
 
 
@@ -208,6 +201,74 @@ const displayGithub = (data) => {
 
 const displayProjects = (data) => {
   let projects = [];
-  projects.push(data);
-  console.log(projects);
+  let projectsDiv = $('#projects-row');
+  let projectsDivHTML = ``;
+
+  $.each(data, function(x, y) {
+    let projectId = data[x].id;
+    let projectName = data[x].name;
+    let projectThumb = data[x].thumb_url;
+    let projectImg = data[x].img_url;
+    let projectDescription = data[x].description;
+    let skills = [];
+    let skillsHTML = '';
+    $.each(data[x].skills, function(a, b) {
+      let skill = data[x].skills[a];
+      skillsHTML += '<p class="' + skill + '">' + skill + '</p>';
+
+    });
+    let projectGrade = data[x].grade;
+    let projectIoUrl = data[x].github_io_url;
+    let projectRepoUrl = data[x].github_repo_url;
+    console.log(data[x]);
+    projectsDivHTML += `
+    <div class="project col-xs-6 col-sm-4 col-lg-3" data-toggle="modal"  data-target="#${projectId}" >
+      <h5 class="heading">${projectName}</h5>
+      <img src="${projectThumb}" alt="${projectName} responsive snapshot">
+      <div class="modal fade" id="${projectId}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="${projectId}label">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close modal-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h3 class="modal-title" id="${projectId}label">${projectName}</h3>
+              <img src="${projectImg}" alt="${projectName} big snapshot">
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                  <div class="col-xs-12 col-sm-6">
+                    <h4 class="modal-title">Project description</h4>
+                    <p class="modal-p">
+                      ${projectDescription}
+                    </p>
+                  </div>
+                  <div class="col-xs-6 col-sm-3">
+                    <h4 class="modal-title">Skills used</h4>
+                    ${skillsHTML}
+                  </div>
+                  <div class="col-xs-6 col-sm-3">
+                    <h4 class="modal-title">Grade</h4>
+                    <p class="grade">"${projectGrade}"</p>
+                  </div>
+                  <div class="col-xs-12 col-sm-6 col-md-3">
+                    <h4 class="modal-title">Links</h4>
+                    <a href="${projectIoUrl}" target="_blank" class="modal-link">Visit Github .io</a>
+                    <a href="${projectRepoUrl}" target="_blank" class="modal-link">Visit Github repo</a>
+                  </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" >Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>`
+  });
+
+  projectsDiv.html(projectsDivHTML);
+
+
+
+
+
 }

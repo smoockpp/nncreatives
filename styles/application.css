@@ -6361,16 +6361,28 @@ footer {
   .modal-content .modal-body .modal-p {
     color: #47535b;
     padding-top: 10px; }
-  .modal-content .modal-body .html {
+  .modal-content .modal-body .HTML {
     display: inline-block;
     padding: 5px 10px;
     background-color: #46afd2;
     margin: 10px 0 10px 5px;
     text-align: center; }
-  .modal-content .modal-body .css {
+  .modal-content .modal-body .CSS {
     display: inline-block;
     padding: 5px 10px;
     background-color: #407ea9;
+    margin: 10px 0 10px 5px;
+    text-align: center; }
+  .modal-content .modal-body .Sass {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #407ea9;
+    margin: 10px 0 10px 5px;
+    text-align: center; }
+  .modal-content .modal-body .JavaScript, .modal-content .modal-body .jQuery {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #c26f85;
     margin: 10px 0 10px 5px;
     text-align: center; }
   .modal-content .modal-body .grade {

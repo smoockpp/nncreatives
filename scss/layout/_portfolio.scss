@@ -148,20 +148,35 @@
       color: $color-5;
       padding-top: 10px;
     }
-    .html {
+    .HTML {
       display: inline-block;
       padding: 5px 10px;
       background-color: $color-html;
       margin: 10px 0 10px 5px;
       text-align: center;
     }
-    .css {
+    .CSS {
       display: inline-block;
       padding: 5px 10px;
       background-color: $color-css;
       margin: 10px 0 10px 5px;
       text-align: center;
     }
+    .Sass {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: $color-css;
+      margin: 10px 0 10px 5px;
+      text-align: center;
+    }
+    .JavaScript, .jQuery {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: $color-js;
+      margin: 10px 0 10px 5px;
+      text-align: center;
+    }
+
     .grade {
       color: $color-5;
       margin-top: 10px;
