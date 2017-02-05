@@ -5923,17 +5923,26 @@ a {
   .carousel .carousel-inner .item {
     top: 0px;
     width: 100%;
-    height: 100vh; }
-    .carousel .carousel-inner .item:after {
+    height: calc(50vh + 10px); }
+    .carousel .carousel-inner .item:before {
       content: '';
       display: block;
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: 50vh;
       background-color: #000;
       opacity: .8; }
+    .carousel .carousel-inner .item:after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 10px;
+      top: 50vh;
+      left: 0;
+      background-color: #C6A556; }
     .carousel .carousel-inner .item .carousel-caption {
       bottom: 20%; }
       .carousel .carousel-inner .item .carousel-caption h3 {
@@ -5941,13 +5950,13 @@ a {
         font-size: 3em;
         text-transform: uppercase; }
   .carousel .carousel-inner .item-1 {
-    background: url("../data/images/myself.jpg") no-repeat top left;
+    background: url("../data/images/myself.jpg") no-repeat center left;
     background-size: cover; }
   .carousel .carousel-inner .item-2 {
-    background: url("../data/images/myself-1.jpg") no-repeat center;
+    background: url("../data/images/myself-1.jpg") no-repeat center center;
     background-size: cover; }
   .carousel .carousel-inner .item-3 {
-    background: url("../data/images/sushi.jpg") no-repeat center;
+    background: url("../data/images/sushi.jpg") no-repeat center center;
     background-size: cover; }
   .carousel .carousel-indicators {
     bottom: 60px; }
