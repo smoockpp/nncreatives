@@ -5850,42 +5850,63 @@ a {
   -moz-transition: ease-in-out, all 0.5s ease-in-out;
   -o-transition: ease-in-out, all 0.5s ease-in-out;
   transition: ease-in-out, all 0.5s ease-in-out;
+  position: absolute;
+  top: 0;
+  margin-bottom: 0;
+  min-height: 100px;
+  width: 100%;
   background-color: transparent;
+  font-family: 'Play', Helvetica, sans-serif;
+  font-weight: bold;
   border: none;
   border-radius: 0;
-  margin-bottom: 0;
   z-index: 9999; }
+  @media (min-width: 768px) {
+    .navbar .container {
+      position: relative;
+      top: 25px; } }
   .navbar .navbar-header .navbar-brand {
     color: #F1EFE6 !important; }
   .navbar .navbar-header .navbar-toggle .icon-bar {
     background-color: #F1EFE6; }
+  .navbar .nav li a:hover {
+    background-color: transparent; }
   @media (min-width: 768px) {
     .navbar .nav li a {
       color: #F1EFE6 !important; } }
   .navbar .nav li.active a {
     background-color: #C6A556;
-    color: #F1EFE6 !important; }
+    color: #F1EFE6 !important;
+    padding-bottom: 5px; }
+    @media (min-width: 768px) {
+      .navbar .nav li.active a {
+        background-color: transparent;
+        border-bottom: 2px solid #C6A556; } }
 
 .sticky {
   background-image: linear-gradient(0deg, #c29f4b, #C6A556, #c29f4b);
   box-shadow: 0 1px 1px #3c3014;
   position: fixed;
+  min-height: 40px;
   width: 100%;
   top: -50px;
   animation: sticky-in .5s ease 0s 1 normal forwards running; }
-  .sticky .container .navbar-header .navbar-brand {
-    color: #F1EFE6 !important; }
-  .sticky .container .navbar-header .navbar-toggle .icon-bar {
-    background-color: #F1EFE6; }
-  @media (min-width: 768px) {
-    .sticky .container #navbar .nav li.active a {
-      color: #C6A556 !important;
-      background-color: #F1EFE6; } }
-  @media (min-width: 768px) {
-    .sticky .container #navbar .nav li a {
+  .sticky .container {
+    top: 0; }
+    .sticky .container .navbar-header .navbar-brand {
       color: #F1EFE6 !important; }
-      .sticky .container #navbar .nav li a:hover {
-        color: #C6A556 !important; } }
+    .sticky .container .navbar-header .navbar-toggle .icon-bar {
+      background-color: #F1EFE6; }
+    @media (min-width: 768px) {
+      .sticky .container #navbar .nav li.active a {
+        color: #C6A556 !important;
+        background-color: #F1EFE6;
+        padding-bottom: 15px; } }
+    @media (min-width: 768px) {
+      .sticky .container #navbar .nav li a {
+        color: #F1EFE6 !important; }
+        .sticky .container #navbar .nav li a:hover {
+          color: #C6A556 !important; } }
 
 @keyframes sticky-in {
   from {
@@ -5913,82 +5934,85 @@ a {
   background-color: #F1EFE6; }
 
 /* Header starts here */
-.carousel {
-  position: relative;
-  top: -50px; }
-  .carousel .carousel-indicators {
-    left: 15%;
-    width: 70%;
-    margin-left: 0; }
-  .carousel .carousel-inner .item {
-    top: 0px;
+.carousel .carousel-indicators {
+  left: 15%;
+  width: 70%;
+  margin-left: 0; }
+
+.carousel .carousel-inner .item {
+  top: 0px;
+  width: 100%;
+  height: calc(80vh + 10px); }
+  .carousel .carousel-inner .item:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: calc(50vh + 10px); }
-    .carousel .carousel-inner .item:before {
-      content: '';
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50vh;
-      background-color: #000;
-      opacity: .8; }
-    .carousel .carousel-inner .item:after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 10px;
-      top: 50vh;
-      left: 0;
-      background-color: #C6A556; }
-    .carousel .carousel-inner .item .carousel-caption {
-      bottom: 20%; }
-      .carousel .carousel-inner .item .carousel-caption h3 {
-        color: #F1EFE6;
-        font-size: 3em;
-        text-transform: uppercase; }
-  .carousel .carousel-inner .item-1 {
-    background: url("../data/images/myself.jpg") no-repeat center left;
-    background-size: cover; }
-  .carousel .carousel-inner .item-2 {
-    background: url("../data/images/myself-1.jpg") no-repeat center center;
-    background-size: cover; }
-  .carousel .carousel-inner .item-3 {
-    background: url("../data/images/sushi.jpg") no-repeat center center;
-    background-size: cover; }
-  .carousel .carousel-indicators {
-    bottom: 60px; }
-    @media (orientation: landscape) {
-      .carousel .carousel-indicators {
-        bottom: 60px; } }
-    .carousel .carousel-indicators li.active {
-      transform: scale(1.1);
-      transform-origin: center center;
-      color: #47535b;
-      border-radius: 0;
-      border: none;
-      background-color: #F1EFE6; }
-    .carousel .carousel-indicators li {
-      font-size: 1em;
-      color: #C6A556;
-      border-radius: 0;
-      border: 1px solid rgba(241, 239, 230, 0.5);
-      width: 20px;
-      height: 20px;
-      background-color: transparent; }
-  .carousel .carousel-control {
-    top: -50px;
-    bottom: 50px;
-    background-image: none;
-    color: #C4DEDF; }
-    .carousel .carousel-control .glyphicon-menu-left,
-    .carousel .carousel-control .glyphicon-menu-right {
-      top: 50%;
-      margin-top: -10px;
-      z-index: 5;
-      display: inline-block; }
+    height: 80vh;
+    background-color: #000;
+    opacity: .8; }
+  .carousel .carousel-inner .item:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 10px;
+    top: 80vh;
+    left: 0;
+    background-color: #C6A556; }
+  .carousel .carousel-inner .item .carousel-caption {
+    bottom: 20%; }
+    .carousel .carousel-inner .item .carousel-caption h3 {
+      color: #F1EFE6;
+      font-size: 3em;
+      text-transform: uppercase; }
+
+.carousel .carousel-inner .item-1 {
+  background: url("../data/images/myself.jpg") no-repeat center left;
+  background-size: cover; }
+
+.carousel .carousel-inner .item-2 {
+  background: url("../data/images/myself-1.jpg") no-repeat center center;
+  background-size: cover; }
+
+.carousel .carousel-inner .item-3 {
+  background: url("../data/images/sushi.jpg") no-repeat center center;
+  background-size: cover; }
+
+.carousel .carousel-indicators {
+  bottom: 60px; }
+  @media (orientation: landscape) {
+    .carousel .carousel-indicators {
+      bottom: 60px; } }
+  .carousel .carousel-indicators li.active {
+    transform: scale(1.1);
+    transform-origin: center center;
+    color: #47535b;
+    border-radius: 0;
+    border: none;
+    background-color: #F1EFE6; }
+  .carousel .carousel-indicators li {
+    font-size: 1em;
+    color: #C6A556;
+    border-radius: 0;
+    border: 1px solid rgba(241, 239, 230, 0.5);
+    width: 20px;
+    height: 20px;
+    background-color: transparent; }
+
+.carousel .carousel-control {
+  top: -50px;
+  bottom: 50px;
+  background-image: none;
+  color: #C4DEDF; }
+  .carousel .carousel-control .glyphicon-menu-left,
+  .carousel .carousel-control .glyphicon-menu-right {
+    top: 50%;
+    margin-top: -10px;
+    z-index: 5;
+    display: inline-block; }
 
 footer {
   position: relative;
@@ -6036,6 +6060,8 @@ footer {
 
 #projects-slideshow {
   text-align: center; }
+  #projects-slideshow .container {
+    max-width: 1024px; }
   #projects-slideshow .row {
     text-align: center; }
   #projects-slideshow .icon-wrapper {
@@ -6078,17 +6104,17 @@ footer {
         color: #84B5C2; }
     @media (min-width: 480px) {
       #projects-slideshow .icon-wrapper {
-        width: 30%;
-        margin-left: 2.5%;
+        width: 28%;
+        margin: 2.5%;
         float: left; } }
     @media (orientation: landscape) {
       #projects-slideshow .icon-wrapper {
-        width: 30%;
-        margin-left: 2.5%; } }
+        width: 28%;
+        margin: 2.5%; } }
     @media (min-width: 768px) {
       #projects-slideshow .icon-wrapper {
-        width: 32%;
-        margin-left: 1%; } }
+        width: 25%;
+        margin-left: 5%; } }
 
 #treehouse {
   padding: 3em 0;
@@ -6096,6 +6122,8 @@ footer {
   position: relative;
   background: linear-gradient(rgba(241, 239, 230, 0.9), rgba(241, 239, 230, 0.9)), #F1EFE6 url("../data/images/treehouse-bg.jpg") no-repeat center;
   background-size: cover; }
+  #treehouse .heading {
+    color: #47535b; }
   #treehouse .container .heading {
     padding: 0;
     color: #182a2f;
@@ -6288,6 +6316,9 @@ footer {
     #projects .treehouse-logo img {
       display: inline-block;
       max-width: 200px; }
+  #projects #projects-row {
+    max-width: 80%;
+    margin: 0 auto; }
   #projects .project {
     margin: 2em auto;
     cursor: pointer; }
@@ -6295,11 +6326,10 @@ footer {
       position: relative;
       height: 50px;
       width: 100%;
-      color: #F1EFE6;
-      background-color: #84B5C2;
+      color: #47535b;
       margin: 0 auto;
       transition: font-size .3s;
-      box-shadow: inset 0 0 25px #62a0b1; }
+      border-bottom: 2px solid #84B5C2; }
     #projects .project img {
       margin: 0 auto;
       width: 100%;
@@ -6363,6 +6393,12 @@ footer {
     @media (min-width: 1024px) {
       .modal-content .modal-body .row .col-xs-6 {
         padding-bottom: 3em; } }
+  .modal-content .modal-body .row .modal-links {
+    float: right;
+    text-align: left; }
+    @media (min-width: 768px) {
+      .modal-content .modal-body .row .modal-links {
+        text-align: right; } }
   .modal-content .modal-body .modal-title {
     color: #47535b;
     border-bottom: 1px solid #C6A556;

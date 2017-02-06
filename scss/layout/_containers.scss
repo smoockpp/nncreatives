@@ -1,5 +1,9 @@
 #projects-slideshow {
+  
   text-align: center;
+  .container {
+    max-width: 1024px;
+  }
   .row {
     text-align: center;
   }
@@ -53,18 +57,18 @@
 
     }
     @media #{$brk-tablets} {
-      width: 30%;
-      margin-left: 2.5%;
+      width: 28%;
+      margin: 2.5%;
       float: left;
 
     }
     @media (orientation: landscape) {
-      width: 30%;
-      margin-left: 2.5%;
+      width: 28%;
+      margin: 2.5%;
     }
     @media #{$brk-narrow} {
-      width: 32%;
-      margin-left: 1%;
+      width: 25%;
+      margin-left: 5%;
     }
   }
 }
@@ -76,6 +80,9 @@
   background: linear-gradient(transparentize($color-4, .1), transparentize($color-4, .1)),
               $color-4 url('../data/images/treehouse-bg.jpg') no-repeat center;
   background-size: cover;
+  .heading {
+    color: $color-5;
+  }
   .container {
     .heading {
       padding: 0;

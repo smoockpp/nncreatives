@@ -176,11 +176,11 @@ const displayGithub = (data) => {
   let githubAvatar = ``;
   githubAvatar += `
   <div class="row">
-    <div class="github-avatar ">
+    <div class="github-avatar col-xs-12 col-sm-5 col-sm-offset-1">
       <img class="img" src="${avatar}" alt="${name} avatar photo">
 
     </div>
-    <div class="github-repos ">
+    <div class="github-repos col-xs-12 col-sm-5">
     <h4 class="heading">${name}</h4>
     <h5 class="heading">${location}</h5>
 
@@ -249,7 +249,7 @@ const displayProjects = (data) => {
                     <h4 class="modal-title">Grade</h4>
                     <p class="grade">"${projectGrade}"</p>
                   </div>
-                  <div class="col-xs-12 col-sm-6 col-md-3">
+                  <div class="col-xs-12 col-sm-6 col-md-3 modal-links">
                     <h4 class="modal-title">Links</h4>
                     <a href="${projectIoUrl}" target="_blank" class="modal-link">Visit Github .io</a>
                     <a href="${projectRepoUrl}" target="_blank" class="modal-link">Visit Github repo</a>

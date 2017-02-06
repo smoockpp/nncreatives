@@ -1,10 +1,22 @@
 .navbar {
   @include transition(all, .5s);
+  position: absolute;
+  top: 0;
+  margin-bottom: 0;
+  min-height: 100px;
+  width: 100%;
   background-color: transparent;
+  font-family: 'Play', Helvetica, sans-serif;
+  font-weight: bold;
   border: none;
   border-radius: 0;
-  margin-bottom: 0;
   z-index: 9999;
+  .container {
+    @media #{$brk-narrow} {
+      position: relative;
+      top: 25px;
+    }
+  }
   .navbar-header {
     .navbar-brand {
       color: $color-4 !important;
@@ -13,21 +25,27 @@
       .icon-bar {
         background-color: $color-4;
       }
-
     }
   }
   .nav {
     li {
       a {
+        &:hover {
+          background-color: transparent;
+        }
         @media #{$brk-narrow} {
           color: $color-4 !important;
         }
-
       }
     }
     li.active a {
       background-color: $color-3;
       color: $color-4 !important;
+      padding-bottom: 5px;
+      @media #{$brk-narrow} {
+        background-color: transparent;
+        border-bottom: 2px solid $color-3;
+      }
     }
   }
 }
@@ -36,10 +54,12 @@
   background-image: linear-gradient(0deg, darken($color-3, 3%), $color-3, darken($color-3, 3%));
   box-shadow: 0 1px 1px darken($color-3, 40%);
   position: fixed;
+  min-height: 40px;
   width: 100%;
   top: -50px;
   animation: sticky-in .5s ease 0s 1 normal forwards running;
   .container {
+    top: 0;
     .navbar-header {
       .navbar-brand {
         color: $color-4 !important;
@@ -49,30 +69,26 @@
           background-color: $color-4;
         }
       }
-
     }
     #navbar {
-
       .nav {
-
         li.active {
           a {
             @media #{$brk-narrow} {
               color: $color-3 !important;
               background-color: $color-4;
+              padding-bottom: 15px;
             }
           }
         }
         li {
           a {
-
             @media #{$brk-narrow} {
               color: $color-4 !important;
               &:hover {
                 color: $color-3 !important;
               }
             }
-
           }
         }
       }

@@ -12122,7 +12122,7 @@ var displayGithub = function displayGithub(data) {
 	var avatarDiv = $('#github .container');
 
 	var githubAvatar = "";
-	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar \">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos \">\n    <h4 class=\"heading\">" + name + "</h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
+	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar col-xs-12 col-sm-5 col-sm-offset-1\">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos col-xs-12 col-sm-5\">\n    <h4 class=\"heading\">" + name + "</h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
 	$(avatarDiv).append(githubAvatar);
 	var profileImage = $('.github-avatar img');
 
@@ -12152,7 +12152,7 @@ var displayProjects = function displayProjects(data) {
 		var projectIoUrl = data[x].github_io_url;
 		var projectRepoUrl = data[x].github_repo_url;
 		console.log(data[x]);
-		projectsDivHTML += "\n    <div class=\"project col-xs-6 col-sm-4 col-lg-3\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h5 class=\"heading\">" + projectName + "</h5>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n              <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n              <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <h4 class=\"modal-title\">Project description</h4>\n                    <p class=\"modal-p\">\n                      " + projectDescription + "\n                    </p>\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Skills used</h4>\n                    " + skillsHTML + "\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Grade</h4>\n                    <p class=\"grade\">\"" + projectGrade + "\"</p>\n                  </div>\n                  <div class=\"col-xs-12 col-sm-6 col-md-3\">\n                    <h4 class=\"modal-title\">Links</h4>\n                    <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n                    <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n                  </div>\n                </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-default\" >Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>";
+		projectsDivHTML += "\n    <div class=\"project col-xs-6 col-sm-4 col-lg-3\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h5 class=\"heading\">" + projectName + "</h5>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n              <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n              <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <h4 class=\"modal-title\">Project description</h4>\n                    <p class=\"modal-p\">\n                      " + projectDescription + "\n                    </p>\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Skills used</h4>\n                    " + skillsHTML + "\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Grade</h4>\n                    <p class=\"grade\">\"" + projectGrade + "\"</p>\n                  </div>\n                  <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n                    <h4 class=\"modal-title\">Links</h4>\n                    <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n                    <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n                  </div>\n                </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-default\" >Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>";
 	});
 
 	projectsDiv.html(projectsDivHTML);
@@ -12187,10 +12187,12 @@ var displayProjects = function displayProjects(data) {
 // });
 
 $(window).scroll(function () {
-	if ($(this).scrollTop() > 320) {
-		$('.navbar').addClass("sticky show");
+	if ($(this).scrollTop() > 100) {
+		$('.navbar').addClass("sticky ");
+		// $('#carousel').css('top', '0');
 	} else {
-		$('.navbar').removeClass("sticky show");
+		$('.navbar').removeClass("sticky ");
+		// $('#carousel').css('top', '-100px');
 	}
 });
 

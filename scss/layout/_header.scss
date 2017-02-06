@@ -1,8 +1,7 @@
 /* Header starts here */
 
 .carousel {
-  position: relative;
-  top: -50px;
+
   .carousel-indicators {
     left: 15%;
     width: 70%;
@@ -18,7 +17,7 @@
         top: 0;
         left: 0;
         width: 100%;
-        height: 50vh;
+        height: 80vh;
         background-color: $black;
         opacity: .8;
 
@@ -29,12 +28,12 @@
         display: block;
         width: 100%;
         height: 10px;
-        top: 50vh;
+        top: 80vh;
         left: 0;
         background-color: $color-3;
       }
       width: 100%;
-      height: calc(50vh + 10px);
+      height: calc(80vh + 10px);
 
       .carousel-caption {
         bottom: 20%;
