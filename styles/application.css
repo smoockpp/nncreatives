@@ -5922,7 +5922,7 @@ a {
   @media (min-width: 480px) {
     .navbar .nav {
       margin: 0; } }
-  @media (min-width: 480px) {
+  @media (min-width: 768px) {
     .navbar {
       padding-top: 25px; } }
 
@@ -5999,7 +5999,7 @@ header#index-header {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -100%);
+    transform: translate(-50%, -50%);
     width: 100%;
     color: #fff;
     text-align: center;
@@ -6040,7 +6040,13 @@ header#index-header {
         color: #47535b; }
 
 #approaches {
-  background-color: #4a8696; }
+  background: linear-gradient(rgba(74, 134, 150, 0.95), rgba(74, 134, 150, 0.95)), url("../data/images/creative.jpg");
+  background-size: cover;
+  padding-top: 4em;
+  padding-bottom: 4em; }
+  @media (min-width: 1024px) {
+    #approaches {
+      background-attachment: fixed; } }
   #approaches .container {
     max-width: 1024px; }
   #approaches .row {
@@ -6049,53 +6055,35 @@ header#index-header {
     cursor: pointer;
     margin: 2em auto;
     float: none;
-    background: #84B5C2;
-    box-shadow: inset 0 0 30px #73abba, 0 0 5px rgba(0, 0, 0, 0.5);
+    font-family: 'Play', Helvetica, sans-serif;
     padding: 2em 0; }
-    #approaches .icon-wrapper > .heading {
-      font-weight: 500; }
+    #approaches .icon-wrapper .heading {
+      font-size: 20px;
+      font-weight: 300; }
+    #approaches .icon-wrapper .underline {
+      height: 3px;
+      background-color: #F1EFE6;
+      width: 30px; }
     #approaches .icon-wrapper .icon-box .icons {
       width: 50%;
+      max-width: 128px;
       margin: 1em auto 3em; }
-    #approaches .icon-wrapper .icon-overlay {
-      -webkit-transition: all 0.5s ease-in-out;
-      -moz-transition: all 0.5s ease-in-out;
-      -o-transition: all 0.5s ease-in-out;
-      transition: all 0.5s ease-in-out;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      background-color: #F1EFE6;
-      opacity: 0; }
-      #approaches .icon-wrapper .icon-overlay:hover {
-        opacity: .9; }
-      #approaches .icon-wrapper .icon-overlay .heading {
-        display: inherit;
-        color: #4a8696;
-        padding: 35px 0;
-        line-height: 1; }
-    #approaches .icon-wrapper:nth-child(even) {
-      background-color: #C4DEDF;
-      box-shadow: inset 0 0 30px #b3d5d6, 0 0 5px rgba(0, 0, 0, 0.5); }
-      #approaches .icon-wrapper:nth-child(even) .heading {
-        color: #fff; }
-      #approaches .icon-wrapper:nth-child(even) .icon-overlay .heading {
-        color: #84B5C2; }
     @media (min-width: 480px) {
       #approaches .icon-wrapper {
         width: 28%;
         margin: 2.5%;
+        margin-top: 0;
         float: left; } }
     @media (orientation: landscape) {
       #approaches .icon-wrapper {
         width: 28%;
-        margin: 2.5%; } }
+        margin: 2.5%;
+        margin-top: 0; } }
     @media (min-width: 768px) {
       #approaches .icon-wrapper {
         width: 25%;
-        margin-left: 5%; } }
+        margin-left: 5%;
+        margin-top: 0; } }
 
 footer {
   position: relative;
@@ -6119,18 +6107,19 @@ footer {
           footer .foo-nav li a {
             padding: .5em 1em; } }
     footer .foo-nav li.social .social-list {
-      margin-top: 10px;
       display: flex;
       flex-direction: row;
       justify-content: space-around; }
-      footer .foo-nav li.social .social-list .social-icons img {
-        margin: 5px;
-        width: 35px;
-        height: 35px; }
-        @media (min-width: 480px) {
-          footer .foo-nav li.social .social-list .social-icons img {
-            width: 25px;
-            height: 25px; } }
+      footer .foo-nav li.social .social-list a {
+        padding: 0 10px; }
+        footer .foo-nav li.social .social-list a .social-icons {
+          fill: #F1EFE6;
+          width: 35px;
+          height: 35px; }
+          @media (min-width: 480px) {
+            footer .foo-nav li.social .social-list a .social-icons {
+              width: 35px;
+              height: 35px; } }
       @media (min-width: 768px) {
         footer .foo-nav li.social .social-list {
           margin-top: 0; } }
@@ -6510,7 +6499,7 @@ footer {
     border-color: #F1EFE6; } }
 
 div.underline {
-  margin: -5px auto 2em;
+  margin: -5px auto 0;
   display: block;
   height: 5px;
   width: 50px;
