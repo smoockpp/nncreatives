@@ -4,7 +4,6 @@
   top: 0;
   margin-bottom: 0;
   width: 100%;
-
   background-color: transparent;
   font-family: 'Play', Helvetica, sans-serif;
   font-weight: bold;
@@ -19,6 +18,8 @@
   }
   .navbar-header {
     .navbar-brand {
+      padding: 10px 10px;
+      height: 40px;
       color: $color-4 !important;
       @media #{$brk-tablets} {
         display: block;
@@ -26,6 +27,7 @@
       }
       @media #{$brk-narrow} {
         float: left;
+
       }
     }
     .navbar-toggle {
@@ -38,11 +40,11 @@
       }
     }
     @media #{$brk-tablets} {
-      float: none;
+
       text-align: center;
     }
     @media #{$brk-narrow} {
-      float: left;
+
       text-align: center;
     }
   }
@@ -71,6 +73,11 @@
         }
         @media #{$brk-tablets} {
           color: $color-4 !important;
+        }
+      }
+      &:last-child {
+        a {
+          margin-right: 0;
         }
       }
       @media #{$brk-tablets} {
@@ -115,19 +122,9 @@
   .container {
     top: 0;
     .navbar-header {
-      .navbar-brand {
-        color: $color-4 !important;
-        margin: 5px ;
-        padding: 5px 10px ;
-        @media #{$brk-tablets} {
-
-        }
-      }
       .navbar-toggle {
-
         .icon-bar {
           background-color: $color-4;
-
         }
       }
       @media #{$brk-tablets} {
@@ -142,8 +139,6 @@
             @media #{$brk-tablets} {
               color: $color-4 !important;
               background-color: $color-5;
-
-
             }
           }
         }
@@ -159,17 +154,12 @@
           }
         }
         @media #{$brk-tablets} {
-
           float: right;
         }
       }
     }
   }
 }
-
-
-
-
 
 #navbar {
   background-color: $color-5;

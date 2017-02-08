@@ -22,13 +22,13 @@
     text-align: center;
   }
   .heading {
-
+    font-family: $stack-play;
   }
   .icon-wrapper {
     cursor: pointer;
     margin: 2em auto;
     float: none;
-    font-family: 'Play', Helvetica, sans-serif;
+    font-family: $stack-montserrat;
     padding: 2em 0;
     .heading {
       font-size: 20px;

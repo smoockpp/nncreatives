@@ -3,15 +3,18 @@ footer {
   background-image: radial-gradient(darken($color-3, 5%), darken($color-3, 10%));
   border-top: 15px solid darken($color-3, 15%);
   .foo-nav {
+    position: relative;
     display: flex;
-    flex-direction: column;
+    flex-flow: row wrap;
     align-items: stretch;
     width: 100%;
     margin: 2em auto 0;
     padding: 1em 0 2em;
     text-align: center;
     li {
-      display: block;
+      display: inline-block;
+      flex: 1;
+      flex-basis: 50%;
       a {
         display: block;
         padding: 1em 2em;
@@ -22,6 +25,8 @@ footer {
       }
     }
     li.social {
+      margin-top: 2em;
+      flex-basis: 100%;
       .social-list {
 
         display: flex;

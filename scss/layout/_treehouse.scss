@@ -1,0 +1,43 @@
+
+
+#treehouse {
+  padding: 3em 0;
+  color: $color-4;
+  position: relative;
+  background-color: $color-1;
+  .heading {
+    text-align: center;
+    color: $color-5;
+  }
+  .container {
+    .table {
+      tbody {
+        color: $color-5;
+        tr {
+          background-color: transparent;
+          height: auto;
+          padding: 3em 15px;
+          max-height: 300px;
+          td {
+            border: none;
+            display: block;
+            text-align: center;
+            .badge-icon {
+              max-width: 64px;
+              margin: 0 auto;
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      & > li {
+        display: inline-block;
+
+      }
+    }
+  }
+}

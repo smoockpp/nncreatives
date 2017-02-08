@@ -37,25 +37,25 @@ const displayTreehouse = (data) => {
     console.log(prev, next);
     switch (el) {
       case '1':
-        createBadges(1, 5);
+        createBadges(1, 4);
         prev.parent().addClass('disabled');
 
         break;
       case '2':
-        createBadges(6, 10);
+        createBadges(5, 8);
         console.log('badges 6 10');
         prev.parent().removeClass('disabled');
         next.parent().removeClass('disabled');
 
         break;
       case '3':
-        createBadges(11, 15);
+        createBadges(9, 12);
         next.parent().addClass('disabled');
 
         break;
 
       default:
-        createBadges(1, 5);
+        createBadges(1, 4);
         prev.parent().addClass('disabled');
 
     }
@@ -130,7 +130,7 @@ const displayTreehouse = (data) => {
     var badgesHTML = ``;
     for (const key in badges) {
       badgesHTML += `
-        <tr>
+        <tr class="col-xs-6 col-sm-3">
           <td><img src="${badges[key].icon_url}" class="badge-icon"></td>
           <td><a class="course-link" href="${badges[key].url}" target="_blank">${badges[key].courses[1].title}</a></td>
           <td>${badges[key].earned_date.substring(0, 10)}</td>

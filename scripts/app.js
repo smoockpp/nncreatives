@@ -11998,25 +11998,25 @@ var displayTreehouse = function displayTreehouse(data) {
 		console.log(prev, next);
 		switch (el) {
 			case '1':
-				createBadges(1, 5);
+				createBadges(1, 4);
 				prev.parent().addClass('disabled');
 
 				break;
 			case '2':
-				createBadges(6, 10);
+				createBadges(5, 8);
 				console.log('badges 6 10');
 				prev.parent().removeClass('disabled');
 				next.parent().removeClass('disabled');
 
 				break;
 			case '3':
-				createBadges(11, 15);
+				createBadges(9, 12);
 				next.parent().addClass('disabled');
 
 				break;
 
 			default:
-				createBadges(1, 5);
+				createBadges(1, 4);
 				prev.parent().addClass('disabled');
 
 		}
@@ -12087,7 +12087,7 @@ var displayTreehouse = function displayTreehouse(data) {
 		}
 		var badgesHTML = "";
 		for (var key in badges) {
-			badgesHTML += "\n        <tr>\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td><a class=\"course-link\" href=\"" + badges[key].url + "\" target=\"_blank\">" + badges[key].courses[1].title + "</a></td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
+			badgesHTML += "\n        <tr class=\"col-xs-6 col-sm-3\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td><a class=\"course-link\" href=\"" + badges[key].url + "\" target=\"_blank\">" + badges[key].courses[1].title + "</a></td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
 
 			// console.log(badges[key].icon_url);
 		}
@@ -12260,19 +12260,19 @@ $(function () {
 	switch (loc) {
 		case '/':
 			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
-			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
+			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/index.html':
 			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
-			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
+			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/nncreatives/':
 			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
-			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
+			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/nncreatives/index.html':
 			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
-			xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
+			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/portfolio.html':
 			xhrRequest(displayProjects, 'data/projects.json');
