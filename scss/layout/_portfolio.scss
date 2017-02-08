@@ -1,41 +1,66 @@
 #portfolio {
   position: relative;
-  top: -50px;
+
   display: flex;
   justify-content: center;
-  background: url('../data/images/wood.jpg') no-repeat center;
+  background:
+    /* top, transparent red */
+    linear-gradient(
+      darken(transparentize($color-2, .2), 20%),
+      darken(transparentize($color-2, .2), 20%)
+    ),
+    /* your image */
+    url('../data/images/wood.jpg');
   background-size: cover;
-  height: 50vh;
+  height: 80vh;
   width: 100%;
   .typewriter {
-    height: 100px;
+
+    max-height: 100px;
+    font-size: 1.25em;
     z-index: 9998;
+    h1 {
+      font-family: $stack-montserrat;
+      @media #{$brk-tablets} {
+        font-size: 2rem;
+      }
+      @media #{$brk-narrow} {
+        font-size: 3.7rem;
+      }
+      @media #{$brk-wide} {
+        font-size: 4.5rem;
+      }
+    }
+
   }
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    background-color: $black;
-    opacity: .8;
+  @media only (orientation: landscape) {
+    height: 100vh;
+    .typewriter {
+      @media #{$brk-narrow} {
+        font-size: 4em;
+      }
+    }
   }
 }
 
 #projects {
-  position: relative;
-  .heading {
 
+  h2.heading {
+    font-family: $stack-play;
+    text-align: center;
     color: $color-5;
     font-weight: bold;
-    padding-top: 20px;
+    margin: 25px auto 10px;
+    padding-top: 50px;
+  }
+  .underline {
+    margin-bottom: 50px;
   }
   .treehouse-logo {
     text-align: left;
     width: 100%;
     border-bottom: 2px solid $color-5;
+    margin-bottom: 25px;
     img {
       display: inline-block;
       max-width: 200px;
@@ -44,7 +69,7 @@
 
   }
   #projects-row {
-    max-width: 80%;
+
     margin: 0 auto;
   }
   .project {
@@ -52,11 +77,12 @@
     margin: 2em auto;
     cursor: pointer;
 
-    .heading {
+    h3.heading {
       position: relative;
-      height: 50px;
+      height: 70px;
       width: 100%;
       color: $color-5;
+      font-family: $stack-montserrat;
       margin: 0 auto;
       transition: font-size .3s ;
       border-bottom: 2px solid $color-7;
@@ -68,9 +94,7 @@
     }
     &:hover {
       @media #{$brk-tablets} {
-        .heading {
-          font-size: 1.5em;
-        }
+
       }
 
       &:after {
@@ -85,7 +109,7 @@
       font-size: 2em;
       text-align: center;
       color: $color-4;
-      line-height: 3;
+      line-height: 8;
       content: '';
       position: absolute;
       bottom: 0;

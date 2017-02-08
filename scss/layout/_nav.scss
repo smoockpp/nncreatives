@@ -19,6 +19,7 @@
   .navbar-header {
     .navbar-brand {
       padding: 10px 10px;
+
       height: 40px;
       color: $color-4 !important;
       @media #{$brk-tablets} {
@@ -27,7 +28,7 @@
       }
       @media #{$brk-narrow} {
         float: left;
-
+        padding-left: 30px;
       }
     }
     .navbar-toggle {
@@ -40,16 +41,13 @@
       }
     }
     @media #{$brk-tablets} {
-
       text-align: center;
     }
     @media #{$brk-narrow} {
-
       text-align: center;
     }
   }
   #navbar {
-
     @media #{$brk-tablets} {
       display: block !important;
       height: auto !important;
@@ -70,6 +68,9 @@
         border-radius: 10px;
         &:hover {
           background-color: transparent;
+          @media #{$brk-narrow} {
+            color: $color-5 !important;
+          }
         }
         @media #{$brk-tablets} {
           color: $color-4 !important;
@@ -87,21 +88,16 @@
     }
     li.active a {
       color: darken($color-7, 10%) !important;
-
       @media #{$brk-tablets} {
         color: darken($color-4,10%) !important;
         background-color: $color-5;
-
         span {
           display: none;
         }
       }
     }
     @media #{$brk-tablets} {
-
       margin: 0;
-
-
     }
   }
   @media #{$brk-narrow} {
@@ -149,6 +145,9 @@
               color: $color-4 !important;
               &:hover {
                 color: $color-3 !important;
+                @media #{$brk-narrow} {
+                  color: $color-5 !important;
+                }
               }
             }
           }

@@ -67,43 +67,41 @@ const displayTreehouse = (data) => {
       let current = parseInt(el.attr('data-target'));
       if ($(this).attr('aria-label') == 'Previous') {
 
-        console.log(current);
+
         if (current === 1) {
           el.parent().removeClass('active');
           el.parent().addClass('active');
           $(this).parent().addClass('disabled');
-          // createBadges(1, 5);
+          // createBadges(1, 4);
           pagesCase('1');
-          console.log('badges 1 5');
         } else if (current === 2) {
           el.parent().removeClass('active');
           el.parent().prev().addClass('active');
           pagesCase('1');
-          // createBadges(1, 5);
-          console.log('badges 1 5');
+          // createBadges(1, 4);
         } else if (current == 3) {
           el.parent().removeClass('active');
           el.parent().prev().addClass('active');
           pagesCase('2');
-          console.log('badges 6 10');
+          // createBadges(5, 8);
         }
       } else if ($(this).attr('aria-label') == 'Next') {
-        console.log(current);
+
         if (current === 3) {
           el.parent().removeClass('active');
           el.parent().addClass('active');
           pagesCase('3')
-          console.log('badges 11 15');
+          // createBadges(9, 12);
         } else if (current === 2) {
           el.parent().removeClass('active');
           el.parent().next().addClass('active');
           pagesCase('3')
-          console.log('badges 11 15');
+
         } else if (current === 1) {
           el.parent().removeClass('active');
           el.parent().next().addClass('active');
           pagesCase('2');
-          // createBadges(6, 10);
+          // createBadges(5, 8);
 
         }
       } else {
@@ -120,7 +118,7 @@ const displayTreehouse = (data) => {
   });
 
   pagesCase(activePage);
-  console.log(activePage);
+
 
   function createBadges(from, to) {
     let badges = [];
@@ -130,9 +128,9 @@ const displayTreehouse = (data) => {
     var badgesHTML = ``;
     for (const key in badges) {
       badgesHTML += `
-        <tr class="col-xs-6 col-sm-3">
+        <tr class="col-xs-12 col-sm-6 col-md-3" data-target="${badges[key].url}">
           <td><img src="${badges[key].icon_url}" class="badge-icon"></td>
-          <td><a class="course-link" href="${badges[key].url}" target="_blank">${badges[key].courses[1].title}</a></td>
+          <td>${badges[key].courses[1].title}</td>
           <td>${badges[key].earned_date.substring(0, 10)}</td>
           <td>${badges[key].courses[0].title}</td>
         </tr>
@@ -144,7 +142,7 @@ const displayTreehouse = (data) => {
     $(badgesDiv).html(badgesHTML);
     let tableRow = $('tbody tr');
     tableRow.click(function() {
-      let courseLink = $(this).children('td').children('.course-link').attr('href');
+      let courseLink = $(this).attr('data-target');
       let win = window.open(courseLink, '_blank');
       if (win) {
           //Browser has allowed it to be opened
@@ -222,8 +220,8 @@ const displayProjects = (data) => {
     let projectRepoUrl = data[x].github_repo_url;
     console.log(data[x]);
     projectsDivHTML += `
-    <div class="project col-xs-6 col-sm-4 col-lg-3" data-toggle="modal"  data-target="#${projectId}" >
-      <h5 class="heading">${projectName}</h5>
+    <div class="project col-xs-12 col-sm-6 col-md-4" data-toggle="modal"  data-target="#${projectId}" >
+      <h3 class="heading">${projectName}</h3>
       <img src="${projectThumb}" alt="${projectName} responsive snapshot">
       <div class="modal fade" id="${projectId}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="${projectId}label">
         <div class="modal-dialog modal-lg" role="document">
@@ -267,6 +265,8 @@ const displayProjects = (data) => {
 
   projectsDiv.html(projectsDivHTML);
 
+  checkSize();
+  $(window).resize(checkSize);
 
 
 

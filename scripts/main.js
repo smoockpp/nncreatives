@@ -27,18 +27,13 @@ $(function() {
       break;
   }
 
-  $(document).ready(function() {
-    $('.carousel').carousel({
-      interval: 5000
-    });
 
-      // run test on initial page load
-      checkSize();
-
-      $(window).resize(checkSize);
-  });
 
 
   // run test on resize of the window
 
+});
+$(document).ready(function() {
+  // run test on initial page load
+  
 });

@@ -12028,43 +12028,39 @@ var displayTreehouse = function displayTreehouse(data) {
 			var current = parseInt(el.attr('data-target'));
 			if ($(this).attr('aria-label') == 'Previous') {
 
-				console.log(current);
 				if (current === 1) {
 					el.parent().removeClass('active');
 					el.parent().addClass('active');
 					$(this).parent().addClass('disabled');
-					// createBadges(1, 5);
+					// createBadges(1, 4);
 					pagesCase('1');
-					console.log('badges 1 5');
 				} else if (current === 2) {
 					el.parent().removeClass('active');
 					el.parent().prev().addClass('active');
 					pagesCase('1');
-					// createBadges(1, 5);
-					console.log('badges 1 5');
+					// createBadges(1, 4);
 				} else if (current == 3) {
 					el.parent().removeClass('active');
 					el.parent().prev().addClass('active');
 					pagesCase('2');
-					console.log('badges 6 10');
+					// createBadges(5, 8);
 				}
 			} else if ($(this).attr('aria-label') == 'Next') {
-				console.log(current);
+
 				if (current === 3) {
 					el.parent().removeClass('active');
 					el.parent().addClass('active');
 					pagesCase('3');
-					console.log('badges 11 15');
+					// createBadges(9, 12);
 				} else if (current === 2) {
 					el.parent().removeClass('active');
 					el.parent().next().addClass('active');
 					pagesCase('3');
-					console.log('badges 11 15');
 				} else if (current === 1) {
 					el.parent().removeClass('active');
 					el.parent().next().addClass('active');
 					pagesCase('2');
-					// createBadges(6, 10);
+					// createBadges(5, 8);
 				}
 			} else {
 				pages.each(function (y) {
@@ -12078,7 +12074,6 @@ var displayTreehouse = function displayTreehouse(data) {
 	});
 
 	pagesCase(activePage);
-	console.log(activePage);
 
 	function createBadges(from, to) {
 		var badges = [];
@@ -12087,7 +12082,7 @@ var displayTreehouse = function displayTreehouse(data) {
 		}
 		var badgesHTML = "";
 		for (var key in badges) {
-			badgesHTML += "\n        <tr class=\"col-xs-6 col-sm-3\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td><a class=\"course-link\" href=\"" + badges[key].url + "\" target=\"_blank\">" + badges[key].courses[1].title + "</a></td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
+			badgesHTML += "\n        <tr class=\"col-xs-12 col-sm-6 col-md-3\" data-target=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
 
 			// console.log(badges[key].icon_url);
 		}
@@ -12095,7 +12090,7 @@ var displayTreehouse = function displayTreehouse(data) {
 		$(badgesDiv).html(badgesHTML);
 		var tableRow = $('tbody tr');
 		tableRow.click(function () {
-			var courseLink = $(this).children('td').children('.course-link').attr('href');
+			var courseLink = $(this).attr('data-target');
 			var win = window.open(courseLink, '_blank');
 			if (win) {
 				//Browser has allowed it to be opened
@@ -12152,10 +12147,13 @@ var displayProjects = function displayProjects(data) {
 		var projectIoUrl = data[x].github_io_url;
 		var projectRepoUrl = data[x].github_repo_url;
 		console.log(data[x]);
-		projectsDivHTML += "\n    <div class=\"project col-xs-6 col-sm-4 col-lg-3\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h5 class=\"heading\">" + projectName + "</h5>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n              <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n              <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <h4 class=\"modal-title\">Project description</h4>\n                    <p class=\"modal-p\">\n                      " + projectDescription + "\n                    </p>\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Skills used</h4>\n                    " + skillsHTML + "\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Grade</h4>\n                    <p class=\"grade\">\"" + projectGrade + "\"</p>\n                  </div>\n                  <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n                    <h4 class=\"modal-title\">Links</h4>\n                    <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n                    <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n                  </div>\n                </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-default\" >Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>";
+		projectsDivHTML += "\n    <div class=\"project col-xs-12 col-sm-6 col-md-4\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h3 class=\"heading\">" + projectName + "</h3>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n              <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n              <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <h4 class=\"modal-title\">Project description</h4>\n                    <p class=\"modal-p\">\n                      " + projectDescription + "\n                    </p>\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Skills used</h4>\n                    " + skillsHTML + "\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Grade</h4>\n                    <p class=\"grade\">\"" + projectGrade + "\"</p>\n                  </div>\n                  <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n                    <h4 class=\"modal-title\">Links</h4>\n                    <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n                    <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n                  </div>\n                </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-default\" >Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>";
 	});
 
 	projectsDiv.html(projectsDivHTML);
+
+	checkSize();
+	$(window).resize(checkSize);
 };
 
 // const iconWrapper = $('.icon-wrapper');
@@ -12220,16 +12218,12 @@ paginationLinks.click(function (e) {
 
 //Function to the css rule
 function checkSize() {
-	if ($(".icon-wrapper").css("float") == "none") {
-		$('.github-avatar').removeClass('col-xs-5 col-xs-offset-1');
-		$('.github-avatar').addClass('col-xs-12');
-		$('.github-repos').removeClass('col-xs-5');
-		$('.github-repos').addClass('col-xs-12');
-	} else if ($(".icon-wrapper").css("float") == "left") {
-		$('.github-avatar').removeClass('col-xs-12');
-		$('.github-avatar').addClass('col-xs-5 col-xs-offset-1');
-		$('.github-repos').removeClass('col-xs-12');
-		$('.github-repos').addClass('col-xs-5');
+	if ($(window).width() >= 480) {
+		$('.project').removeClass('col-xs-12');
+		$('.project').addClass('col-xs-6');
+	} else {
+		$('.project').removeClass('col-xs-6');
+		$('.project').addClass('col-xs-12');
 	}
 }
 
@@ -12282,16 +12276,9 @@ $(function () {
 			break;
 	}
 
-	$(document).ready(function () {
-		$('.carousel').carousel({
-			interval: 5000
-		});
-
-		// run test on initial page load
-		checkSize();
-
-		$(window).resize(checkSize);
-	});
-
 	// run test on resize of the window
+});
+$(document).ready(function () {
+	// run test on initial page load
+
 });

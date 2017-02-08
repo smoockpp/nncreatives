@@ -5873,7 +5873,8 @@ a {
         float: none; } }
     @media (min-width: 768px) {
       .navbar .navbar-header .navbar-brand {
-        float: left; } }
+        float: left;
+        padding-left: 30px; } }
   .navbar .navbar-header .navbar-toggle {
     margin: 3px; }
     @media (min-width: 480px) {
@@ -5904,6 +5905,9 @@ a {
     border-radius: 10px; }
     .navbar .nav li a:hover {
       background-color: transparent; }
+      @media (min-width: 768px) {
+        .navbar .nav li a:hover {
+          color: #47535b !important; } }
     @media (min-width: 480px) {
       .navbar .nav li a {
         color: #F1EFE6 !important; } }
@@ -5959,6 +5963,9 @@ a {
         color: #F1EFE6 !important; }
         .sticky .container #navbar .nav li a:hover {
           color: #C6A556 !important; } }
+    @media (min-width: 480px) and (min-width: 768px) {
+      .sticky .container #navbar .nav li a:hover {
+        color: #47535b !important; } }
     @media (min-width: 480px) {
       .sticky .container #navbar .nav {
         float: right; } }
@@ -6112,12 +6119,26 @@ footer {
       flex: 1;
       flex-basis: 50%; }
       footer .foo-nav li a {
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
         display: block;
         padding: 1em 2em;
+        font-family: "Play", Helvetica, sans-serif;
+        font-size: 14px;
+        font-weight: bold;
         color: #F1EFE6; }
+        footer .foo-nav li a:hover {
+          color: #4a8696; }
         @media (min-width: 480px) {
           footer .foo-nav li a {
-            padding: .5em 1em; } }
+            padding: .5em 1em;
+            text-align: left; } }
+      @media (min-width: 480px) {
+        footer .foo-nav li {
+          flex: 0;
+          flex-basis: 10%; } }
     footer .foo-nav li.social {
       margin-top: 2em;
       flex-basis: 100%; }
@@ -6128,9 +6149,15 @@ footer {
         footer .foo-nav li.social .social-list a {
           padding: 0 10px; }
           footer .foo-nav li.social .social-list a .social-icons {
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
             fill: #F1EFE6;
             width: 35px;
             height: 35px; }
+            footer .foo-nav li.social .social-list a .social-icons:hover {
+              fill: #4a8696; }
             @media (min-width: 480px) {
               footer .foo-nav li.social .social-list a .social-icons {
                 width: 35px;
@@ -6140,10 +6167,10 @@ footer {
             margin-top: 0; } }
       @media (min-width: 480px) {
         footer .foo-nav li.social {
-          margin-left: auto; } }
-    @media (min-width: 480px) {
-      footer .foo-nav {
-        flex-direction: row; } }
+          flex: 0;
+          flex-basis: 20%;
+          margin-left: auto;
+          margin-top: 0; } }
 
 #treehouse {
   padding: 3em 0;
@@ -6151,15 +6178,18 @@ footer {
   position: relative;
   background-color: #fff; }
   #treehouse .heading {
+    font-family: "Play", Helvetica, sans-serif;
     text-align: center;
     color: #47535b; }
   #treehouse .container .table tbody {
+    font-family: "Play", Helvetica, sans-serif;
     color: #47535b; }
     #treehouse .container .table tbody tr {
       background-color: transparent;
       height: auto;
       padding: 3em 15px;
-      max-height: 300px; }
+      height: 300px;
+      cursor: pointer; }
       #treehouse .container .table tbody tr td {
         border: none;
         display: block;
@@ -6167,12 +6197,34 @@ footer {
         #treehouse .container .table tbody tr td .badge-icon {
           max-width: 64px;
           margin: 0 auto; }
+        @media (min-width: 768px) {
+          #treehouse .container .table tbody tr td:nth-child(2) {
+            font-size: 22px; } }
+    @media (min-width: 768px) {
+      #treehouse .container .table tbody {
+        padding-bottom: 4em;
+        padding-top: 4em; } }
   #treehouse .container .pagination {
     display: block;
     margin: 0 auto;
     text-align: center; }
-    #treehouse .container .pagination > li {
+    #treehouse .container .pagination li {
       display: inline-block; }
+      #treehouse .container .pagination li a {
+        padding: 20px 25px;
+        border: none;
+        border-radius: 20px;
+        color: #47535b; }
+        #treehouse .container .pagination li a:focus {
+          background-color: transparent; }
+        #treehouse .container .pagination li a:hover {
+          background-color: #C4DEDF;
+          color: #fff; }
+      #treehouse .container .pagination li.disabled a {
+        opacity: .2; }
+      #treehouse .container .pagination li.active a {
+        background-color: #84B5C2;
+        color: #F1EFE6; }
 
 .gh-heading {
   margin-bottom: 0;
@@ -6255,116 +6307,102 @@ footer {
   100% {
     transform: scale(1); } }
 
-.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
-  background-color: #C4DEDF;
-  padding: 10px 20px;
-  border: none;
-  border-bottom: 2px solid #427785;
-  color: #755e27;
-  transform: scale(1.1, 1.1);
-  cursor: pointer; }
-
-.pagination > li > a, .pagination > li > span {
-  border: none;
-  color: #C6A556;
-  padding: 10px 20px;
-  cursor: pointer; }
-
-.pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
-  border: none;
-  background-color: #e2e2e2;
-  color: #eee;
-  opacity: .5; }
-
-.pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
-  border: none;
-  color: #C6A556;
-  background-color: #f7f7f7; }
-
 #portfolio {
   position: relative;
-  top: -50px;
   display: flex;
   justify-content: center;
-  background: url("../data/images/wood.jpg") no-repeat center;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../data/images/wood.jpg");
   background-size: cover;
-  height: 50vh;
+  height: 80vh;
   width: 100%; }
   #portfolio .typewriter {
-    height: 100px;
+    max-height: 100px;
+    font-size: 1.25em;
     z-index: 9998; }
-  #portfolio:after {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    background-color: #000;
-    opacity: .8; }
-
-#projects {
-  position: relative; }
-  #projects .heading {
-    color: #47535b;
-    font-weight: bold;
-    padding-top: 20px; }
-  #projects .treehouse-logo {
-    text-align: left;
-    width: 100%;
-    border-bottom: 2px solid #47535b; }
-    #projects .treehouse-logo img {
-      display: inline-block;
-      max-width: 200px; }
-  #projects #projects-row {
-    max-width: 80%;
-    margin: 0 auto; }
-  #projects .project {
-    margin: 2em auto;
-    cursor: pointer; }
-    #projects .project .heading {
-      position: relative;
-      height: 50px;
-      width: 100%;
-      color: #47535b;
-      margin: 0 auto;
-      transition: font-size .3s;
-      border-bottom: 2px solid #84B5C2; }
-    #projects .project img {
-      margin: 0 auto;
-      width: 100%;
-      height: 100%; }
-    @media (min-width: 480px) {
-      #projects .project:hover .heading {
-        font-size: 1.5em; } }
-    #projects .project:hover:after {
-      opacity: .9;
-      height: calc(100% - 50px);
-      content: '\e003'; }
-    #projects .project:after {
-      transition: height .3s ease-in-out;
-      font-family: 'Glyphicons Halflings';
-      font-size: 2em;
-      text-align: center;
-      color: #F1EFE6;
-      line-height: 3;
-      content: '';
-      position: absolute;
-      bottom: 0;
-      display: block;
-      margin: 0;
-      width: calc(100% - 30px);
-      height: 0;
-      background-color: #84B5C2;
-      box-shadow: inset 0 0 50px #62a0b1;
-      opacity: 0; }
+    #portfolio .typewriter h1 {
+      font-family: "Montserrat", Helvetica, sans-serif; }
       @media (min-width: 480px) {
-        #projects .project:after {
-          line-height: 5; } }
+        #portfolio .typewriter h1 {
+          font-size: 2rem; } }
+      @media (min-width: 768px) {
+        #portfolio .typewriter h1 {
+          font-size: 3.7rem; } }
       @media (min-width: 1024px) {
-        #projects .project:after {
-          line-height: 7; } }
+        #portfolio .typewriter h1 {
+          font-size: 4.5rem; } }
+  @media (orientation: landscape) {
+    #portfolio {
+      height: 100vh; } }
+  @media (orientation: landscape) and (min-width: 768px) {
+    #portfolio .typewriter {
+      font-size: 4em; } }
+
+#projects h2.heading {
+  font-family: "Play", Helvetica, sans-serif;
+  text-align: center;
+  color: #47535b;
+  font-weight: bold;
+  margin: 25px auto 10px;
+  padding-top: 50px; }
+
+#projects .underline {
+  margin-bottom: 50px; }
+
+#projects .treehouse-logo {
+  text-align: left;
+  width: 100%;
+  border-bottom: 2px solid #47535b;
+  margin-bottom: 25px; }
+  #projects .treehouse-logo img {
+    display: inline-block;
+    max-width: 200px; }
+
+#projects #projects-row {
+  margin: 0 auto; }
+
+#projects .project {
+  margin: 2em auto;
+  cursor: pointer; }
+  #projects .project h3.heading {
+    position: relative;
+    height: 70px;
+    width: 100%;
+    color: #47535b;
+    font-family: "Montserrat", Helvetica, sans-serif;
+    margin: 0 auto;
+    transition: font-size .3s;
+    border-bottom: 2px solid #84B5C2; }
+  #projects .project img {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%; }
+  #projects .project:hover:after {
+    opacity: .9;
+    height: calc(100% - 50px);
+    content: '\e003'; }
+  #projects .project:after {
+    transition: height .3s ease-in-out;
+    font-family: 'Glyphicons Halflings';
+    font-size: 2em;
+    text-align: center;
+    color: #F1EFE6;
+    line-height: 8;
+    content: '';
+    position: absolute;
+    bottom: 0;
+    display: block;
+    margin: 0;
+    width: calc(100% - 30px);
+    height: 0;
+    background-color: #84B5C2;
+    box-shadow: inset 0 0 50px #62a0b1;
+    opacity: 0; }
+    @media (min-width: 480px) {
+      #projects .project:after {
+        line-height: 5; } }
+    @media (min-width: 1024px) {
+      #projects .project:after {
+        line-height: 7; } }
 
 .modal {
   z-index: 10000; }
@@ -6456,18 +6494,12 @@ footer {
   font-size: 1em;
   width: auto;
   overflow: hidden;
-  border-right: 0.15em solid #F1EFE6;
+  border-right: 0.15em solid #C6A556;
   white-space: nowrap;
   line-height: 1.6;
   margin: 0 auto;
   letter-spacing: .15em;
   animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
-  @media (min-width: 768px) {
-    .typewriter h1 {
-      font-size: 2em; } }
-  @media (min-width: 1024px) {
-    .typewriter h1 {
-      font-size: 3em; } }
 
 /* The typing effect */
 @keyframes typing {
@@ -6481,7 +6513,7 @@ footer {
   from, to {
     border-color: transparent; }
   50% {
-    border-color: #F1EFE6; } }
+    border-color: #C6A556; } }
 
 div.underline {
   margin: -5px auto 0;
