@@ -1,9 +1,13 @@
 $(window).scroll(function() {
  if ($(this).scrollTop() > 100){
     $('.navbar').addClass("sticky ");
-    // $('#carousel').css('top', '0');
+    setTimeout(function() {
+      $('.sticky').addClass('sticky-color');
+    }, 300);
  } else {
-    $('.navbar').removeClass("sticky ");
-    // $('#carousel').css('top', '-100px');
+   $('.sticky').removeClass('sticky-color');
+    $('.navbar').removeClass("sticky");
+
+
  }
 });

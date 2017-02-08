@@ -9,6 +9,7 @@
   width: 100%;
   .typewriter {
     height: 100px;
+    z-index: 9998;
   }
   &:after {
     content: '';

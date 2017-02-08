@@ -23,21 +23,25 @@ footer {
     }
     li.social {
       .social-list {
-        margin-top: 10px;
+
         display: flex;
         flex-direction: row;
         justify-content: space-around;
-        .social-icons {
-          img {
-            margin: 5px;
-            width: 35px;
-            height: 35px;
-            @media #{$brk-tablets} {
-              width: 25px;
-              height: 25px;
-            }
+        a {
+          padding: 0 10px;
+          .social-icons {
+              fill: $color-4;
+
+              width: 35px;
+              height: 35px;
+              @media #{$brk-tablets} {
+                width: 35px;
+                height: 35px;
+              }
+
           }
         }
+
         @media #{$brk-narrow} {
           margin-top: 0;
         }
