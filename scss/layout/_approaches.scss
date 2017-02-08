@@ -1,0 +1,73 @@
+#approaches {
+  background-color: darken($color-7, 20%);
+  .container {
+    max-width: 1024px;
+  }
+  .row {
+    text-align: center;
+  }
+  .icon-wrapper {
+    cursor: pointer;
+    margin: 2em auto;
+    float: none;
+    background: $color-7;
+    box-shadow: inset 0 0 30px darken($color-7, 5%), 0 0 5px transparentize(darken($color-7, 80%), .5);
+    padding: 2em 0;
+    & > .heading {
+      font-weight: 500;
+    }
+    .icon-box {
+      .icons {
+        width: 50%;
+        margin: 1em auto 3em;
+      }
+    }
+    .icon-overlay {
+      @include transition(all, .5s);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      background-color: $color-4;
+      opacity: 0;
+      &:hover {
+        opacity: .9;
+      }
+      .heading {
+        display: inherit;
+        color: darken($color-7, 20%);
+        padding: 35px 0;
+        line-height: 1;
+      }
+    }
+    &:nth-child(even) {
+      background-color: $color-6;
+      box-shadow: inset 0 0 30px darken($color-6, 5%), 0 0 5px transparentize(darken($color-7, 80%), .5);
+      .heading {
+        color: $color-1;
+      }
+      .icon-overlay {
+        .heading {
+          color: $color-7;
+        }
+
+      }
+
+    }
+    @media #{$brk-tablets} {
+      width: 28%;
+      margin: 2.5%;
+      float: left;
+
+    }
+    @media (orientation: landscape) {
+      width: 28%;
+      margin: 2.5%;
+    }
+    @media #{$brk-narrow} {
+      width: 25%;
+      margin-left: 5%;
+    }
+  }
+}
