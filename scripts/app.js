@@ -12016,6 +12016,7 @@ var xhrRequest = function xhrRequest(callback, url) {
 		}
 	};
 	xhr.open("GET", url, true);
+	xhr.setRequestHeader('Content-Type', 'application/json');
 	xhr.send();
 };
 

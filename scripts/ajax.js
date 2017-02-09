@@ -20,6 +20,7 @@ const xhrRequest = (callback, url) => {
         }
     };
     xhr.open("GET", url, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send();
 };
 
