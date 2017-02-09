@@ -6534,7 +6534,7 @@ div.underline {
   opacity: 0; }
 
 .animation-in-bottom0 {
-  animation: in-bottom 1s ease .5s 1 normal forwards running; }
+  animation: in-bottom .5s ease .2s 1 normal forwards running; }
 
 @keyframes in-bottom {
   0% {
@@ -6544,7 +6544,7 @@ div.underline {
     opacity: 1; } }
 
 .animation-in-bottom1 {
-  animation: in-bottom-1 1s ease 1s 1 normal forwards running; }
+  animation: in-bottom-1 .5s ease .4s 1 normal forwards running; }
 
 @keyframes in-bottom-1 {
   0% {
@@ -6554,7 +6554,7 @@ div.underline {
     opacity: 1; } }
 
 .animation-in-bottom2 {
-  animation: in-bottom-1-5 1s ease 1.5s 1 normal forwards running; }
+  animation: in-bottom-1-5 .5s ease .6s 1 normal forwards running; }
 
 @keyframes in-bottom-1-5 {
   0% {
@@ -6564,7 +6564,7 @@ div.underline {
     opacity: 1; } }
 
 .animation-in-bottom3 {
-  animation: in-bottom-2 1s ease 2s 1 normal forwards running; }
+  animation: in-bottom-2 .5s ease 1s 1 normal forwards running; }
 
 @keyframes in-bottom-2 {
   0% {
