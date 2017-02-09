@@ -26,14 +26,32 @@ $(function() {
       xhrRequest(displayProjects, 'data/projects.json');
       break;
   }
-
-
-
-
-  // run test on resize of the window
-
 });
+
+
+
 $(document).ready(function() {
   // run test on initial page load
+  checkSize();
+  $(window).resize(checkSize);
+  $.each($('.header-inner .container').children(), function(x, y) {
+    let el = $(this);
+    el.viewportChecker({
+      classToAdd: 'animation-in-bottom' + parseInt(x)
+    });
+  })
+  $.each($('.icon-wrapper'), function(x, y) {
+    let el = $(this);
+    if ($(window).width() >= 480 ) {
+      el.viewportChecker({
+        classToAdd: 'animation-in-bottom' + parseInt(x)
+      });
+    } else {
+      el.viewportChecker({
+        classToAdd: 'animation-in-bottom0'
+      });
+    }
+  });
   
+
 });

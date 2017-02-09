@@ -128,7 +128,7 @@ const displayTreehouse = (data) => {
     var badgesHTML = ``;
     for (const key in badges) {
       badgesHTML += `
-        <tr class="col-xs-12 col-sm-6 col-md-3" data-target="${badges[key].url}">
+        <tr class="col-xs-12 col-sm-6 col-md-3 animate" data-target="${badges[key].url}">
           <td><img src="${badges[key].icon_url}" class="badge-icon"></td>
           <td>${badges[key].courses[1].title}</td>
           <td>${badges[key].earned_date.substring(0, 10)}</td>
@@ -151,7 +151,22 @@ const displayTreehouse = (data) => {
           //Browser has blocked it
           alert('Please allow popups for this website');
       }
-      console.log(courseLink);
+
+    });
+
+    checkSize();
+
+    $.each($('tr.animate'), function(x, y) {
+      let el = $(this);
+      if ($(window).width() >= 1024 ) {
+        el.viewportChecker({
+          classToAdd: 'animation-in-bottom' + parseInt(x)
+        });
+      } else {
+        el.viewportChecker({
+          classToAdd: 'animation-in-bottom0'
+        });
+      }
     });
   }
 };
@@ -264,6 +279,8 @@ const displayProjects = (data) => {
   });
 
   projectsDiv.html(projectsDivHTML);
+
+
 
   checkSize();
   $(window).resize(checkSize);

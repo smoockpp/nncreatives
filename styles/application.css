@@ -6197,9 +6197,11 @@ footer {
         #treehouse .container .table tbody tr td .badge-icon {
           max-width: 64px;
           margin: 0 auto; }
-        @media (min-width: 768px) {
-          #treehouse .container .table tbody tr td:nth-child(2) {
-            font-size: 22px; } }
+        #treehouse .container .table tbody tr td:nth-child(2) {
+          font-size: 18px; }
+          @media (min-width: 768px) {
+            #treehouse .container .table tbody tr td:nth-child(2) {
+              font-size: 22px; } }
     @media (min-width: 768px) {
       #treehouse .container .table tbody {
         padding-bottom: 4em;
@@ -6361,14 +6363,16 @@ footer {
   margin: 0 auto; }
 
 #projects .project {
-  margin: 2em auto;
+  margin: 4em auto;
   cursor: pointer; }
   #projects .project h3.heading {
     position: relative;
-    height: 70px;
+    height: 50px;
     width: 100%;
     color: #47535b;
     font-family: "Montserrat", Helvetica, sans-serif;
+    vertical-align: bottom;
+    line-height: 20px;
     margin: 0 auto;
     transition: font-size .3s;
     border-bottom: 2px solid #84B5C2; }
@@ -6378,7 +6382,7 @@ footer {
     height: 100%; }
   #projects .project:hover:after {
     opacity: .9;
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     content: '\e003'; }
   #projects .project:after {
     transition: height .3s ease-in-out;
@@ -6521,5 +6525,52 @@ div.underline {
   height: 5px;
   width: 50px;
   background-color: #C6A556; }
+
+/*
+ The animations styles. In order animations to run, elements must be in viewport. It requires visibility.js in order to run work
+*/
+.animate {
+  position: relative;
+  opacity: 0; }
+
+.animation-in-bottom0 {
+  animation: in-bottom 1s ease .5s 1 normal forwards running; }
+
+@keyframes in-bottom {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+
+.animation-in-bottom1 {
+  animation: in-bottom-1 1s ease 1s 1 normal forwards running; }
+
+@keyframes in-bottom-1 {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+
+.animation-in-bottom2 {
+  animation: in-bottom-1-5 1s ease 1.5s 1 normal forwards running; }
+
+@keyframes in-bottom-1-5 {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
+
+.animation-in-bottom3 {
+  animation: in-bottom-2 1s ease 2s 1 normal forwards running; }
+
+@keyframes in-bottom-2 {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
 
 /*# sourceMappingURL=application.css.map */

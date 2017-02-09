@@ -30,6 +30,7 @@
               margin: 0 auto;
             }
             &:nth-child(2) {
+              font-size: 18px;
               @media #{$brk-narrow} {
                   font-size: 22px;
               }
