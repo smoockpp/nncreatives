@@ -5,6 +5,7 @@
 
 .animate {
   position: relative;
+  top: 0;
   opacity: 0;
 }
 
@@ -52,7 +53,7 @@
 
 
 .animation-in-bottom3 {
-  animation: in-bottom-2 .5s ease 1s 1 normal forwards running;
+  animation: in-bottom-2 .5s ease .8s 1 normal forwards running;
 }
 @keyframes in-bottom-2 {
   0% {

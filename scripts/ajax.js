@@ -215,10 +215,12 @@ const displayGithub = (data) => {
 
 const displayProjects = (data) => {
   let projects = [];
-  let projectsDiv = $('#projects-row');
-  let projectsDivHTML = ``;
+  let projectsDiv = $('#projects-flex');
+
 
   $.each(data, function(x, y) {
+    let projectsDivHTML = ``;
+    let modalContent = ``;
     let projectId = data[x].id;
     let projectName = data[x].name;
     let projectThumb = data[x].thumb_url;
@@ -235,51 +237,70 @@ const displayProjects = (data) => {
     let projectIoUrl = data[x].github_io_url;
     let projectRepoUrl = data[x].github_repo_url;
     console.log(data[x]);
-    projectsDivHTML += `
-    <div class="project col-xs-12 col-sm-6 col-md-4" data-toggle="modal"  data-target="#${projectId}" >
-      <h3 class="heading">${projectName}</h3>
+    projectsDivHTML = `
+    <div class="project" data-toggle="modal"  data-target="#${projectId}" >
+      <h3>${projectName}</h3>
       <img src="${projectThumb}" alt="${projectName} responsive snapshot">
       <div class="modal fade" id="${projectId}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="${projectId}label">
         <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close modal-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h3 class="modal-title" id="${projectId}label">${projectName}</h3>
-              <img src="${projectImg}" alt="${projectName} big snapshot">
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                  <div class="col-xs-12 col-sm-6">
-                    <h4 class="modal-title">Project description</h4>
-                    <p class="modal-p">
-                      ${projectDescription}
-                    </p>
-                  </div>
-                  <div class="col-xs-6 col-sm-3">
-                    <h4 class="modal-title">Skills used</h4>
-                    ${skillsHTML}
-                  </div>
-                  <div class="col-xs-6 col-sm-3">
-                    <h4 class="modal-title">Grade</h4>
-                    <p class="grade">"${projectGrade}"</p>
-                  </div>
-                  <div class="col-xs-12 col-sm-6 col-md-3 modal-links">
-                    <h4 class="modal-title">Links</h4>
-                    <a href="${projectIoUrl}" target="_blank" class="modal-link">Visit Github .io</a>
-                    <a href="${projectRepoUrl}" target="_blank" class="modal-link">Visit Github repo</a>
-                  </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" >Close</button>
-            </div>
-          </div>
+
         </div>
       </div>
+    </div>
+    <div class="project-info ">
+      <h3>Project description</h3>
+      <p class="project-p">
+        ${projectDescription}
+      </p>
+
     </div>`
+    modalContent = `
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close modal-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 class="modal-title" id="${projectId}label">${projectName}</h3>
+        <img src="${projectImg}" alt="${projectName} big snapshot">
+      </div>
+      <div class="modal-body">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <h4 class="modal-title">Project description</h4>
+              <p class="modal-p">
+                ${projectDescription}
+              </p>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <h4 class="modal-title">Skills used</h4>
+              ${skillsHTML}
+            </div>
+            <div class="col-xs-6 col-sm-3">
+              <h4 class="modal-title">Grade</h4>
+              <p class="grade">"${projectGrade}"</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3 modal-links">
+              <h4 class="modal-title">Links</h4>
+              <a href="${projectIoUrl}" target="_blank" class="modal-link">Visit Github .io</a>
+              <a href="${projectRepoUrl}" target="_blank" class="modal-link">Visit Github repo</a>
+            </div>
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" >Close</button>
+      </div>
+    </div>
+    `
+    projectsDiv.append(projectsDivHTML);
+    let projectBox = $('.project[data-target="#' + projectId +'"]');
+    let modalDialog = $('.project[data-target="#' + projectId +'"] .modal-dialog');
+    projectBox.click(function() {
+      modalDialog.append(modalContent);
+      projectsBox.modal();
+
+    });
   });
 
-  projectsDiv.html(projectsDivHTML);
+
+
 
 
 

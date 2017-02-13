@@ -23,13 +23,9 @@ paginationLinks.click(function(e) {
 
 function checkSize(){
     if ($(window).width() >= 480) {
-      $('.project').removeClass('col-xs-12');
-      $('.project').addClass('col-xs-6');
       $('.json-data tr').removeClass('col-xs-12');
       $('.json-data tr').addClass('col-xs-6');
     } else {
-      $('.project').removeClass('col-xs-6');
-      $('.project').addClass('col-xs-12');
       $('.json-data tr').removeClass('col-xs-6');
       $('.json-data tr').addClass('col-xs-12');
     }

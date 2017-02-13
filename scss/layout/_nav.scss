@@ -22,7 +22,7 @@
 
       height: 40px;
       color: $color-4 !important;
-      @media #{$brk-tablets} {
+      @media #{$brk-narrow} {
         display: block;
         float: none;
       }
@@ -33,7 +33,7 @@
     }
     .navbar-toggle {
       margin: 3px;
-      @media #{$brk-tablets} {
+      @media #{$brk-narrow} {
         display: none;
       }
       .icon-bar {
@@ -48,7 +48,7 @@
     }
   }
   #navbar {
-    @media #{$brk-tablets} {
+    @media #{$brk-narrow} {
       display: block !important;
       height: auto !important;
       padding-bottom: 0;
@@ -72,7 +72,11 @@
             color: $color-5 !important;
           }
         }
-        @media #{$brk-tablets} {
+        &:focus {
+          color: darken($color-4,10%) !important;
+          background-color: $color-5;
+        }
+        @media #{$brk-narrow} {
           color: $color-4 !important;
         }
       }
@@ -81,14 +85,14 @@
           margin-right: 0;
         }
       }
-      @media #{$brk-tablets} {
+      @media #{$brk-narrow} {
         float: none;
         display: inline-block;
       }
     }
     li.active a {
       color: darken($color-7, 10%) !important;
-      @media #{$brk-tablets} {
+      @media #{$brk-narrow} {
         color: darken($color-4,10%) !important;
         background-color: $color-5;
         span {
@@ -96,7 +100,7 @@
         }
       }
     }
-    @media #{$brk-tablets} {
+    @media #{$brk-narrow} {
       margin: 0;
     }
   }
@@ -123,7 +127,7 @@
           background-color: $color-4;
         }
       }
-      @media #{$brk-tablets} {
+      @media #{$brk-narrow} {
         display: block;
         float: left;
       }
@@ -132,7 +136,7 @@
       .nav {
         li.active {
           a {
-            @media #{$brk-tablets} {
+            @media #{$brk-narrow} {
               color: $color-4 !important;
               background-color: $color-5;
             }
@@ -140,7 +144,7 @@
         }
         li {
           a {
-            @media #{$brk-tablets} {
+            @media #{$brk-narrow} {
               margin: 5px;
               color: $color-4 !important;
               &:hover {
@@ -152,7 +156,7 @@
             }
           }
         }
-        @media #{$brk-tablets} {
+        @media #{$brk-narrow} {
           float: right;
         }
       }
@@ -162,7 +166,7 @@
 
 #navbar {
   background-color: $color-5;
-  @media #{$brk-tablets} {
+  @media #{$brk-narrow} {
     background-color: transparent;
   }
 }

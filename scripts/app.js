@@ -12175,10 +12175,11 @@ var displayGithub = function displayGithub(data) {
 
 var displayProjects = function displayProjects(data) {
 	var projects = [];
-	var projectsDiv = $('#projects-row');
-	var projectsDivHTML = "";
+	var projectsDiv = $('#projects-flex');
 
 	$.each(data, function (x, y) {
+		var projectsDivHTML = "";
+		var modalContent = "";
 		var projectId = data[x].id;
 		var projectName = data[x].name;
 		var projectThumb = data[x].thumb_url;
@@ -12194,10 +12195,16 @@ var displayProjects = function displayProjects(data) {
 		var projectIoUrl = data[x].github_io_url;
 		var projectRepoUrl = data[x].github_repo_url;
 		console.log(data[x]);
-		projectsDivHTML += "\n    <div class=\"project col-xs-12 col-sm-6 col-md-4\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h3 class=\"heading\">" + projectName + "</h3>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n          <div class=\"modal-content\">\n            <div class=\"modal-header\">\n              <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n              <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n              <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n            </div>\n            <div class=\"modal-body\">\n                <div class=\"row\">\n                  <div class=\"col-xs-12 col-sm-6\">\n                    <h4 class=\"modal-title\">Project description</h4>\n                    <p class=\"modal-p\">\n                      " + projectDescription + "\n                    </p>\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Skills used</h4>\n                    " + skillsHTML + "\n                  </div>\n                  <div class=\"col-xs-6 col-sm-3\">\n                    <h4 class=\"modal-title\">Grade</h4>\n                    <p class=\"grade\">\"" + projectGrade + "\"</p>\n                  </div>\n                  <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n                    <h4 class=\"modal-title\">Links</h4>\n                    <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n                    <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n                  </div>\n                </div>\n            </div>\n            <div class=\"modal-footer\">\n              <button type=\"button\" class=\"btn btn-default\" >Close</button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>";
+		projectsDivHTML = "\n    <div class=\"project\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h3>" + projectName + "</h3>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n\n        </div>\n      </div>\n    </div>\n    <div class=\"project-info \">\n      <h3>Project description</h3>\n      <p class=\"project-p\">\n        " + projectDescription + "\n      </p>\n\n    </div>";
+		modalContent = "\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n        <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n        <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n      </div>\n      <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-12 col-sm-6\">\n              <h4 class=\"modal-title\">Project description</h4>\n              <p class=\"modal-p\">\n                " + projectDescription + "\n              </p>\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Skills used</h4>\n              " + skillsHTML + "\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Grade</h4>\n              <p class=\"grade\">\"" + projectGrade + "\"</p>\n            </div>\n            <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n              <h4 class=\"modal-title\">Links</h4>\n              <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n              <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n            </div>\n          </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" >Close</button>\n      </div>\n    </div>\n    ";
+		projectsDiv.append(projectsDivHTML);
+		var projectBox = $('.project[data-target="#' + projectId + '"]');
+		var modalDialog = $('.project[data-target="#' + projectId + '"] .modal-dialog');
+		projectBox.click(function () {
+			modalDialog.append(modalContent);
+			projectsBox.modal();
+		});
 	});
-
-	projectsDiv.html(projectsDivHTML);
 
 	checkSize();
 	$(window).resize(checkSize);
@@ -12265,13 +12272,9 @@ paginationLinks.click(function (e) {
 
 function checkSize() {
 	if ($(window).width() >= 480) {
-		$('.project').removeClass('col-xs-12');
-		$('.project').addClass('col-xs-6');
 		$('.json-data tr').removeClass('col-xs-12');
 		$('.json-data tr').addClass('col-xs-6');
 	} else {
-		$('.project').removeClass('col-xs-6');
-		$('.project').addClass('col-xs-12');
 		$('.json-data tr').removeClass('col-xs-6');
 		$('.json-data tr').addClass('col-xs-12');
 	}
