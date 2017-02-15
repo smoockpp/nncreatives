@@ -12219,53 +12219,52 @@ var displayProjects = function displayProjects(data) {
 				}, 500);
 			});
 		});
-		$.each($('.project-info'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'animation-in-bottom3'
-			});
+	});
+	$.each($('.project-info'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'animation-in-bottom3'
 		});
-		$.each($('.project'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'animation-in-left'
-			});
+	});
+	$.each($('.project'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'animation-in-left'
 		});
-		$.each($('.circle'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'circle-scale-in'
-			});
-		});
-
-		$.each($('.line1'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'line1-drawing'
-			});
-		});
-		$.each($('.line2'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'line2-drawing',
-				offset: 20
-			});
-		});
-		$.each($('.line3'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'line3-drawing'
-			});
-		});
-		$.each($('.line4'), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: 'line4-drawing',
-				offset: 20
-			});
+	});
+	$.each($('.circle'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'circle-scale-in'
 		});
 	});
 
+	$.each($('.line1'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'line1-drawing'
+		});
+	});
+	$.each($('.line2'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'line2-drawing',
+			offset: 20
+		});
+	});
+	$.each($('.line3'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'line3-drawing'
+		});
+	});
+	$.each($('.line4'), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: 'line4-drawing',
+			offset: 20
+		});
+	});
 	checkSize();
 	$(window).resize(checkSize);
 };
