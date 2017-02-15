@@ -1,3 +1,5 @@
+'use strict';
+
 let data;
 
 const xhrRequest = (callback, url) => {
@@ -67,43 +69,33 @@ const displayTreehouse = (data) => {
       let el = $('ul.pagination li.active a');
       let current = parseInt(el.attr('data-target'));
       if ($(this).attr('aria-label') == 'Previous') {
-
-
         if (current === 1) {
           el.parent().removeClass('active');
           el.parent().addClass('active');
           $(this).parent().addClass('disabled');
-          // createBadges(1, 4);
           pagesCase('1');
         } else if (current === 2) {
           el.parent().removeClass('active');
           el.parent().prev().addClass('active');
           pagesCase('1');
-          // createBadges(1, 4);
         } else if (current == 3) {
           el.parent().removeClass('active');
           el.parent().prev().addClass('active');
           pagesCase('2');
-          // createBadges(5, 8);
         }
       } else if ($(this).attr('aria-label') == 'Next') {
-
         if (current === 3) {
           el.parent().removeClass('active');
           el.parent().addClass('active');
           pagesCase('3')
-          // createBadges(9, 12);
         } else if (current === 2) {
           el.parent().removeClass('active');
           el.parent().next().addClass('active');
           pagesCase('3')
-
         } else if (current === 1) {
           el.parent().removeClass('active');
           el.parent().next().addClass('active');
           pagesCase('2');
-          // createBadges(5, 8);
-
         }
       } else {
         pages.each(function(y) {
@@ -136,10 +128,7 @@ const displayTreehouse = (data) => {
           <td>${badges[key].courses[0].title}</td>
         </tr>
         `;
-
-      // console.log(badges[key].icon_url);
     }
-
     $(badgesDiv).html(badgesHTML);
     let tableRow = $('tbody tr');
     tableRow.click(function() {
@@ -152,9 +141,7 @@ const displayTreehouse = (data) => {
           //Browser has blocked it
           alert('Please allow popups for this website');
       }
-
     });
-
     checkSize();
 
     $.each($('tr.animate'), function(x, y) {
@@ -238,26 +225,42 @@ const displayProjects = (data) => {
     let projectRepoUrl = data[x].github_repo_url;
     console.log(data[x]);
     projectsDivHTML = `
-    <div class="project" data-toggle="modal"  data-target="#${projectId}" >
-      <h3>${projectName}</h3>
-      <img src="${projectThumb}" alt="${projectName} responsive snapshot">
-      <div class="modal fade" id="${projectId}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="${projectId}label">
-        <div class="modal-dialog modal-lg" role="document">
+    <div class="project" >
+      <h4 class="project-h4">${projectName}</h4>
 
-        </div>
+      <div class="image-zoom-pan">
+        <div class="tile" data-scale="3" data-image="${projectThumb}"></div>
+
+      </div>
+      <div class="skills-cont">
+        <h5 class="heading">Skills used</h5>
+        ${skillsHTML}
+      </div>
+      <button class="btn btn-default btn-lg" data-toggle="modal"  data-target="#${projectId}">Read more</button>
+
+    </div>
+    <div class="modal fade" id="${projectId}" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="${projectId}label">
+      <div class="modal-dialog modal-lg" role="document">
+
       </div>
     </div>
-    <div class="project-info ">
-      <h3>Project description</h3>
+    <div class="project-info animate">
+      <h4 class="project-h4">Project description</h4>
       <p class="project-p">
         ${projectDescription}
       </p>
-
+    </div>
+    <div class="timeline-circle">
+      <span class="circle animate-circle"></span>
+      <span class="line1 animate-line1"></span>
+      <span class="line2 animate-line2"></span>
+      <span class="line3 animate-line3"></span>
+      <span class="line4 animate-line4"></span>
     </div>`
     modalContent = `
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close modal-close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h3 class="modal-title" id="${projectId}label">${projectName}</h3>
         <img src="${projectImg}" alt="${projectName} big snapshot">
       </div>
@@ -285,29 +288,90 @@ const displayProjects = (data) => {
           </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" >Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
     `
     projectsDiv.append(projectsDivHTML);
-    let projectBox = $('.project[data-target="#' + projectId +'"]');
-    let modalDialog = $('.project[data-target="#' + projectId +'"] .modal-dialog');
+    $('.tile[data-image="' + projectThumb + '"]')
+    // tile mouse actions
+    .on('mouseover', function(){
+      $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+    })
+    .on('mouseout', function(){
+      $(this).children('.photo').css({'transform': 'scale(1)'});
+    })
+    .on('mousemove', function(e){
+      $(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+    })
+    // tiles set up
+    .each(function(){
+      $(this)
+        // add a photo container
+        .append('<div class="photo"></div>')
+        // some text just to show zoom level on current item in this example
+
+        // set up a background image for each tile based on data-image attribute
+        .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+    })
+    let projectBox = $('button[data-target="#' + projectId +'"]');
+    let modalDialog = $('button[data-target="#' + projectId +'"]').parent().next();
     projectBox.click(function() {
       modalDialog.append(modalContent);
-      projectsBox.modal();
+      let dismissBtn = $('button[data-dismiss="modal"]');
+      dismissBtn.click(function() {
+        setTimeout(function() {
+          modalDialog.html('');
+        },500);
+      });
+    });
+    $.each($('.project-info'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'animation-in-bottom3'
+        });
+    });
+    $.each($('.project'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'animation-in-left'
+        });
+    });
+    $.each($('.circle'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'circle-scale-in'
+        });
+    });
 
+    $.each($('.line1'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'line1-drawing'
+        });
+    });
+    $.each($('.line2'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'line2-drawing',
+          offset: 20
+        });
+    });
+    $.each($('.line3'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'line3-drawing'
+        });
+    });
+    $.each($('.line4'), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: 'line4-drawing',
+          offset: 20
+        });
     });
   });
 
-
-
-
-
-
   checkSize();
   $(window).resize(checkSize);
-
-
-
-
 }

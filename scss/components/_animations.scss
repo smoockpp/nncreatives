@@ -3,12 +3,14 @@
 */
 
 
+/*
+ * Animation for incoming elements from bottom
+ */
+
 .animate {
   position: relative;
-  top: 0;
   opacity: 0;
 }
-
 
 .animation-in-bottom0 {
   animation: in-bottom .5s ease .2s 1 normal forwards running;
@@ -23,7 +25,6 @@
   }
 }
 
-
 .animation-in-bottom1 {
   animation: in-bottom-1 .5s ease .4s 1 normal forwards running;
 }
@@ -36,7 +37,6 @@
     opacity: 1;
   }
 }
-
 
 .animation-in-bottom2 {
   animation: in-bottom-1-5 .5s ease .6s 1 normal forwards running;
@@ -51,7 +51,6 @@
   }
 }
 
-
 .animation-in-bottom3 {
   animation: in-bottom-2 .5s ease .8s 1 normal forwards running;
 }
@@ -61,6 +60,106 @@
   }
   100% {
     top: 0;
+    opacity: 1;
+  }
+}
+
+
+
+
+/*
+ * Animations for timeline elements
+ */
+
+
+// Animation for circle
+.animate-circle {
+ transform-origin: center center;
+}
+.circle-scale-in {
+ animation: circle-scale-in .3s ease .3s 1 normal forwards running;
+}
+@keyframes circle-scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+
+// Animation for line1
+.line1-drawing {
+  animation: line1-drawing .3s ease .6s 1 normal forwards running;
+}
+@keyframes line1-drawing {
+  from {
+    width: 0;
+    transform-origin: top right;
+  }
+  to {
+    width: 100px;
+    transform-origin: top right;
+  }
+}
+
+// Animation for line2
+.line2-drawing {
+  animation: line2-drawing .3s ease .9s 1 normal forwards running;
+  top: 78px;
+}
+@keyframes line2-drawing {
+  from {
+    width: 0;
+    transform-origin: center right;
+  }
+  to {
+    width: calc(50% - 65px);
+    transform-origin: center right;
+  }
+}
+
+.line3-drawing {
+  animation: line3-drawing .3s ease 1s 1 normal forwards running;
+}
+@keyframes line3-drawing {
+  from {
+    width: 0;
+    transform-origin: bottom right;
+  }
+  to {
+    width: 100px;
+    transform-origin: bottom right;
+  }
+}
+
+// Animation for line2
+.line4-drawing {
+  animation: line4-drawing .3s ease 1.3s 1 normal forwards running;
+
+}
+@keyframes line4-drawing {
+  from {
+    width: 0;
+    transform-origin: center right;
+  }
+  to {
+    width: calc(50% - 65px);
+    transform-origin: center right;
+  }
+}
+
+
+.animation-in-left {
+  animation: in-left 1.3s ease .3s 1 normal forwards running;
+}
+@keyframes in-left {
+  0% {
+    left: -300px;
+  }
+  100% {
+    left: 0;
     opacity: 1;
   }
 }

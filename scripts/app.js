@@ -11996,6 +11996,8 @@ if (typeof jQuery === 'undefined') {
 	});
 }(jQuery);
 
+'use strict';
+
 var data = void 0;
 
 var xhrRequest = function xhrRequest(callback, url) {
@@ -12060,31 +12062,25 @@ var displayTreehouse = function displayTreehouse(data) {
 			var el = $('ul.pagination li.active a');
 			var current = parseInt(el.attr('data-target'));
 			if ($(this).attr('aria-label') == 'Previous') {
-
 				if (current === 1) {
 					el.parent().removeClass('active');
 					el.parent().addClass('active');
 					$(this).parent().addClass('disabled');
-					// createBadges(1, 4);
 					pagesCase('1');
 				} else if (current === 2) {
 					el.parent().removeClass('active');
 					el.parent().prev().addClass('active');
 					pagesCase('1');
-					// createBadges(1, 4);
 				} else if (current == 3) {
 					el.parent().removeClass('active');
 					el.parent().prev().addClass('active');
 					pagesCase('2');
-					// createBadges(5, 8);
 				}
 			} else if ($(this).attr('aria-label') == 'Next') {
-
 				if (current === 3) {
 					el.parent().removeClass('active');
 					el.parent().addClass('active');
 					pagesCase('3');
-					// createBadges(9, 12);
 				} else if (current === 2) {
 					el.parent().removeClass('active');
 					el.parent().next().addClass('active');
@@ -12093,7 +12089,6 @@ var displayTreehouse = function displayTreehouse(data) {
 					el.parent().removeClass('active');
 					el.parent().next().addClass('active');
 					pagesCase('2');
-					// createBadges(5, 8);
 				}
 			} else {
 				pages.each(function (y) {
@@ -12116,10 +12111,7 @@ var displayTreehouse = function displayTreehouse(data) {
 		var badgesHTML = "";
 		for (var key in badges) {
 			badgesHTML += "\n        <tr class=\"col-xs-12 col-sm-6 col-md-3 animate\" data-target=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
-
-			// console.log(badges[key].icon_url);
 		}
-
 		$(badgesDiv).html(badgesHTML);
 		var tableRow = $('tbody tr');
 		tableRow.click(function () {
@@ -12133,7 +12125,6 @@ var displayTreehouse = function displayTreehouse(data) {
 				alert('Please allow popups for this website');
 			}
 		});
-
 		checkSize();
 
 		$.each($('tr.animate'), function (x, y) {
@@ -12195,14 +12186,83 @@ var displayProjects = function displayProjects(data) {
 		var projectIoUrl = data[x].github_io_url;
 		var projectRepoUrl = data[x].github_repo_url;
 		console.log(data[x]);
-		projectsDivHTML = "\n    <div class=\"project\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\" >\n      <h3>" + projectName + "</h3>\n      <img src=\"" + projectThumb + "\" alt=\"" + projectName + " responsive snapshot\">\n      <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n        <div class=\"modal-dialog modal-lg\" role=\"document\">\n\n        </div>\n      </div>\n    </div>\n    <div class=\"project-info \">\n      <h3>Project description</h3>\n      <p class=\"project-p\">\n        " + projectDescription + "\n      </p>\n\n    </div>";
-		modalContent = "\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close modal-close\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n        <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n        <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n      </div>\n      <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-12 col-sm-6\">\n              <h4 class=\"modal-title\">Project description</h4>\n              <p class=\"modal-p\">\n                " + projectDescription + "\n              </p>\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Skills used</h4>\n              " + skillsHTML + "\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Grade</h4>\n              <p class=\"grade\">\"" + projectGrade + "\"</p>\n            </div>\n            <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n              <h4 class=\"modal-title\">Links</h4>\n              <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n              <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n            </div>\n          </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" >Close</button>\n      </div>\n    </div>\n    ";
+		projectsDivHTML = "\n    <div class=\"project\" >\n      <h4 class=\"project-h4\">" + projectName + "</h4>\n\n      <div class=\"image-zoom-pan\">\n        <div class=\"tile\" data-scale=\"3\" data-image=\"" + projectThumb + "\"></div>\n\n      </div>\n      <div class=\"skills-cont\">\n        <h5 class=\"heading\">Skills used</h5>\n        " + skillsHTML + "\n      </div>\n      <button class=\"btn btn-default btn-lg\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\">Read more</button>\n\n    </div>\n    <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n      <div class=\"modal-dialog modal-lg\" role=\"document\">\n\n      </div>\n    </div>\n    <div class=\"project-info animate\">\n      <h4 class=\"project-h4\">Project description</h4>\n      <p class=\"project-p\">\n        " + projectDescription + "\n      </p>\n    </div>\n    <div class=\"timeline-circle\">\n      <span class=\"circle animate-circle\"></span>\n      <span class=\"line1 animate-line1\"></span>\n      <span class=\"line2 animate-line2\"></span>\n      <span class=\"line3 animate-line3\"></span>\n      <span class=\"line4 animate-line4\"></span>\n    </div>";
+		modalContent = "\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close modal-close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n        <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n        <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n      </div>\n      <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-12 col-sm-6\">\n              <h4 class=\"modal-title\">Project description</h4>\n              <p class=\"modal-p\">\n                " + projectDescription + "\n              </p>\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Skills used</h4>\n              " + skillsHTML + "\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Grade</h4>\n              <p class=\"grade\">\"" + projectGrade + "\"</p>\n            </div>\n            <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n              <h4 class=\"modal-title\">Links</h4>\n              <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n              <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n            </div>\n          </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n    ";
 		projectsDiv.append(projectsDivHTML);
-		var projectBox = $('.project[data-target="#' + projectId + '"]');
-		var modalDialog = $('.project[data-target="#' + projectId + '"] .modal-dialog');
+		$('.tile[data-image="' + projectThumb + '"]')
+		// tile mouse actions
+		.on('mouseover', function () {
+			$(this).children('.photo').css({ 'transform': 'scale(' + $(this).attr('data-scale') + ')' });
+		}).on('mouseout', function () {
+			$(this).children('.photo').css({ 'transform': 'scale(1)' });
+		}).on('mousemove', function (e) {
+			$(this).children('.photo').css({ 'transform-origin': (e.pageX - $(this).offset().left) / $(this).width() * 100 + '% ' + (e.pageY - $(this).offset().top) / $(this).height() * 100 + '%' });
+		})
+		// tiles set up
+		.each(function () {
+			$(this)
+			// add a photo container
+			.append('<div class="photo"></div>')
+			// some text just to show zoom level on current item in this example
+
+			// set up a background image for each tile based on data-image attribute
+			.children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-image') + ')' });
+		});
+		var projectBox = $('button[data-target="#' + projectId + '"]');
+		var modalDialog = $('button[data-target="#' + projectId + '"]').parent().next();
 		projectBox.click(function () {
 			modalDialog.append(modalContent);
-			projectsBox.modal();
+			var dismissBtn = $('button[data-dismiss="modal"]');
+			dismissBtn.click(function () {
+				setTimeout(function () {
+					modalDialog.html('');
+				}, 500);
+			});
+		});
+		$.each($('.project-info'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'animation-in-bottom3'
+			});
+		});
+		$.each($('.project'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'animation-in-left'
+			});
+		});
+		$.each($('.circle'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'circle-scale-in'
+			});
+		});
+
+		$.each($('.line1'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'line1-drawing'
+			});
+		});
+		$.each($('.line2'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'line2-drawing',
+				offset: 20
+			});
+		});
+		$.each($('.line3'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'line3-drawing'
+			});
+		});
+		$.each($('.line4'), function (x, y) {
+			var el = $(this);
+			el.viewportChecker({
+				classToAdd: 'line4-drawing',
+				offset: 20
+			});
 		});
 	});
 
@@ -12271,6 +12331,7 @@ paginationLinks.click(function (e) {
 });
 
 function checkSize() {
+
 	if ($(window).width() >= 480) {
 		$('.json-data tr').removeClass('col-xs-12');
 		$('.json-data tr').addClass('col-xs-6');

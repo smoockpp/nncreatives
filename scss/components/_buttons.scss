@@ -1,1 +1,16 @@
 
+.btn {
+  @include transition(all, .2s);
+  background-color: transparent;
+  color: $color-1;
+  border-radius: 20px;
+  border: 2px solid $color-1;
+  padding: 10px 30px;
+
+  margin: 1em auto;
+  &:hover {
+    background-color: $color-1;
+    transform: scale(1.1, 1.1);
+    color: $color-5;
+  }
+}

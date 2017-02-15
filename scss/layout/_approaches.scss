@@ -7,10 +7,8 @@
     ),
     /* your image */
     url('../data/images/creative.jpg');
-  background-size: cover;
-  @media #{$brk-wide} {
-    background-attachment: fixed;
-  }
+  background-size: fixed;
+
   padding-top: 4em;
   padding-bottom: 4em;
 

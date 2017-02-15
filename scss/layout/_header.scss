@@ -3,22 +3,18 @@
 header#index-header {
   width: 100%;
   height: 100vh;
-  background: url('../data/images/header-bg.jpg') no-repeat center left;
-  background-size: cover;
-  .header-bg {
-      display: block;
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: $color-5;
-      opacity: .7;
-      z-index: 0;
-      @media only (orientation: landscape) {
-        height: 100vh;
 
-      }
-  }
+  background:
+    /* top, transparent red */
+    linear-gradient(
+      transparentize($color-5, .3),
+      transparentize($color-5, .3)
+    ),
+    /* your image */
+    url('../data/images/header-bg.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+
   .container {
     position: absolute;
     top: 45%;
@@ -52,21 +48,7 @@ header#index-header {
         font-size: 1.8em;
       }
     }
-    button {
-      @include transition(all, .2s);
-      background-color: transparent;
-      color: $color-1;
-      border-radius: 20px;
-      border: 2px solid $color-1;
-      padding: 10px 30px;
-
-      margin: 1em auto;
-      &:hover {
-        background-color: $color-1;
-        transform: scale(1.1, 1.1);
-        color: $color-5;
-      }
-    }
+    
     @media only (orientation: landscape) {
       transform: translate(-50%, -50%);
     }
