@@ -9,8 +9,6 @@ const xhrRequest = (callback, url) => {
         if (xhr.readyState == XMLHttpRequest.DONE ) {
            if (xhr.status == 200) {
              data = JSON.parse(xhr.responseText);
-
-             console.log(data);
              callback(data);
            }
            else if (xhr.status == 400) {
@@ -37,7 +35,6 @@ const displayTreehouse = (data) => {
   function pagesCase(el) {
     let prev = $('ul.pagination li a[aria-label="Previous"]');
     let next = $('ul.pagination li a[aria-label="Next"]');
-    console.log(prev, next);
     switch (el) {
       case '1':
         createBadges(1, 4);
@@ -142,7 +139,7 @@ const displayTreehouse = (data) => {
           alert('Please allow popups for this website');
       }
     });
-    checkSize();
+
 
     $.each($('tr.animate'), function(x, y) {
       let el = $(this);
@@ -223,7 +220,6 @@ const displayProjects = (data) => {
     let projectGrade = data[x].grade;
     let projectIoUrl = data[x].github_io_url;
     let projectRepoUrl = data[x].github_repo_url;
-    console.log(data[x]);
     projectsDivHTML = `
     <div class="project" >
       <h4 class="project-h4">${projectName}</h4>
@@ -293,27 +289,41 @@ const displayProjects = (data) => {
     </div>
     `
     projectsDiv.append(projectsDivHTML);
-    $('.tile[data-image="' + projectThumb + '"]')
-    // tile mouse actions
-    .on('mouseover', function(){
-      $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
-    })
-    .on('mouseout', function(){
-      $(this).children('.photo').css({'transform': 'scale(1)'});
-    })
-    .on('mousemove', function(e){
-      $(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
-    })
-    // tiles set up
-    .each(function(){
-      $(this)
-        // add a photo container
-        .append('<div class="photo"></div>')
-        // some text just to show zoom level on current item in this example
+    function checkSize() {
+      if ($(window).width() >= 768) {
+        $('.tile[data-image="' + projectThumb + '"]')
+        // tile mouse actions
+        .on('mouseover', function(){
+          $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+        })
+        .on('mouseout', function(){
+          $(this).children('.photo').css({'transform': 'scale(1)'});
+        })
+        .on('mousemove', function(e){
+          $(this).children('.photo').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+        })
+        // tiles set up
+        .each(function(){
+          $(this)
+            // add a photo container
+            .append('<div class="photo"></div>')
+            // some text just to show zoom level on current item in this example
+              // set up a background image for each tile based on data-image attribute
+            .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+        });
+      } else {
+        $('.tile[data-image="' + projectThumb + '"]').each(function(){
+          $(this)
+            // add a photo container
+            .append('<div class="photo"></div>')
+            // some text just to show zoom level on current item in this example
+              // set up a background image for each tile based on data-image attribute
+            .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+        });
+      }
+    }
+    $(window).resize(checkSize());
 
-        // set up a background image for each tile based on data-image attribute
-        .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
-    })
     let projectBox = $('button[data-target="#' + projectId +'"]');
     let modalDialog = $('button[data-target="#' + projectId +'"]').parent().next();
     projectBox.click(function() {
@@ -372,6 +382,6 @@ const displayProjects = (data) => {
         offset: 20
       });
   });
-  checkSize();
-  $(window).resize(checkSize);
+
+
 }

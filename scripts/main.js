@@ -32,8 +32,8 @@ $(function() {
 
 $(document).ready(function() {
   // run test on initial page load
-  checkSize();
-  $(window).resize(checkSize);
+
+
   $.each($('.header-inner .container').children(), function(x, y) {
     let el = $(this);
     el.viewportChecker({
@@ -52,7 +52,7 @@ $(document).ready(function() {
       });
     }
   });
-  
+
 
 
 

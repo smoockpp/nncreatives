@@ -1,68 +1,44 @@
 {
-  "Project-1": {
-    "id": "project1",
-    "img_url": "data/images/portfolio/project1-lg.jpg",
-    "thumb_url": "data/images/portfolio/project1.jpg",
-    "name": "Personal Profile Page",
-    "description": "In this project you'll customize a web page to create a personal profile page. You'll modify the HTML and CSS for a basic web page by adding graphics, custom text, and CSS. You'll put your finished project on GitHub, a website used by programmers and teams of programmers to share and work on their code. This project is a great way for you to practice your HTML and CSS skills. It also gives you a web page you can use as a personal online calling card to advertise your experience, skills, and goals and to provide links to your social media accounts on Twitter, LinkedIn and GitHub. You'll also practice using GitHub, an important tool used by millions of developers to help share code and work collaboratively on programming projects. Creating and using a GitHub account is also a great way to share your work with potential employers.",
-    "skills": {
-      "skill-1": "HTML",
-      "skill-2": "CSS"
-    },
-    "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Project1",
-    "github_io_url": "http://smoockpp.github.io/Project1/"
-  },
-  "Project-2": {
-    "id": "project2",
-    "img_url": "data/images/portfolio/project2-lg.jpg",
-    "thumb_url": "data/images/portfolio/project2.jpg",
-    "name": "Responsive Layout",
-    "description": "In this project you'll build a responsive, mobile-first layout using HTML and CSS. The design should respond to small, medium, and large viewport sizes and devices; and demonstrate an understanding of responsive design. You will write basic layout styles to style the page for a small mobile device first. Then, using media queries, add breakpoints to adjust the layout for wider tablet and desktop screens.",
-    "skills": {
-      "skill-1": "HTML",
-      "skill-2": "CSS"
-    },
-    "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Responsive-Layout-2",
-    "github_io_url": "http://smoockpp.github.io/Responsive-Layout-2/"
-  },
-  "Project-3": {
-    "id": "project3",
-    "img_url": "data/images/portfolio/project3-lg.jpg",
-    "thumb_url": "data/images/portfolio/project33.jpg",
-    "name": "Online Registration Form",
-    "description": "In this project you'll build a responsive, mobile-friendly registration form using a wide variety of HTML form input types and attributes. Using the supplied mockup files you'll build a mobile and desktop version of the form using media queries, and a 'mobile-first' approach.",
-    "skills": {
-      "skill-1": "HTML",
-      "skill-2": "CSS"
-    },
-    "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Registration-Form",
-    "github_io_url": "http://smoockpp.github.io/Registration-Form/"
-  },
-  "Project-4": {
-    "id": "project4",
-    "img_url": "data/images/portfolio/project4-lg.jpg",
-    "thumb_url": "data/images/portfolio/project3.jpg",
-    "name": "Interactive Photo Gallery",
-    "description": "In this project, you will create an interactive photo gallery using JavaScript and jQuery. Thumbnails and photos will be provided with descriptions. At the top of the page you'll have a search area where photos will hide and show depending on user input. When the user clicks on a thumbnail the photo will display in a lightbox. There should be a back and previous buttons to cycle through photos.",
+  "Project-12": {
+    "id": "project12",
+    "img_url": "data/images/portfolio/project12.jpg",
+    "thumb_url": "data/images/portfolio/project12.jpg",
+    "name": "Online Portfolio",
+    "description": "In this project you'll build an online portfolio to showcase the work you've created as part of this program and any projects you've built on your own. This is your chance to show the world (and potential employers) the work you've done. In fact, the portfolio site itself is a great way to show what you can do. Bring all of your talents with HTML, CSS and JavaScript together to create a fun and interactive online portfolio. You'll host the portfolio site on the web either using a traditional web hosting company, or using free GitHub Pages hosting. We aren't supplying any files for this project: what it looks like and how it works is up to you. You can use a framework like Twitter Bootstrap or Zurb Foundation, or simply build the HTML and CSS from scratch. The design is up to you, but see the Resources section for our courses on using frameworks and example portfolio sites you can use for inspiration.",
     "skills": {
       "skill-1": "HTML",
       "skill-2": "CSS",
-      "skill-3": "JavaScript",
-      "skill-4": "jQuery"
+      "skill-3": "Sass",
+      "skill-4": "JavaScript",
+      "skill-5": "jQuery",
+      "skill-6": "Bootstrap"
+    },
+    "grade": "Waiting for review",
+    "github_repo_url": "https://github.com/smoockpp/nncreatives",
+    "github_io_url": "http://smoockpp.github.io/nncreatives/"
+  },
+  "Project-11": {
+    "id": "project11",
+    "img_url": "data/images/portfolio/project11.jpg",
+    "thumb_url": "data/images/portfolio/project11.jpg",
+    "name": "Optimizing a Site for Performance",
+    "description": "Web site performance is often a live-or-die metric for web sites and apps. Sites and apps that load, or appear to load, quickly are usually seen as being better built and more useful. Also, taking people's available bandwidth, especially on mobile devices, into account makes people happier about using your site or app. Apply the skills you've learned for optimization of graphics, HTML, CSS, and JavaScript to take a poorly optimized page and reduce the total load size to under 1.3MB. You will need to analyze the assets you've been provided to see where optimizations can and need to be made, make those optimizations, and measure their success. Multiple analyzation, optimization, and measuring cycles may be required.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS",
+      "skill-3": "Sass",
+      "skill-4": "JavaScript"
     },
     "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Gallery-Project-From-Scratch",
-    "github_io_url": "http://smoockpp.github.io/Gallery-Project-From-Scratch/"
+    "github_repo_url": "https://github.com/smoockpp/performance-optimization/",
+    "github_io_url": "http://smoockpp.github.io/performance-optimization/"
   },
-  "Project-5": {
-    "id": "project5",
-    "img_url": "data/images/portfolio/project2-lg.jpg",
-    "thumb_url": "data/images/portfolio/project2.jpg",
-    "name": "CSS to Sass",
-    "description": "In this project you will convert a CSS stylesheet to Sass. You'll refactor the stylesheet from the 'Responsive Layout' project using SCSS partials, variables, extends, and mixins.",
+  "Project-10": {
+    "id": "project10",
+    "img_url": "data/images/portfolio/project10.jpg",
+    "thumb_url": "data/images/portfolio/project10.jpg",
+    "name": "Use an API to Create a Gallery",
+    "description": "Communicating with APIs allows you to work with microservices and with vast databases to build useful tools and relevant information quickly and easily. You can build utilities, games, infographics, and more. You can also integrate, display, and analyze social media and large data sets without having to create and curate them yourself. Use at least 1 of the supplied APIs to grab data from at least 6 items from that API. For example, 6 books on Open Library, or 6 movies from the Open Movie Database. Display these items on a page in an attractive gallery of images or titles. Clicking the image or title, opens a lightbox just as in the Interactive Lightbox project earlier with detailed information about the item.",
     "skills": {
       "skill-1": "HTML",
       "skill-2": "CSS",
@@ -71,56 +47,12 @@
       "skill-5": "jQuery"
     },
     "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Project5-CSS-to-Sass",
-    "github_io_url": "http://smoockpp.github.io/Project5-CSS-to-Sass/"
-  },
-  "Project-6": {
-    "id": "project6",
-    "img_url": "data/images/portfolio/project6-lg.jpg",
-    "thumb_url": "data/images/portfolio/project6.jpg",
-    "name": "SVG Site Update",
-    "description": "Graphics are an important part of any website. They add visual appeal and help translate complex ideas into easy to understand imagery. One type of image, SVG (scalable vector graphics) is becoming a widely used graphics format, replacing other types of images on many websites, because of SVGs better performance. This project challenges you to optimize a web page by using common techniques for adding this streamlined image format to web pages.",
-    "skills": {
-      "skill-1": "HTML",
-      "skill-2": "CSS"
-    },
-    "grade": "Meets Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Project6-SVG-site-update",
-    "github_io_url": "http://smoockpp.github.io/Project6-SVG-site-update/"
-  },
-  "Project-7": {
-    "id": "project7",
-    "img_url": "data/images/portfolio/project7-lg.jpg",
-    "thumb_url": "data/images/portfolio/project7.jpg",
-    "name": "Interactive Video Player",
-    "description": "In this project, you'll build an HTML5 video player using JavaScript and the HTML5 Video API. Using the supplied mockups, video files, and transcript, you'll build an interactive video player that synchronizes the video and the transcript. The transcript should be placed below the video, and should highlight as the video progresses. When a user clicks any part of the transcript it should take them to the appropriate place in the video.",
-    "skills": {
-      "skill-1": "HTML",
-      "skill-2": "CSS",
-      "skill-3": "JavaScript",
-      "skill-4": "jQuery"
-    },
-    "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Interactive-Video-Player",
-    "github_io_url": "http://smoockpp.github.io/Interactive-Video-Player/"
-  },
-  "Project-8": {
-    "id": "project8",
-    "img_url": "data/images/portfolio/project8-lg.jpg",
-    "thumb_url": "data/images/portfolio/project8.jpg",
-    "name": "Accessibility Refactor",
-    "description": "Accessible web sites allow anyone and everyone to use the web, regardless of physical or hardware differences. They also, generally, make sites faster to download and easier to parse for software like search engines. More accessible web sites are also starting to be given higher PageRank scores for web searches.",
-    "skills": {
-      "skill-1": "HTML",
-      "skill-2": "CSS"
-    },
-    "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/Accessibility-Refactor",
-    "github_io_url": "http://smoockpp.github.io/Accessibility-Refactor/"
+    "github_repo_url": "https://github.com/smoockpp/API-Gallery",
+    "github_io_url": "https://smoockpp.github.io/API-Gallery/"
   },
   "Project-9": {
     "id": "project9",
-    "img_url": "data/images/portfolio/project9-lg.jpg",
+    "img_url": "data/images/portfolio/project9.jpg",
     "thumb_url": "data/images/portfolio/project9.jpg",
     "name": "Web App Dashboard",
     "description": "Many websites do more than just give you information. Sites like GitHub, Zillow, Mint and Treehouse let users do things. They act like programs you run on your computer. These web applications, often include pages for looking at your profile, what you've done in the week or what you need to get done. These 'dashboards' act like your control panel for controlling the web app. In this project, you'll take a mockup and a few icons and build a beautiful, web dashboard complete with JavaScript-driven charts and graphs. You only need to take the design and create the HTML, CSS and JavaScript functionality for this one page -- you don't need to create other pages, or build any backend or database functionality.",
@@ -135,12 +67,56 @@
     "github_repo_url": "https://github.com/smoockpp/App-Dashboard",
     "github_io_url": "http://smoockpp.github.io/App-Dashboard/"
   },
-  "Project-10": {
-    "id": "project10",
-    "img_url": "data/images/portfolio/project10-lg.jpg",
-    "thumb_url": "data/images/portfolio/project10.jpg",
-    "name": "Use an API to Create a Gallery",
-    "description": "Communicating with APIs allows you to work with microservices and with vast databases to build useful tools and relevant information quickly and easily. You can build utilities, games, infographics, and more. You can also integrate, display, and analyze social media and large data sets without having to create and curate them yourself. Use at least 1 of the supplied APIs to grab data from at least 6 items from that API. For example, 6 books on Open Library, or 6 movies from the Open Movie Database. Display these items on a page in an attractive gallery of images or titles. Clicking the image or title, opens a lightbox just as in the Interactive Lightbox project earlier with detailed information about the item.",
+  "Project-8": {
+    "id": "project8",
+    "img_url": "data/images/portfolio/project8.jpg",
+    "thumb_url": "data/images/portfolio/project8.jpg",
+    "name": "Accessibility Refactor",
+    "description": "Accessible web sites allow anyone and everyone to use the web, regardless of physical or hardware differences. They also, generally, make sites faster to download and easier to parse for software like search engines. More accessible web sites are also starting to be given higher PageRank scores for web searches.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS"
+    },
+    "grade": "Exceeds Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Accessibility-Refactor",
+    "github_io_url": "http://smoockpp.github.io/Accessibility-Refactor/"
+  },
+  "Project-7": {
+    "id": "project7",
+    "img_url": "data/images/portfolio/project7.jpg",
+    "thumb_url": "data/images/portfolio/project7.jpg",
+    "name": "Interactive Video Player",
+    "description": "In this project, you'll build an HTML5 video player using JavaScript and the HTML5 Video API. Using the supplied mockups, video files, and transcript, you'll build an interactive video player that synchronizes the video and the transcript. The transcript should be placed below the video, and should highlight as the video progresses. When a user clicks any part of the transcript it should take them to the appropriate place in the video.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS",
+      "skill-3": "JavaScript",
+      "skill-4": "jQuery"
+    },
+    "grade": "Exceeds Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Interactive-Video-Player",
+    "github_io_url": "http://smoockpp.github.io/Interactive-Video-Player/"
+  },
+  "Project-6": {
+    "id": "project6",
+    "img_url": "data/images/portfolio/project6.jpg",
+    "thumb_url": "data/images/portfolio/project6.jpg",
+    "name": "SVG Site Update",
+    "description": "Graphics are an important part of any website. They add visual appeal and help translate complex ideas into easy to understand imagery. One type of image, SVG (scalable vector graphics) is becoming a widely used graphics format, replacing other types of images on many websites, because of SVGs better performance. This project challenges you to optimize a web page by using common techniques for adding this streamlined image format to web pages.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS"
+    },
+    "grade": "Meets Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Project6-SVG-site-update",
+    "github_io_url": "http://smoockpp.github.io/Project6-SVG-site-update/"
+  },
+  "Project-5": {
+    "id": "project5",
+    "img_url": "data/images/portfolio/project5.jpg",
+    "thumb_url": "data/images/portfolio/project5.jpg",
+    "name": "CSS to Sass",
+    "description": "In this project you will convert a CSS stylesheet to Sass. You'll refactor the stylesheet from the 'Responsive Layout' project using SCSS partials, variables, extends, and mixins.",
     "skills": {
       "skill-1": "HTML",
       "skill-2": "CSS",
@@ -149,7 +125,65 @@
       "skill-5": "jQuery"
     },
     "grade": "Exceeds Expectations",
-    "github_repo_url": "https://github.com/smoockpp/API-Gallery",
-    "github_io_url": "https://smoockpp.github.io/API-Gallery/"
+    "github_repo_url": "https://github.com/smoockpp/Project5-CSS-to-Sass",
+    "github_io_url": "http://smoockpp.github.io/Project5-CSS-to-Sass/"
+  },
+  "Project-4": {
+    "id": "project4",
+    "img_url": "data/images/portfolio/project4.jpg",
+    "thumb_url": "data/images/portfolio/project3.jpg",
+    "name": "Interactive Photo Gallery",
+    "description": "In this project, you will create an interactive photo gallery using JavaScript and jQuery. Thumbnails and photos will be provided with descriptions. At the top of the page you'll have a search area where photos will hide and show depending on user input. When the user clicks on a thumbnail the photo will display in a lightbox. There should be a back and previous buttons to cycle through photos.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS",
+      "skill-3": "JavaScript",
+      "skill-4": "jQuery"
+    },
+    "grade": "Exceeds Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Gallery-Project-From-Scratch",
+    "github_io_url": "http://smoockpp.github.io/Gallery-Project-From-Scratch/"
+  },
+  "Project-3": {
+    "id": "project3",
+    "img_url": "data/images/portfolio/project3.jpg",
+    "thumb_url": "data/images/portfolio/project33.jpg",
+    "name": "Online Registration Form",
+    "description": "In this project you'll build a responsive, mobile-friendly registration form using a wide variety of HTML form input types and attributes. Using the supplied mockup files you'll build a mobile and desktop version of the form using media queries, and a 'mobile-first' approach.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS"
+    },
+    "grade": "Exceeds Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Registration-Form",
+    "github_io_url": "http://smoockpp.github.io/Registration-Form/"
+  },
+  "Project-2": {
+    "id": "project2",
+    "img_url": "data/images/portfolio/project2.jpg",
+    "thumb_url": "data/images/portfolio/project2.jpg",
+    "name": "Responsive Layout",
+    "description": "In this project you'll build a responsive, mobile-first layout using HTML and CSS. The design should respond to small, medium, and large viewport sizes and devices; and demonstrate an understanding of responsive design. You will write basic layout styles to style the page for a small mobile device first. Then, using media queries, add breakpoints to adjust the layout for wider tablet and desktop screens.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS"
+    },
+    "grade": "Exceeds Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Responsive-Layout-2",
+    "github_io_url": "http://smoockpp.github.io/Responsive-Layout-2/"
+  },
+  "Project-1": {
+    "id": "project1",
+    "img_url": "data/images/portfolio/project1.jpg",
+    "thumb_url": "data/images/portfolio/project1.jpg",
+    "name": "Personal Profile Page",
+    "description": "In this project you'll customize a web page to create a personal profile page. You'll modify the HTML and CSS for a basic web page by adding graphics, custom text, and CSS. You'll put your finished project on GitHub, a website used by programmers and teams of programmers to share and work on their code. This project is a great way for you to practice your HTML and CSS skills. It also gives you a web page you can use as a personal online calling card to advertise your experience, skills, and goals and to provide links to your social media accounts on Twitter, LinkedIn and GitHub. You'll also practice using GitHub, an important tool used by millions of developers to help share code and work collaboratively on programming projects. Creating and using a GitHub account is also a great way to share your work with potential employers.",
+    "skills": {
+      "skill-1": "HTML",
+      "skill-2": "CSS"
+    },
+    "grade": "Exceeds Expectations",
+    "github_repo_url": "https://github.com/smoockpp/Project1",
+    "github_io_url": "http://smoockpp.github.io/Project1/"
   }
 }

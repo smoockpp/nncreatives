@@ -21,15 +21,6 @@ paginationLinks.click(function(e) {
 });
 
 
-function checkSize(){
-  
-    if ($(window).width() >= 480) {
-      $('.json-data tr').removeClass('col-xs-12');
-      $('.json-data tr').addClass('col-xs-6');
-    } else {
-      $('.json-data tr').removeClass('col-xs-6');
-      $('.json-data tr').addClass('col-xs-12');
-    }
-}
+
 
 //Function to the css rule

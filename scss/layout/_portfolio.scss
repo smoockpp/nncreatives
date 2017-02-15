@@ -117,7 +117,7 @@
             height: 100%;
 
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: center center;
             background-size: cover;
             transition: transform .5s ease-out;
           }
@@ -197,13 +197,10 @@
 }
 
 .modal {
-
-  top: 50px;
+  z-index: 10000;
+  top: -10px;
 }
 
-.modal-backdrop {
-
-}
 
 .modal-content {
   background-color: $color-1;
