@@ -17,12 +17,12 @@ gulp.task('concatScripts', function() {
       'bower_components/jquery/dist/jquery.js',
       'scripts/visibility.js',
       'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
-      'scripts/ajax.js',
+
       'scripts/overlay.js',
       'scripts/sticky-nav.js',
       'scripts/fixes.js',
       'scripts/location-handler.js',
-
+      'scripts/ajax.js',
       'scripts/main.js'])
 
 

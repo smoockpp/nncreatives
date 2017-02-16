@@ -289,14 +289,27 @@ const displayProjects = (data) => {
     </div>
     `
     projectsDiv.append(projectsDivHTML);
+
+
+    let projectBox = $('button[data-target="#' + projectId +'"]');
+    let modalDialog = $('button[data-target="#' + projectId +'"]').parent().next();
+    projectBox.click(function() {
+      modalDialog.append(modalContent);
+      let dismissBtn = $('button[data-dismiss="modal"]');
+      dismissBtn.click(function() {
+        setTimeout(function() {
+          modalDialog.html('');
+        },500);
+      });
+    });
     function checkSize() {
       if ($(window).width() >= 768) {
         $('.tile[data-image="' + projectThumb + '"]')
         // tile mouse actions
-        .on('mouseover', function(){
+        .mouseenter(function(){
           $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
         })
-        .on('mouseout', function(){
+        .mouseleave(function(){
           $(this).children('.photo').css({'transform': 'scale(1)'});
         })
         .on('mousemove', function(e){
@@ -323,20 +336,8 @@ const displayProjects = (data) => {
       }
     }
     $(window).resize(checkSize());
-
-    let projectBox = $('button[data-target="#' + projectId +'"]');
-    let modalDialog = $('button[data-target="#' + projectId +'"]').parent().next();
-    projectBox.click(function() {
-      modalDialog.append(modalContent);
-      let dismissBtn = $('button[data-dismiss="modal"]');
-      dismissBtn.click(function() {
-        setTimeout(function() {
-          modalDialog.html('');
-        },500);
-      });
-    });
-
   });
+
   $.each($('.project-info'), function(x, y) {
     let el = $(this);
       el.viewportChecker({

@@ -11996,6 +11996,88 @@ if (typeof jQuery === 'undefined') {
 	});
 }(jQuery);
 
+// const iconWrapper = $('.icon-wrapper');
+// const overlay = $('.icon-overlay');
+//
+// iconWrapper.mouseenter(function() {
+//   $(this).find(overlay).animate({
+//     height: '100%',
+//     display: 'block'
+//   },
+//   {
+//     duration: 200
+//   });
+//   console.log(overlay.children('.heading'));
+//   $(this).find(overlay).children('.heading').css('display', 'inline-block');
+// });
+// iconWrapper.mouseleave(function() {
+//   $(this).find(overlay).animate({
+//     height: '0',
+//     display: 'none'
+//   },
+//   {
+//     duration: 200
+//   });
+//   setTimeout(function() {
+//     $(this).find(overlay).children('.heading').css('display', 'none');
+//   }, 200);
+//
+// });
+
+$(window).scroll(function () {
+	if ($(this).scrollTop() > 100) {
+		$('.navbar').addClass("sticky ");
+		setTimeout(function () {
+			$('.sticky').addClass('sticky-color');
+		}, 300);
+	} else {
+		$('.sticky').removeClass('sticky-color');
+		$('.navbar').removeClass("sticky");
+	}
+});
+
+'use strict';
+
+// Fix logo and collapse button colors when nav not sticky
+var nav = $('#navbar');
+var logo = $('.navbar-brand');
+
+$('.navbar-toggle').click(function () {
+	if (!nav.hasClass('in')) {
+		$('nav').addClass('sticky');
+	} else {
+		$('nav').removeClass('sticky');
+	}
+});
+
+var paginationLinks = $('ul.pagination li a');
+
+paginationLinks.click(function (e) {
+	e.preventDefault();
+});
+
+//Function to the css rule
+
+// Change location after hash for each page
+
+
+// $(function(){
+//   let links = ['/index.html', '/about.html', '/portfolio.html', '/contact.html'];
+//   let location = window.location.pathname;
+//
+//   console.log(location);
+//   $.each(links, function(i, v) {
+//     if ( location == links[v] ) {
+//       console.log(links[v]);
+//       location = '/';
+//     }
+//   });
+//
+//
+//
+//
+// });
+
 'use strict';
 
 var data = void 0;
@@ -12184,13 +12266,25 @@ var displayProjects = function displayProjects(data) {
 		projectsDivHTML = "\n    <div class=\"project\" >\n      <h4 class=\"project-h4\">" + projectName + "</h4>\n\n      <div class=\"image-zoom-pan\">\n        <div class=\"tile\" data-scale=\"3\" data-image=\"" + projectThumb + "\"></div>\n\n      </div>\n      <div class=\"skills-cont\">\n        <h5 class=\"heading\">Skills used</h5>\n        " + skillsHTML + "\n      </div>\n      <button class=\"btn btn-default btn-lg\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\">Read more</button>\n\n    </div>\n    <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n      <div class=\"modal-dialog modal-lg\" role=\"document\">\n\n      </div>\n    </div>\n    <div class=\"project-info animate\">\n      <h4 class=\"project-h4\">Project description</h4>\n      <p class=\"project-p\">\n        " + projectDescription + "\n      </p>\n    </div>\n    <div class=\"timeline-circle\">\n      <span class=\"circle animate-circle\"></span>\n      <span class=\"line1 animate-line1\"></span>\n      <span class=\"line2 animate-line2\"></span>\n      <span class=\"line3 animate-line3\"></span>\n      <span class=\"line4 animate-line4\"></span>\n    </div>";
 		modalContent = "\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close modal-close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n        <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n        <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n      </div>\n      <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-12 col-sm-6\">\n              <h4 class=\"modal-title\">Project description</h4>\n              <p class=\"modal-p\">\n                " + projectDescription + "\n              </p>\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Skills used</h4>\n              " + skillsHTML + "\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Grade</h4>\n              <p class=\"grade\">\"" + projectGrade + "\"</p>\n            </div>\n            <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n              <h4 class=\"modal-title\">Links</h4>\n              <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n              <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n            </div>\n          </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n    ";
 		projectsDiv.append(projectsDivHTML);
+
+		var projectBox = $('button[data-target="#' + projectId + '"]');
+		var modalDialog = $('button[data-target="#' + projectId + '"]').parent().next();
+		projectBox.click(function () {
+			modalDialog.append(modalContent);
+			var dismissBtn = $('button[data-dismiss="modal"]');
+			dismissBtn.click(function () {
+				setTimeout(function () {
+					modalDialog.html('');
+				}, 500);
+			});
+		});
 		function checkSize() {
 			if ($(window).width() >= 768) {
 				$('.tile[data-image="' + projectThumb + '"]')
 				// tile mouse actions
-				.on('mouseover', function () {
+				.mouseenter(function () {
 					$(this).children('.photo').css({ 'transform': 'scale(' + $(this).attr('data-scale') + ')' });
-				}).on('mouseout', function () {
+				}).mouseleave(function () {
 					$(this).children('.photo').css({ 'transform': 'scale(1)' });
 				}).on('mousemove', function (e) {
 					$(this).children('.photo').css({ 'transform-origin': (e.pageX - $(this).offset().left) / $(this).width() * 100 + '% ' + (e.pageY - $(this).offset().top) / $(this).height() * 100 + '%' });
@@ -12216,19 +12310,8 @@ var displayProjects = function displayProjects(data) {
 			}
 		}
 		$(window).resize(checkSize());
-
-		var projectBox = $('button[data-target="#' + projectId + '"]');
-		var modalDialog = $('button[data-target="#' + projectId + '"]').parent().next();
-		projectBox.click(function () {
-			modalDialog.append(modalContent);
-			var dismissBtn = $('button[data-dismiss="modal"]');
-			dismissBtn.click(function () {
-				setTimeout(function () {
-					modalDialog.html('');
-				}, 500);
-			});
-		});
 	});
+
 	$.each($('.project-info'), function (x, y) {
 		var el = $(this);
 		el.viewportChecker({
@@ -12275,88 +12358,6 @@ var displayProjects = function displayProjects(data) {
 		});
 	});
 };
-
-// const iconWrapper = $('.icon-wrapper');
-// const overlay = $('.icon-overlay');
-//
-// iconWrapper.mouseenter(function() {
-//   $(this).find(overlay).animate({
-//     height: '100%',
-//     display: 'block'
-//   },
-//   {
-//     duration: 200
-//   });
-//   console.log(overlay.children('.heading'));
-//   $(this).find(overlay).children('.heading').css('display', 'inline-block');
-// });
-// iconWrapper.mouseleave(function() {
-//   $(this).find(overlay).animate({
-//     height: '0',
-//     display: 'none'
-//   },
-//   {
-//     duration: 200
-//   });
-//   setTimeout(function() {
-//     $(this).find(overlay).children('.heading').css('display', 'none');
-//   }, 200);
-//
-// });
-
-$(window).scroll(function () {
-	if ($(this).scrollTop() > 100) {
-		$('.navbar').addClass("sticky ");
-		setTimeout(function () {
-			$('.sticky').addClass('sticky-color');
-		}, 300);
-	} else {
-		$('.sticky').removeClass('sticky-color');
-		$('.navbar').removeClass("sticky");
-	}
-});
-
-'use strict';
-
-// Fix logo and collapse button colors when nav not sticky
-var nav = $('#navbar');
-var logo = $('.navbar-brand');
-
-$('.navbar-toggle').click(function () {
-	if (!nav.hasClass('in')) {
-		$('nav').addClass('sticky');
-	} else {
-		$('nav').removeClass('sticky');
-	}
-});
-
-var paginationLinks = $('ul.pagination li a');
-
-paginationLinks.click(function (e) {
-	e.preventDefault();
-});
-
-//Function to the css rule
-
-// Change location after hash for each page
-
-
-// $(function(){
-//   let links = ['/index.html', '/about.html', '/portfolio.html', '/contact.html'];
-//   let location = window.location.pathname;
-//
-//   console.log(location);
-//   $.each(links, function(i, v) {
-//     if ( location == links[v] ) {
-//       console.log(links[v]);
-//       location = '/';
-//     }
-//   });
-//
-//
-//
-//
-// });
 
 $(function () {
 	var loc = $(location).attr('pathname');

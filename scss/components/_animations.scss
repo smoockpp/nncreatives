@@ -106,16 +106,32 @@
 
 // Animation for line2
 .line2-drawing {
-  animation: line2-drawing .3s ease .9s 1 normal forwards running;
   top: 78px;
+  @media #{$brk-narrow} {
+    animation: line2-drawing-sm .3s ease .9s 1 normal forwards running;
+  }
+  @media #{$brk-wide} {
+    animation: line2-drawing-md .3s ease .9s 1 normal forwards running;
+  }
 }
-@keyframes line2-drawing {
+@keyframes line2-drawing-sm {
   from {
     width: 0;
     transform-origin: center right;
   }
   to {
-    width: calc(50% - 65px);
+    width: 295px;
+    transform-origin: center right;
+  }
+}
+
+@keyframes line2-drawing-md {
+  from {
+    width: 0;
+    transform-origin: center right;
+  }
+  to {
+    width: 432px;
     transform-origin: center right;
   }
 }
@@ -136,16 +152,32 @@
 
 // Animation for line2
 .line4-drawing {
-  animation: line4-drawing .3s ease 1.3s 1 normal forwards running;
+  @media #{$brk-narrow} {
+    animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running;
+  }
+  @media #{$brk-wide} {
+    animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running;
+  }
+
 
 }
-@keyframes line4-drawing {
+@keyframes line4-drawing-sm {
   from {
     width: 0;
     transform-origin: center right;
   }
   to {
-    width: calc(50% - 65px);
+    width: 295px;
+    transform-origin: center right;
+  }
+}
+@keyframes line4-drawing-md {
+  from {
+    width: 0;
+    transform-origin: center right;
+  }
+  to {
+    width: 432px;
     transform-origin: center right;
   }
 }
