@@ -225,7 +225,7 @@ const displayProjects = (data) => {
       <h4 class="project-h4">${projectName}</h4>
 
       <div class="image-zoom-pan">
-        <div class="tile" data-scale="3" data-image="${projectThumb}"></div>
+        <div class="tile" data-scale="3" data-thumb="${projectThumb}" data-image="${projectImg}"></div>
 
       </div>
       <div class="skills-cont">
@@ -308,12 +308,13 @@ const displayProjects = (data) => {
     });
     function checkSize() {
       if ($(window).width() >= 768) {
-        $('.tile[data-image="' + projectThumb + '"]')
+        $('.tile[data-thumb="' + projectThumb + '"]')
         // tile mouse actions
-        .mouseenter(function(){
+        .on('mouseover', function(){
+          $(this).children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
           $(this).children('.photo').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
         })
-        .mouseleave(function(){
+        .on('mouseout', function(){
           $(this).children('.photo').css({'transform': 'scale(1)'});
         })
         .on('mousemove', function(e){
@@ -326,16 +327,16 @@ const displayProjects = (data) => {
             .append('<div class="photo"></div>')
             // some text just to show zoom level on current item in this example
               // set up a background image for each tile based on data-image attribute
-            .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+            .children('.photo').css({'background-image': 'url('+ $(this).attr('data-thumb') +')'});
         });
       } else {
-        $('.tile[data-image="' + projectThumb + '"]').each(function(){
+        $('.tile[data-thumb="' + projectThumb + '"]').each(function(){
           $(this)
             // add a photo container
             .append('<div class="photo"></div>')
             // some text just to show zoom level on current item in this example
               // set up a background image for each tile based on data-image attribute
-            .children('.photo').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+            .children('.photo').css({'background-image': 'url('+ $(this).attr('data-thumb') +')'});
         });
       }
     }
