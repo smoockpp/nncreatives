@@ -20,7 +20,7 @@ const xhrRequest = (callback, url) => {
         }
     };
     xhr.open("GET", url, true);
-    
+
     xhr.send();
 };
 
@@ -232,6 +232,10 @@ const displayProjects = (data) => {
         <h5 class="heading">Skills used</h5>
         ${skillsHTML}
       </div>
+      <div class="project-links">
+        <a href="${projectIoUrl}" target="_blank" class="project-link btn btn-default btn-lg">Visit Page</a>
+        <a href="${projectRepoUrl}" target="_blank" class="project-link btn btn-default btn-lg">Visit Repo</a>
+      </div>
       <button class="btn btn-default btn-lg" data-toggle="modal"  data-target="#${projectId}">Read more</button>
 
     </div>
@@ -338,51 +342,23 @@ const displayProjects = (data) => {
     $(window).resize(checkSize());
   });
 
-  $.each($('.project-info'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'animation-in-bottom3'
-      });
-  });
-  $.each($('.project'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'animation-in-left'
-      });
-  });
-  $.each($('.circle'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'circle-scale-in'
-      });
-  });
+  function addAnimation(target, animation) {
+    $.each($(target), function(x, y) {
+      let el = $(this);
+        el.viewportChecker({
+          classToAdd: animation
+        });
+    });
+  }
 
-  $.each($('.line1'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'line1-drawing'
-      });
-  });
-  $.each($('.line2'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'line2-drawing',
-        offset: 20
-      });
-  });
-  $.each($('.line3'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'line3-drawing'
-      });
-  });
-  $.each($('.line4'), function(x, y) {
-    let el = $(this);
-      el.viewportChecker({
-        classToAdd: 'line4-drawing',
-        offset: 20
-      });
-  });
+  addAnimation('.project-info', 'animation-in-bottom3');
+  addAnimation('.project', 'animation-in-left' );
+  addAnimation('.circle', 'circle-scale-in');
+  addAnimation('.line1', 'line1-drawing');
+  addAnimation('.line2', 'line2-drawing');
+  addAnimation('.line3', 'line3-drawing');
+  addAnimation('.line4', 'line4-drawing');
+
 
 
 }

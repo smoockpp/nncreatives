@@ -6349,7 +6349,9 @@ footer {
       font-size: 22px; }
       @media (min-width: 768px) {
         #projects #projects-flex .project-h4 {
-          text-align: left; } }
+          text-align: left;
+          margin-top: 0;
+          max-width: 280px; } }
     #projects #projects-flex .project {
       flex-basis: 100%;
       position: relative;
@@ -6409,24 +6411,43 @@ footer {
             float: left;
             display: inline-block;
             width: 30%;
-            margin: 1rem;
+            margin: 2rem 1rem 1rem;
             position: relative;
             text-align: center; } }
         @media (min-width: 1024px) {
           #projects #projects-flex .project .skills-cont {
             width: 40%; } }
+      #projects #projects-flex .project .project-links {
+        display: none; }
+        @media (min-width: 768px) {
+          #projects #projects-flex .project .project-links {
+            display: inline-block;
+            position: relative;
+            width: 100%;
+            text-align: right;
+            padding-right: 1em; }
+            #projects #projects-flex .project .project-links .btn {
+              display: inline-block;
+              border-color: #84B5C2;
+              color: #84B5C2;
+              margin: 0; }
+              #projects #projects-flex .project .project-links .btn:hover {
+                background-color: #84B5C2;
+                color: #F1EFE6; } }
       @media (min-width: 768px) {
         #projects #projects-flex .project {
           flex-basis: 50%;
-          padding: 3rem 1rem 1rem;
+          padding: 2rem 1rem 1rem;
           text-align: left; } }
   #projects .project-info {
     display: none;
     border-left: 3px solid #4a8696;
     min-height: 300px; }
     #projects .project-info h4 {
-      text-align: right !important; }
+      text-align: right !important;
+      float: right; }
     #projects .project-info p {
+      float: right;
       padding-top: 2em;
       text-align: right !important;
       color: #47535b;
@@ -6485,8 +6506,8 @@ footer {
     color: #47535b;
     padding-top: 10px; }
   .modal-content .modal-footer {
-    background-color: #C6A556;
-    border-top: 10px solid #84B5C2; }
+    background-color: #84B5C2;
+    border-top: 10px solid #4a8696; }
     .modal-content .modal-footer button {
       border: none;
       border-bottom: 2px solid #F1EFE6;
@@ -6551,29 +6572,25 @@ span.next-id {
   display: inline-block;
   padding: 5px 10px;
   background-color: #46afd2;
-  margin: 10px 0 10px 5px;
-  text-align: center; }
+  margin: 5px;
+  text-align: center;
+  border-radius: 15px; }
 
-.CSS {
+.CSS, .Sass, .Bootstrap {
   display: inline-block;
   padding: 5px 10px;
   background-color: #407ea9;
-  margin: 10px 0 10px 5px;
-  text-align: center; }
-
-.Sass {
-  display: inline-block;
-  padding: 5px 10px;
-  background-color: #407ea9;
-  margin: 10px 0 10px 5px;
-  text-align: center; }
+  margin: 5px;
+  text-align: center;
+  border-radius: 15px; }
 
 .JavaScript, .jQuery {
   display: inline-block;
   padding: 5px 10px;
   background-color: #c26f85;
-  margin: 10px 0 10px 5px;
-  text-align: center; }
+  margin: 5px;
+  text-align: center;
+  border-radius: 15px; }
 
 .grade {
   color: #47535b;

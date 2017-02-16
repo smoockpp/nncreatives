@@ -82,6 +82,8 @@
       font-size: 22px;
       @media #{$brk-narrow} {
         text-align: left;
+        margin-top:0;
+        max-width: 280px;
       }
     }
     .project {
@@ -153,7 +155,7 @@
           float: left;
           display: inline-block;
           width: 30%;
-          margin: 1rem;
+          margin: 2rem 1rem 1rem;
           position: relative;
           text-align: center;
         }
@@ -162,23 +164,44 @@
         }
 
       }
+      .project-links {
+        display: none;
+        @media #{$brk-narrow} {
+          display: inline-block;
+          position: relative;
+          width: 100%;
+          text-align: right;
+          padding-right: 1em;
+          .btn {
+            display: inline-block;
+            border-color: $color-7;
+            color: $color-7;
+            margin: 0;
+            &:hover {
+              background-color: $color-7;
+              color: $color-4;
+            }
+
+          }
+        }
+      }
       @media #{$brk-narrow} {
         flex-basis: 50%;
-        padding: 3rem 1rem 1rem;
+        padding: 2rem 1rem 1rem;
         text-align: left;
       }
     }
   }
-
   .project-info {
-
     display: none;
     border-left: 3px solid darken($color-7, 20%);
     min-height: 300px;
     h4 {
       text-align: right !important;
+      float: right;
     }
     p {
+      float: right;
       padding-top: 2em;
       text-align: right !important;
       color: $color-5;
@@ -257,8 +280,8 @@
 
   }
   .modal-footer {
-    background-color: $color-3;
-    border-top: 10px solid $color-7;
+    background-color: $color-7;
+    border-top: 10px solid darken($color-7, 20%);
     button {
       border: none;
       border-bottom: 2px solid $color-4;
