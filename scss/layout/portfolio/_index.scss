@@ -2,8 +2,9 @@
 // Layout Imports
 // ==========================================================================
 
-@import 'nav';
-@import 'footer';
-@import 'extends';
-@import "home/index";
-@import "portfolio/index";
+@import "header";
+
+@import "projects";
+@import "typewriter";
+@import "projects_flex";
+@import "modal";

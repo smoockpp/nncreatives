@@ -11996,6 +11996,239 @@ if (typeof jQuery === 'undefined') {
 	});
 }(jQuery);
 
+function addAnimation(target, animation) {
+	$.each($(target), function (x, y) {
+		var el = $(this);
+		el.viewportChecker({
+			classToAdd: animation
+		});
+	});
+}
+
+'use strict';
+
+var xhrRequest = function xhrRequest(callback, url) {
+	var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+
+	var xhr = new XMLHttpRequest();
+	var data = void 0;
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState == XMLHttpRequest.DONE) {
+			if (xhr.status == 200) {
+				data = JSON.parse(xhr.responseText);
+				callback(data);
+			} else if (xhr.status == 400) {
+				console.log('There was an error 400');
+			} else {
+				console.log('something else other than 200 was returned');
+			}
+		}
+	};
+	xhr.open("GET", url, true);
+	xhr.setRequestHeader("Content-Type", type);
+	xhr.send();
+};
+
+'use strict';
+
+var displayTreehouse = function displayTreehouse(data) {
+	var badgesDiv = document.getElementsByClassName('json-data');
+	var activePage = $('ul.pagination li.active a').attr('data-target');
+	var pages = $('ul.pagination li a');
+
+	// Cases for different parameters from pages
+	function pagesCase(el) {
+		var prev = $('ul.pagination li a[aria-label="Previous"]');
+		var next = $('ul.pagination li a[aria-label="Next"]');
+		switch (el) {
+			case '1':
+				createBadges(1, 4);
+				prev.parent().addClass('disabled');
+				break;
+			case '2':
+				createBadges(5, 8);
+				console.log('badges 6 10');
+				prev.parent().removeClass('disabled');
+				next.parent().removeClass('disabled');
+				break;
+			case '3':
+				createBadges(9, 12);
+				next.parent().addClass('disabled');
+				break;
+			default:
+				createBadges(1, 4);
+				prev.parent().addClass('disabled');
+		}
+	}
+
+	// Function with listener for click for each page number
+	pages.each(function (x) {
+		$(this).click(function () {
+			var el = $('ul.pagination li.active a');
+			var current = parseInt(el.attr('data-target'));
+
+			// Check conditions of the clicked element so can show proper content
+			if ($(this).attr('aria-label') == 'Previous') {
+				if (current === 1) {
+					// changing state of pagination buttons
+					el.parent().removeClass('active');
+					el.parent().addClass('active');
+					$(this).parent().addClass('disabled');
+					// send the case to pagesCase function
+					pagesCase('1');
+				} else if (current === 2) {
+					el.parent().removeClass('active');
+					el.parent().prev().addClass('active');
+					pagesCase('1');
+				} else if (current == 3) {
+					el.parent().removeClass('active');
+					el.parent().prev().addClass('active');
+					pagesCase('2');
+				}
+			} else if ($(this).attr('aria-label') == 'Next') {
+				if (current === 3) {
+					el.parent().removeClass('active');
+					el.parent().addClass('active');
+					pagesCase('3');
+				} else if (current === 2) {
+					el.parent().removeClass('active');
+					el.parent().next().addClass('active');
+					pagesCase('3');
+				} else if (current === 1) {
+					el.parent().removeClass('active');
+					el.parent().next().addClass('active');
+					pagesCase('2');
+				}
+			} else {
+				pages.each(function (y) {
+					$(this).parent().removeClass('active');
+				});
+				$(this).parent().addClass('active');
+				activePage = $('ul.pagination li.active a').attr('data-target');
+				pagesCase(activePage);
+			}
+		});
+	});
+
+	pagesCase(activePage);
+
+	// Function with a template for each TR containing badges info
+	function createBadges(from, to) {
+		var badges = [];
+		for (var i = from; i <= to; i++) {
+			badges.push(data.badges[Object.keys(data.badges)[Object.keys(data.badges).length - i]]);
+		}
+		var badgesHTML = "";
+		for (var key in badges) {
+			badgesHTML += "\n        <tr class=\"col-xs-12 col-sm-6 col-md-3 animate\" data-target=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
+		}
+		$(badgesDiv).html(badgesHTML);
+		var tableRow = $('tbody tr');
+		tableRow.click(function () {
+			var courseLink = $(this).attr('data-target');
+			var win = window.open(courseLink, '_blank');
+			if (win) {
+				//Browser has allowed it to be opened
+				win.focus();
+			} else {
+				//Browser has blocked it
+				alert('Please allow popups for this website');
+			}
+		});
+
+		$.each($('tr.animate'), function (x, y) {
+			var el = $(this);
+			if ($(window).width() >= 1024) {
+				addAnimation(el, 'animation-in-bottom' + parseInt(x));
+			} else {
+				addAnimation(el, 'animation-in-bottom0');
+			}
+		});
+	}
+};
+
+'use strict';
+
+var displayProjects = function displayProjects(data) {
+	var projects = [];
+	var projectsDiv = $('#projects-flex');
+
+	$.each(data, function (x, y) {
+		var projectsDivHTML = "";
+		var modalContent = "";
+		var projectId = data[x].id;
+		var projectName = data[x].name;
+		var projectThumb = data[x].thumb_url;
+		var projectImg = data[x].img_url;
+		var projectDescription = data[x].description;
+		var skills = [];
+		var skillsHTML = '';
+		$.each(data[x].skills, function (a, b) {
+			var skill = data[x].skills[a];
+			skillsHTML += '<p class="' + skill + '">' + skill + '</p>';
+		});
+		var projectGrade = data[x].grade;
+		var projectIoUrl = data[x].github_io_url;
+		var projectRepoUrl = data[x].github_repo_url;
+		projectsDivHTML = "\n    <div class=\"project\" >\n      <h4 class=\"project-h4\">" + projectName + "</h4>\n      <div class=\"image-zoom-pan\">\n        <div class=\"tile\" data-scale=\"3\" data-thumb=\"" + projectThumb + "\" data-image=\"" + projectImg + "\">\n        </div>\n      </div>\n      <div class=\"skills-cont\">\n        <h5 class=\"heading\">Skills used</h5>\n        " + skillsHTML + "\n      </div>\n      <div class=\"project-links\">\n        <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"project-link btn btn-default btn-lg\">Visit Page</a>\n        <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"project-link btn btn-default btn-lg\">Visit Repo</a>\n      </div>\n      <button class=\"btn btn-default btn-lg\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\">Read more</button>\n    </div>\n    <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n      <div class=\"modal-dialog modal-lg\" role=\"document\">\n      </div>\n    </div>\n    <div class=\"project-info animate\">\n      <h4 class=\"project-h4\">Project description</h4>\n      <p class=\"project-p\">\n        " + projectDescription + "\n      </p>\n    </div>\n    <div class=\"timeline-circle\">\n      <span class=\"circle animate-circle\"></span>\n      <span class=\"line1 animate-line1\"></span>\n      <span class=\"line2 animate-line2\"></span>\n      <span class=\"line3 animate-line3\"></span>\n      <span class=\"line4 animate-line4\"></span>\n    </div>";
+		modalContent = "\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close modal-close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n        <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n        <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n      </div>\n      <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-12 col-sm-6\">\n              <h4 class=\"modal-title\">Project description</h4>\n              <p class=\"modal-p\">\n                " + projectDescription + "\n              </p>\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Skills used</h4>\n              " + skillsHTML + "\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Grade</h4>\n              <p class=\"grade\">\"" + projectGrade + "\"</p>\n            </div>\n            <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n              <h4 class=\"modal-title\">Links</h4>\n              <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n              <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n            </div>\n          </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n    ";
+		projectsDiv.append(projectsDivHTML);
+
+		var projectBox = $('button[data-target="#' + projectId + '"]');
+		var modalDialog = $('button[data-target="#' + projectId + '"]').parent().next();
+		projectBox.click(function () {
+			modalDialog.append(modalContent);
+			var dismissBtn = $('button[data-dismiss="modal"]');
+			dismissBtn.click(function () {
+				setTimeout(function () {
+					modalDialog.html('');
+				}, 500);
+			});
+		});
+		function checkSize() {
+			if ($(window).width() >= 768) {
+				$('.tile[data-thumb="' + projectThumb + '"]')
+				// tile mouse actions
+				.on('mouseover', function () {
+					$(this).children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-image') + ')' });
+					$(this).children('.photo').css({ 'transform': 'scale(' + $(this).attr('data-scale') + ')' });
+				}).on('mouseout', function () {
+					$(this).children('.photo').css({ 'transform': 'scale(1)' });
+				}).on('mousemove', function (e) {
+					$(this).children('.photo').css({ 'transform-origin': (e.pageX - $(this).offset().left) / $(this).width() * 100 + '% ' + (e.pageY - $(this).offset().top) / $(this).height() * 100 + '%' });
+				})
+				// tiles set up
+				.each(function () {
+					$(this)
+					// add a photo container
+					.append('<div class="photo"></div>')
+					// some text just to show zoom level on current item in this example
+					// set up a background image for each tile based on data-image attribute
+					.children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-thumb') + ')' });
+				});
+			} else {
+				$('.tile[data-thumb="' + projectThumb + '"]').each(function () {
+					$(this)
+					// add a photo container
+					.append('<div class="photo"></div>')
+					// some text just to show zoom level on current item in this example
+					// set up a background image for each tile based on data-image attribute
+					.children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-thumb') + ')' });
+				});
+			}
+		}
+		$(window).resize(checkSize());
+	});
+
+	addAnimation('.project-info', 'animation-in-bottom3');
+	addAnimation('.project', 'animation-in-left');
+	addAnimation('.circle', 'circle-scale-in');
+	addAnimation('.line1', 'line1-drawing');
+	addAnimation('.line2', 'line2-drawing');
+	addAnimation('.line3', 'line3-drawing');
+	addAnimation('.line4', 'line4-drawing');
+};
+
 // const iconWrapper = $('.icon-wrapper');
 // const overlay = $('.icon-overlay');
 //
@@ -12080,146 +12313,6 @@ paginationLinks.click(function (e) {
 
 'use strict';
 
-var data = void 0;
-
-var xhrRequest = function xhrRequest(callback, url) {
-	var xhr = new XMLHttpRequest();
-
-	xhr.onreadystatechange = function () {
-		if (xhr.readyState == XMLHttpRequest.DONE) {
-			if (xhr.status == 200) {
-				data = JSON.parse(xhr.responseText);
-				callback(data);
-			} else if (xhr.status == 400) {
-				console.log('There was an error 400');
-			} else {
-				console.log('something else other than 200 was returned');
-			}
-		}
-	};
-	xhr.open("GET", url, true);
-
-	xhr.send();
-};
-
-var displayTreehouse = function displayTreehouse(data) {
-	var badgesDiv = document.getElementsByClassName('json-data');
-	var activePage = $('ul.pagination li.active a').attr('data-target');
-	var pages = $('ul.pagination li a');
-
-	function pagesCase(el) {
-		var prev = $('ul.pagination li a[aria-label="Previous"]');
-		var next = $('ul.pagination li a[aria-label="Next"]');
-		switch (el) {
-			case '1':
-				createBadges(1, 4);
-				prev.parent().addClass('disabled');
-
-				break;
-			case '2':
-				createBadges(5, 8);
-				console.log('badges 6 10');
-				prev.parent().removeClass('disabled');
-				next.parent().removeClass('disabled');
-
-				break;
-			case '3':
-				createBadges(9, 12);
-				next.parent().addClass('disabled');
-
-				break;
-
-			default:
-				createBadges(1, 4);
-				prev.parent().addClass('disabled');
-
-		}
-	}
-
-	pages.each(function (x) {
-		$(this).click(function () {
-			var el = $('ul.pagination li.active a');
-			var current = parseInt(el.attr('data-target'));
-			if ($(this).attr('aria-label') == 'Previous') {
-				if (current === 1) {
-					el.parent().removeClass('active');
-					el.parent().addClass('active');
-					$(this).parent().addClass('disabled');
-					pagesCase('1');
-				} else if (current === 2) {
-					el.parent().removeClass('active');
-					el.parent().prev().addClass('active');
-					pagesCase('1');
-				} else if (current == 3) {
-					el.parent().removeClass('active');
-					el.parent().prev().addClass('active');
-					pagesCase('2');
-				}
-			} else if ($(this).attr('aria-label') == 'Next') {
-				if (current === 3) {
-					el.parent().removeClass('active');
-					el.parent().addClass('active');
-					pagesCase('3');
-				} else if (current === 2) {
-					el.parent().removeClass('active');
-					el.parent().next().addClass('active');
-					pagesCase('3');
-				} else if (current === 1) {
-					el.parent().removeClass('active');
-					el.parent().next().addClass('active');
-					pagesCase('2');
-				}
-			} else {
-				pages.each(function (y) {
-					$(this).parent().removeClass('active');
-				});
-				$(this).parent().addClass('active');
-				activePage = $('ul.pagination li.active a').attr('data-target');
-				pagesCase(activePage);
-			}
-		});
-	});
-
-	pagesCase(activePage);
-
-	function createBadges(from, to) {
-		var badges = [];
-		for (var i = from; i <= to; i++) {
-			badges.push(data.badges[Object.keys(data.badges)[Object.keys(data.badges).length - i]]);
-		}
-		var badgesHTML = "";
-		for (var key in badges) {
-			badgesHTML += "\n        <tr class=\"col-xs-12 col-sm-6 col-md-3 animate\" data-target=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
-		}
-		$(badgesDiv).html(badgesHTML);
-		var tableRow = $('tbody tr');
-		tableRow.click(function () {
-			var courseLink = $(this).attr('data-target');
-			var win = window.open(courseLink, '_blank');
-			if (win) {
-				//Browser has allowed it to be opened
-				win.focus();
-			} else {
-				//Browser has blocked it
-				alert('Please allow popups for this website');
-			}
-		});
-
-		$.each($('tr.animate'), function (x, y) {
-			var el = $(this);
-			if ($(window).width() >= 1024) {
-				el.viewportChecker({
-					classToAdd: 'animation-in-bottom' + parseInt(x)
-				});
-			} else {
-				el.viewportChecker({
-					classToAdd: 'animation-in-bottom0'
-				});
-			}
-		});
-	}
-};
-
 var displayGithub = function displayGithub(data) {
 	var profile = [];
 	profile.push(data);
@@ -12240,95 +12333,6 @@ var displayGithub = function displayGithub(data) {
 	profileImage.click(function () {
 		$(this).draggabale;
 	});
-};
-
-var displayProjects = function displayProjects(data) {
-	var projects = [];
-	var projectsDiv = $('#projects-flex');
-
-	$.each(data, function (x, y) {
-		var projectsDivHTML = "";
-		var modalContent = "";
-		var projectId = data[x].id;
-		var projectName = data[x].name;
-		var projectThumb = data[x].thumb_url;
-		var projectImg = data[x].img_url;
-		var projectDescription = data[x].description;
-		var skills = [];
-		var skillsHTML = '';
-		$.each(data[x].skills, function (a, b) {
-			var skill = data[x].skills[a];
-			skillsHTML += '<p class="' + skill + '">' + skill + '</p>';
-		});
-		var projectGrade = data[x].grade;
-		var projectIoUrl = data[x].github_io_url;
-		var projectRepoUrl = data[x].github_repo_url;
-		projectsDivHTML = "\n    <div class=\"project\" >\n      <h4 class=\"project-h4\">" + projectName + "</h4>\n\n      <div class=\"image-zoom-pan\">\n        <div class=\"tile\" data-scale=\"3\" data-thumb=\"" + projectThumb + "\" data-image=\"" + projectImg + "\"></div>\n\n      </div>\n      <div class=\"skills-cont\">\n        <h5 class=\"heading\">Skills used</h5>\n        " + skillsHTML + "\n      </div>\n      <div class=\"project-links\">\n        <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"project-link btn btn-default btn-lg\">Visit Page</a>\n        <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"project-link btn btn-default btn-lg\">Visit Repo</a>\n      </div>\n      <button class=\"btn btn-default btn-lg\" data-toggle=\"modal\"  data-target=\"#" + projectId + "\">Read more</button>\n\n    </div>\n    <div class=\"modal fade\" id=\"" + projectId + "\" tabindex=\"-1\" role=\"dialog\" data-backdrop=\"static\" aria-labelledby=\"" + projectId + "label\">\n      <div class=\"modal-dialog modal-lg\" role=\"document\">\n\n      </div>\n    </div>\n    <div class=\"project-info animate\">\n      <h4 class=\"project-h4\">Project description</h4>\n      <p class=\"project-p\">\n        " + projectDescription + "\n      </p>\n    </div>\n    <div class=\"timeline-circle\">\n      <span class=\"circle animate-circle\"></span>\n      <span class=\"line1 animate-line1\"></span>\n      <span class=\"line2 animate-line2\"></span>\n      <span class=\"line3 animate-line3\"></span>\n      <span class=\"line4 animate-line4\"></span>\n    </div>";
-		modalContent = "\n    <div class=\"modal-content\">\n      <div class=\"modal-header\">\n        <button type=\"button\" class=\"close modal-close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n        <h3 class=\"modal-title\" id=\"" + projectId + "label\">" + projectName + "</h3>\n        <img src=\"" + projectImg + "\" alt=\"" + projectName + " big snapshot\">\n      </div>\n      <div class=\"modal-body\">\n          <div class=\"row\">\n            <div class=\"col-xs-12 col-sm-6\">\n              <h4 class=\"modal-title\">Project description</h4>\n              <p class=\"modal-p\">\n                " + projectDescription + "\n              </p>\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Skills used</h4>\n              " + skillsHTML + "\n            </div>\n            <div class=\"col-xs-6 col-sm-3\">\n              <h4 class=\"modal-title\">Grade</h4>\n              <p class=\"grade\">\"" + projectGrade + "\"</p>\n            </div>\n            <div class=\"col-xs-12 col-sm-6 col-md-3 modal-links\">\n              <h4 class=\"modal-title\">Links</h4>\n              <a href=\"" + projectIoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github .io</a>\n              <a href=\"" + projectRepoUrl + "\" target=\"_blank\" class=\"modal-link\">Visit Github repo</a>\n            </div>\n          </div>\n      </div>\n      <div class=\"modal-footer\">\n        <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>\n      </div>\n    </div>\n    ";
-		projectsDiv.append(projectsDivHTML);
-
-		var projectBox = $('button[data-target="#' + projectId + '"]');
-		var modalDialog = $('button[data-target="#' + projectId + '"]').parent().next();
-		projectBox.click(function () {
-			modalDialog.append(modalContent);
-			var dismissBtn = $('button[data-dismiss="modal"]');
-			dismissBtn.click(function () {
-				setTimeout(function () {
-					modalDialog.html('');
-				}, 500);
-			});
-		});
-		function checkSize() {
-			if ($(window).width() >= 768) {
-				$('.tile[data-thumb="' + projectThumb + '"]')
-				// tile mouse actions
-				.on('mouseover', function () {
-					$(this).children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-image') + ')' });
-					$(this).children('.photo').css({ 'transform': 'scale(' + $(this).attr('data-scale') + ')' });
-				}).on('mouseout', function () {
-					$(this).children('.photo').css({ 'transform': 'scale(1)' });
-				}).on('mousemove', function (e) {
-					$(this).children('.photo').css({ 'transform-origin': (e.pageX - $(this).offset().left) / $(this).width() * 100 + '% ' + (e.pageY - $(this).offset().top) / $(this).height() * 100 + '%' });
-				})
-				// tiles set up
-				.each(function () {
-					$(this)
-					// add a photo container
-					.append('<div class="photo"></div>')
-					// some text just to show zoom level on current item in this example
-					// set up a background image for each tile based on data-image attribute
-					.children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-thumb') + ')' });
-				});
-			} else {
-				$('.tile[data-thumb="' + projectThumb + '"]').each(function () {
-					$(this)
-					// add a photo container
-					.append('<div class="photo"></div>')
-					// some text just to show zoom level on current item in this example
-					// set up a background image for each tile based on data-image attribute
-					.children('.photo').css({ 'background-image': 'url(' + $(this).attr('data-thumb') + ')' });
-				});
-			}
-		}
-		$(window).resize(checkSize());
-	});
-
-	function addAnimation(target, animation) {
-		$.each($(target), function (x, y) {
-			var el = $(this);
-			el.viewportChecker({
-				classToAdd: animation
-			});
-		});
-	}
-
-	addAnimation('.project-info', 'animation-in-bottom3');
-	addAnimation('.project', 'animation-in-left');
-	addAnimation('.circle', 'circle-scale-in');
-	addAnimation('.line1', 'line1-drawing');
-	addAnimation('.line2', 'line2-drawing');
-	addAnimation('.line3', 'line3-drawing');
-	addAnimation('.line4', 'line4-drawing');
 };
 
 $(function () {

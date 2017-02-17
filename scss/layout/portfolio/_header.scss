@@ -1,0 +1,43 @@
+header#portfolio {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background:
+    /* top, transparent red */
+    linear-gradient(
+      darken(transparentize($color-2, .2), 20%),
+      darken(transparentize($color-2, .2), 20%)
+    ),
+    /* your image */
+    url('../data/images/wood.jpg') no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 80vh;
+  width: 100%;
+  .typewriter {
+    max-height: 100px;
+    font-size: 1.25em;
+    z-index: 0;
+    h1 {
+      font-family: $stack-montserrat;
+      @media #{$brk-tablets} {
+        font-size: 2rem;
+      }
+      @media #{$brk-narrow} {
+        font-size: 3.7rem;
+      }
+      @media #{$brk-wide} {
+        font-size: 4.5rem;
+      }
+    }
+
+  }
+  @media only (orientation: landscape) {
+    height: 100vh;
+    .typewriter {
+      @media #{$brk-narrow} {
+        font-size: 4em;
+      }
+    }
+  }
+}

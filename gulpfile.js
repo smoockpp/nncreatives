@@ -17,6 +17,10 @@ gulp.task('concatScripts', function() {
       'bower_components/jquery/dist/jquery.js',
       'scripts/visibility.js',
       'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+      'scripts/animations.js',
+      'scripts/ajax/ajax-function.js',
+      'scripts/ajax/treehouse-request.js',
+      'scripts/ajax/projects-request.js',
 
       'scripts/overlay.js',
       'scripts/sticky-nav.js',
@@ -72,7 +76,10 @@ gulp.task('watchFiles', function() {
 
   gulp.watch('*.html').on('change', reload);
   gulp.watch('scripts/main.js', ['concatScripts', 'minifyScripts']).on('change', reload);
-  gulp.watch('scripts/ajax.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/animations.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/ajax/ajax-function.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/ajax/projects-request.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/ajax/treehouse-request.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/overlay.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/sticky-nav.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/fixes.js', ['concatScripts', 'minifyScripts']).on('change', reload);

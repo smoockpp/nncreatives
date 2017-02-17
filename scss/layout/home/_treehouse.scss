@@ -1,12 +1,10 @@
 
-
 #treehouse {
   padding: 3em 0;
   color: $color-4;
   position: relative;
   background-color: $color-1;
   .heading {
-
     color: $color-5;
   }
   .container {
@@ -33,17 +31,14 @@
               @media #{$brk-narrow} {
                   font-size: 22px;
               }
-
             }
           }
-
         }
         @media #{$brk-narrow} {
           padding-bottom: 4em;
           padding-top: 4em;
         }
       }
-
     }
     .pagination {
       display: block;

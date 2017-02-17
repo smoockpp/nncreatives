@@ -1,0 +1,22 @@
+#projects {
+  background-color: transparent;
+  .container {
+    max-width: 1024px;
+  }
+  .heading {
+    color: $color-5;
+  }
+  .underline {
+    margin-bottom: 3rem;
+  }
+  .timeline-circle {
+    display: none;
+    &:last-child {
+      display: none;
+    }
+    @media #{$brk-narrow} {
+      display: block;
+      flex-basis: 100%;
+    }
+  }
+}
