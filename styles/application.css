@@ -6181,15 +6181,14 @@ header#index-header {
   #treehouse .container .table tbody {
     display: flex;
     flex-flow: row wrap;
-    flex: 1;
     font-family: "Montserrat", Helvetica, sans-serif;
-    color: #47535b; }
+    color: #47535b;
+    /* NEW, Spec - Firefox, Chrome, Opera */ }
     #treehouse .container .table tbody tr {
       flex-basis: 100%;
+      float: left;
       background-color: transparent;
-      height: auto;
       padding: 4em 15px;
-      height: 300px;
       cursor: pointer; }
       #treehouse .container .table tbody tr td {
         border: none;

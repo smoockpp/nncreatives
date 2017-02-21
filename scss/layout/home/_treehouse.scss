@@ -12,15 +12,17 @@
       tbody {
         display: flex;
         flex-flow: row wrap;
-        flex: 1;
+
         font-family: $stack-montserrat;
         color: $color-5;
+              /* NEW, Spec - Firefox, Chrome, Opera */
         tr {
           flex-basis: 100%;
+          float: left;
           background-color: transparent;
-          height: auto;
+
           padding: 4em 15px;
-          height: 300px;
+
           cursor: pointer;
           td {
             border: none;
@@ -39,6 +41,7 @@
           }
           @media #{$brk-tablets} {
             flex-basis: 50%;
+
           }
           @media #{$brk-narrow} {
             flex-basis: 25%;
