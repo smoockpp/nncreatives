@@ -12007,9 +12007,8 @@ function addAnimation(target, animation) {
 
 'use strict';
 
-var xhrRequest = function xhrRequest(callback, url) {
-	var type = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
-
+var xhrRequest = function xhrRequest(callback, url, type) {
+	var contentType = type || null;
 	var xhr = new XMLHttpRequest();
 	var data = void 0;
 	xhr.onreadystatechange = function () {

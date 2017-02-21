@@ -1,6 +1,7 @@
 'use strict';
 
-const xhrRequest = (callback, url, type = null ) => {
+const xhrRequest = (callback, url, type) => {
+    let contentType = type || null;
     let xhr = new XMLHttpRequest();
     let data;
     xhr.onreadystatechange = function() {
