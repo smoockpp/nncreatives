@@ -1,7 +1,7 @@
 'use strict';
 
-const xhrRequest = (callback, url, type) => {
-    let contentType = type || null;
+const xhrRequest = (callback, url) => {
+
     let xhr = new XMLHttpRequest();
     let data;
     xhr.onreadystatechange = function() {
@@ -19,6 +19,6 @@ const xhrRequest = (callback, url, type) => {
         }
     };
     xhr.open("GET", url, true);
-    xhr.setRequestHeader("Content-Type", type);
+    
     xhr.send();
 };

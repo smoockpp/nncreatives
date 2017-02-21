@@ -12007,8 +12007,8 @@ function addAnimation(target, animation) {
 
 'use strict';
 
-var xhrRequest = function xhrRequest(callback, url, type) {
-	var contentType = type || null;
+var xhrRequest = function xhrRequest(callback, url) {
+
 	var xhr = new XMLHttpRequest();
 	var data = void 0;
 	xhr.onreadystatechange = function () {
@@ -12024,7 +12024,7 @@ var xhrRequest = function xhrRequest(callback, url, type) {
 		}
 	};
 	xhr.open("GET", url, true);
-	xhr.setRequestHeader("Content-Type", type);
+
 	xhr.send();
 };
 
@@ -12403,19 +12403,19 @@ $(function () {
 
 	switch (loc) {
 		case '/':
-			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
 			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/index.html':
-			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
 			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/nncreatives/':
-			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
 			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/nncreatives/index.html':
-			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+			xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
 			// xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
 			break;
 		case '/portfolio.html':

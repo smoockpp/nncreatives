@@ -4,19 +4,19 @@ $(function() {
 
   switch (loc) {
     case '/':
-      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
       // xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
       break;
     case '/index.html':
-      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
       // xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
       break;
     case '/nncreatives/':
-      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
       // xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
       break;
     case '/nncreatives/index.html':
-      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json', 'application/json');
+      xhrRequest(displayTreehouse, 'https://teamtreehouse.com/nikolaynikolov2.json');
       // xhrRequest(displayGithub, 'https://api.github.com/users/smoockpp');
       break;
     case '/portfolio.html':
