@@ -1,0 +1,23 @@
+header#about-header {
+  @extend %typewriter;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  height: 50vh;
+  background:
+    /* top, transparent red */
+    linear-gradient(
+      transparentize($color-2, .5),
+      transparentize($color-2, .5)
+    ),
+    /* your image */
+    url('../data/images/header-about.jpg') no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  background-attachment: fixed;
+  .typewriter {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+}

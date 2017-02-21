@@ -9,6 +9,11 @@
   text-rendering: optimizeLegibility;
 }
 
+.sub-heading {
+  font-family: $stack-montserrat;
+  color: $color-5;
+  text-align: center;
+}
 
 div.underline {
   margin: -15px auto 0;
@@ -51,6 +56,41 @@ span.next-id {
   margin: 5px;
   text-align: center;
   border-radius: 15px;
+}
+
+.html-text {
+  font-weight: bold;
+  color: $color-html;
+}
+
+.css-text {
+  font-weight: bold;
+  color: $color-css;
+}
+
+.js-text {
+  font-weight: bold;
+  color: $color-js;
+}
+
+.dev-tools-text {
+  font-weight: bold;
+  color: $color-dev-tools;
+}
+
+.wow-text {
+  display: inline-block;
+  padding: 2px;
+  line-height: 1.8;
+  vertical-align: middle;
+  width: 30px;
+  height: 30px;
+  font-size: 16px;
+  color: $color-4;
+  text-align: center;
+  background-color: darken($color-7, 25%);
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px 0 $color-5, 1px 1px 1px 1px $color-5;
 }
 
 .grade {

@@ -1,0 +1,15 @@
+form {
+  .form-group {
+    label {
+      font-family: $stack-montserrat;
+      font-weight: normal;
+      color: $color-5;
+    }
+  }
+}
+
+.modal-footer {
+  .btn {
+    margin-bottom: auto;
+  }
+}

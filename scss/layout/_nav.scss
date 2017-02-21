@@ -5,8 +5,8 @@
   margin-bottom: 0;
   width: 100%;
   background-color: transparent;
-  font-family: 'Play', Helvetica, sans-serif;
-  font-weight: bold;
+  font-family: $stack-montserrat;
+  font-weight: normal;
   border: none;
   border-radius: 0;
   z-index: 9999;
@@ -32,11 +32,14 @@
       }
     }
     .navbar-toggle {
+
       margin: 3px;
       @media #{$brk-narrow} {
         display: none;
       }
       .icon-bar {
+        @include transition(all, .5s);
+        position: relative;
         background-color: $color-4;
       }
     }
@@ -133,10 +136,17 @@
       }
     }
     #navbar {
+      background-color: $color-5;
+      @media #{$brk-narrow} {
+        background-color: transparent;
+      }
       .nav {
         li.active {
           a {
             @media #{$brk-narrow} {
+              span {
+                display: none;
+              }
               color: $color-4 !important;
               background-color: $color-5;
             }
@@ -144,6 +154,7 @@
         }
         li {
           a {
+            color: $color-4;
             @media #{$brk-narrow} {
               margin: 5px;
               color: $color-4 !important;
@@ -160,25 +171,6 @@
           float: right;
         }
       }
-    }
-  }
-}
-
-#navbar {
-  background-color: $color-5;
-  @media #{$brk-narrow} {
-    background-color: transparent;
-  }
-}
-
-.nav > li > a {
-  color: $color-1 !important;
-
-  @media #{$brk-narrow} {
-    color: $color-3 !important;
-    &:hover {
-      color: $color-3 !important;
-      background-color: $color-4;
     }
   }
 }

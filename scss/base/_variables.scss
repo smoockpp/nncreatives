@@ -11,6 +11,7 @@ $silver         : #e8e8e8;
 $html           : #46afd2;
 $css            : #407ea9;
 $js             : #c26f85;
+$dev-tools      : #484848;
 
 // Functional color variables
 $color-1    : $white;
@@ -20,10 +21,12 @@ $color-4    : $gunpipe;
 $color-5    : $into-the-light;
 $color-6    : $where-you-stay;
 $color-7    : $darm-stadium;
+$color-7-dark: darken($color-7, 25%);
 $color-8    : $silver;
 $color-html : $html;
 $color-css  : $css;
 $color-js   : $js;
+$color-dev-tools: $dev-tools;
 
 $color-text-white   : $white;
 $color-text-base    : $black;

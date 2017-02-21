@@ -92,7 +92,7 @@ const displayTreehouse = (data) => {
     var badgesHTML = ``;
     for (const key in badges) {
       badgesHTML += `
-        <tr class="col-xs-12 col-sm-6 col-md-3 animate" data-target="${badges[key].url}">
+        <tr class=" animate" data-target="${badges[key].url}">
           <td><img src="${badges[key].icon_url}" class="badge-icon"></td>
           <td>${badges[key].courses[1].title}</td>
           <td>${badges[key].earned_date.substring(0, 10)}</td>

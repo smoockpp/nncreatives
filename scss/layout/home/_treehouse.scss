@@ -3,16 +3,20 @@
   padding: 3em 0;
   color: $color-4;
   position: relative;
-  background-color: $color-1;
+  background-color: $color-4;
   .heading {
     color: $color-5;
   }
   .container {
     .table {
       tbody {
-        font-family: $stack-play;
+        display: flex;
+        flex-flow: row wrap;
+        flex: 1;
+        font-family: $stack-montserrat;
         color: $color-5;
         tr {
+          flex-basis: 100%;
           background-color: transparent;
           height: auto;
           padding: 4em 15px;
@@ -27,11 +31,17 @@
               margin: 0 auto;
             }
             &:nth-child(2) {
-              font-size: 18px;
+              font-size: 16px;
               @media #{$brk-narrow} {
-                  font-size: 22px;
+                  font-size: 18px;
               }
             }
+          }
+          @media #{$brk-tablets} {
+            flex-basis: 50%;
+          }
+          @media #{$brk-narrow} {
+            flex-basis: 25%;
           }
         }
         @media #{$brk-narrow} {
@@ -61,7 +71,7 @@
         }
         &.disabled {
           a {
-            opacity: .2;
+            opacity: 0;
           }
         }
         &.active {

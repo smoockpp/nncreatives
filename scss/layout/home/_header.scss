@@ -9,7 +9,7 @@ header#index-header {
       transparentize($color-5, .3)
     ),
     /* your image */
-    url('../data/images/header-bg.jpg');
+    url('../data/images/header-bg.jpg') no-repeat;
   background-size: cover;
   background-attachment: fixed;
   .container {

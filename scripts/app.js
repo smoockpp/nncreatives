@@ -12120,7 +12120,7 @@ var displayTreehouse = function displayTreehouse(data) {
 		}
 		var badgesHTML = "";
 		for (var key in badges) {
-			badgesHTML += "\n        <tr class=\"col-xs-12 col-sm-6 col-md-3 animate\" data-target=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
+			badgesHTML += "\n        <tr class=\" animate\" data-target=\"" + badges[key].url + "\">\n          <td><img src=\"" + badges[key].icon_url + "\" class=\"badge-icon\"></td>\n          <td>" + badges[key].courses[1].title + "</td>\n          <td>" + badges[key].earned_date.substring(0, 10) + "</td>\n          <td>" + badges[key].courses[0].title + "</td>\n        </tr>\n        ";
 		}
 		$(badgesDiv).html(badgesHTML);
 		var tableRow = $('tbody tr');
@@ -12271,16 +12271,52 @@ $(window).scroll(function () {
 
 'use strict';
 
-// Fix logo and collapse button colors when nav not sticky
-var nav = $('#navbar');
-var logo = $('.navbar-brand');
+$(document).ready(function () {
+	// Fix logo and collapse button colors when nav not sticky
+	var nav = $('#navbar');
+	var logo = $('.navbar-brand');
 
-$('.navbar-toggle').click(function () {
-	if (!nav.hasClass('in')) {
-		$('nav').addClass('sticky');
-	} else {
-		$('nav').removeClass('sticky');
-	}
+	$('button[data-toggle="collapse"]').click(function () {
+		// Fix to develope "X" when menu is opened
+		var bar1 = $('.icon-bar:nth-child(2)');
+		var bar2 = $('.icon-bar:nth-child(3)');
+		var bar3 = $('.icon-bar:nth-child(4)');
+
+		if (!nav.hasClass('in')) {
+			$('nav').addClass('sticky');
+		} else {
+			setTimeout(function () {
+				$('nav').removeClass('sticky');
+			}, 250);
+		}
+		setTimeout(function () {
+			if ($('button[data-toggle="collapse"]').hasClass('collapsed')) {
+				bar1.css({
+					'transform': 'rotate(0deg)',
+					'transform-origin': 'center left',
+					'bottom': '0'
+				});
+				bar2.css({ 'opacity': '1' });
+				bar3.css({
+					'transform': 'rotate(0deg)',
+					'transform-origin': 'center left',
+					'top': '0'
+				});
+			} else {
+				bar1.css({
+					'transform': 'rotate(45deg)',
+					'transform-origin': 'center left',
+					'bottom': '2px'
+				});
+				bar2.css({ 'opacity': '0' });
+				bar3.css({
+					'transform': 'rotate(-45deg)',
+					'transform-origin': 'center left',
+					'top': '2px'
+				});
+			}
+		}, 200);
+	});
 });
 
 var paginationLinks = $('ul.pagination li a');
@@ -12288,6 +12324,18 @@ var paginationLinks = $('ul.pagination li a');
 paginationLinks.click(function (e) {
 	e.preventDefault();
 });
+
+var aboutBoxImage = $('.about-box-image');
+
+function checkImageSize() {
+	if ($(window).width() >= 1024) {
+		aboutBoxImage.attr('src', 'data/images/about/who-am-i-md.jpg');
+	} else if ($(window).width() >= 480) {
+		aboutBoxImage.attr('src', 'data/images/about/who-am-i.jpg');
+	} else {
+		aboutBoxImage.attr('src', 'data/images/about/who-am-i-sm.jpg');
+	}
+}
 
 //Function to the css rule
 
@@ -12335,6 +12383,21 @@ var displayGithub = function displayGithub(data) {
 	});
 };
 
+'use strict';
+
+var contactAnchor = $('a[href="#contact"]');
+
+function createForm() {
+	var contactHTML = "";
+	contactHTML += "\n  <div class=\"modal fade\" id=\"contact-modal\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"contact-modal-label\">\n    <div class=\"modal-dialog\" role=\"document\">\n      <div class=\"modal-content\">\n        <div class=\"modal-header\">\n          <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button>\n          <h4 class=\"modal-title\" id=\"contact-modal-label\">Contact me</h4>\n        </div>\n        <div class=\"modal-body\">\n          <form id=\"contact-form\" action=\"https://formspree.io/nikolay.nikolov@n-nikolov.com\"  method=\"post\">\n            <div class=\"form-group\">\n              <label for=\"visitor-name\" class=\"control-label\">Your name:</label>\n              <input type=\"text\" class=\"form-control\" id=\"visitor-name\" name=\"visitor-name\" required>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"visitor-email\" class=\"control-label\">Your email:</label>\n              <input type=\"email\" class=\"form-control\" id=\"visitor-email\" name=\"visitor-email\" required>\n            </div>\n            <div class=\"form-group\">\n              <label for=\"visitor-phone\" class=\"control-label\">Your phone number (optional):</label>\n              <input type=\"phone\" class=\"form-control\" id=\"visitor-phone\" name=\"visitor-phone\">\n            </div>\n            <div class=\"form-group\">\n              <label for=\"message-text\" class=\"control-label\">Message:</label>\n              <textarea class=\"form-control\" id=\"message-text\" rows=\"10\" name=\"message-text\" required></textarea>\n            </div>\n          </form>\n        </div>\n        <div class=\"modal-footer\">\n          <button type=\"button\" class=\"btn btn-primary\" data-dismiss=\"modal\">Close</button>\n          <button type=\"submit\" form=\"contact-form\" class=\"btn btn-primary\">Send message</button>\n        </div>\n      </div>\n    </div>\n  </div>\n  ";
+	return contactHTML;
+}
+
+contactAnchor.click(function () {
+	$('body').append(createForm);
+	$('#contact-modal').modal('toggle');
+});
+
 $(function () {
 	var loc = $(location).attr('pathname');
 	console.log(loc);
@@ -12362,12 +12425,19 @@ $(function () {
 		case '/nncreatives/portfolio.html':
 			xhrRequest(displayProjects, 'data/projects.json');
 			break;
+		case '/nncreatives/about.html':
+			addAnimation('.about-box', 'animation-in-bottom0');
+			break;
+		case '/about.html':
+			addAnimation('.about-box', 'animation-in-bottom0');
+			break;
 	}
 });
 
 $(document).ready(function () {
 	// run test on initial page load
-
+	checkImageSize();
+	$(window).resize(checkImageSize);
 
 	$.each($('.header-inner .container').children(), function (x, y) {
 		var el = $(this);

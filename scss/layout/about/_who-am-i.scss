@@ -1,0 +1,98 @@
+#tabs {
+  background-color: $color-4; //darken($color-7, 25%);
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 1024px;
+    padding: 5rem 0;
+    @media #{$brk-narrow} {
+      flex: 1;
+      flex-direction: row;
+    }
+  }
+  .nav-tabs {
+    border: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+    li {
+      float: none;
+      display: inline-block;
+      margin: 1rem 0;
+      a {
+        margin: 0;
+        font-size: 1.5rem;
+        color: darken($color-7, 25%);
+        border: none;
+        font-family: $stack-montserrat;
+        background-color: $color-4;
+        padding: 5px 10px;
+        border-radius: 25px;
+        @media #{$brk-tablets} {
+          padding: 10px 20px;
+        }
+      }
+    }
+    li.active a {
+      color: $color-4;
+      background-color: darken($color-7, 25%);
+    }
+  }
+  .tab-pane {
+    .heading {
+      color: $color-5;
+    }
+
+  }
+  .about-box {
+    padding: 0;
+    text-align: center;
+    .heading {
+      font-family: $stack-montserrat;
+      margin-bottom: 2rem;
+    }
+    p {
+      color: $color-5;
+      font-family: $stack-montserrat;
+      font-weight: lighter;
+      text-align: left;
+      line-height: 2.5;
+      font-size: 1.3rem;
+      &:first-letter {
+        font-size: 3rem;
+        line-height: .5;
+        position: relative;
+        bottom: 10px;
+        border-radius: 5px;
+        padding: 0 4px;
+        margin-right: 5px;
+        // margin-top: 10px;
+        font-style: normal;
+        background-color: darken($color-7, 25%);
+        color: $color-4;
+        box-shadow: 1px 1px 1px 0 $color-5,
+                    1px 1px 1px 1px $color-5;
+      }
+      &:first-child {
+        padding-bottom: 4rem;
+      }
+    }
+    .about-box-image {
+      margin: 2rem auto;
+      border-radius: 25px;
+    }
+    &:first-child {
+      display: flex;
+      align-items: center;
+    }
+    &:last-child {
+      padding: 4rem;
+    }
+    @media #{$brk-narrow} {
+      padding: 2rem;
+      flex-basis: 50%;
+    }
+  }
+
+}

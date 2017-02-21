@@ -1,5 +1,6 @@
 footer {
   position: relative;
+  width: 100%;
   background-image: radial-gradient(darken($color-3, 5%), darken($color-3, 10%));
   border-top: 15px solid darken($color-3, 15%);
   .foo-nav {
@@ -47,7 +48,7 @@ footer {
         justify-content: space-around;
         a {
 
-          padding: 0 10px;
+          padding: 0;
           .social-icons {
               @include transition(all, .3s);
               fill: $color-4;

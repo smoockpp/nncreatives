@@ -25,6 +25,12 @@ $(function() {
     case '/nncreatives/portfolio.html':
       xhrRequest(displayProjects, 'data/projects.json');
       break;
+    case '/nncreatives/about.html':
+      addAnimation('.about-box', 'animation-in-bottom0');
+      break;
+    case '/about.html':
+      addAnimation('.about-box', 'animation-in-bottom0');
+      break;
   }
 });
 
@@ -32,7 +38,8 @@ $(function() {
 
 $(document).ready(function() {
   // run test on initial page load
-
+  checkImageSize();
+  $(window).resize(checkImageSize);
 
   $.each($('.header-inner .container').children(), function(x, y) {
     let el = $(this);
