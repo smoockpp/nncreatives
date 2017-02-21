@@ -28,11 +28,8 @@ gulp.task('concatScripts', function() {
       'scripts/ajax/ajax-function.js',
       'scripts/ajax/treehouse-request.js',
       'scripts/ajax/projects-request.js',
-      'scripts/overlay.js',
       'scripts/sticky-nav.js',
       'scripts/fixes.js',
-      'scripts/location-handler.js',
-      'scripts/ajax.js',
       'scripts/contact/contact.js',
       'scripts/main.js'])
 
@@ -89,10 +86,8 @@ gulp.task('watchFiles', function() {
   gulp.watch('scripts/ajax/ajax-function.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/ajax/projects-request.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/ajax/treehouse-request.js', ['concatScripts', 'minifyScripts']).on('change', reload);
-  gulp.watch('scripts/overlay.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/sticky-nav.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/fixes.js', ['concatScripts', 'minifyScripts']).on('change', reload);
-  gulp.watch('scripts/location-handler.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/contact/contact.js', ['concatScripts', 'minifyScripts']).on('change', reload);
 });
 
@@ -103,7 +98,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', ['compileSass', 'minifyCSS', 'concatScripts', 'minifyScripts'], function() {
-  return gulp.src(['styles/application.min.css','styles/application.css.map', 'scripts/app.min.js', 'index.html', 'about.html', 'portfolio.html', 
+  return gulp.src(['styles/application.min.css','styles/application.css.map', 'scripts/app.min.js', 'index.html', 'about.html', 'portfolio.html',
                    'data/**', 'fonts/**/*'], { base: './' })
              .pipe(gulp.dest('dist'));
 });

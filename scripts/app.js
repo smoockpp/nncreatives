@@ -12228,34 +12228,6 @@ var displayProjects = function displayProjects(data) {
 	addAnimation('.line4', 'line4-drawing');
 };
 
-// const iconWrapper = $('.icon-wrapper');
-// const overlay = $('.icon-overlay');
-//
-// iconWrapper.mouseenter(function() {
-//   $(this).find(overlay).animate({
-//     height: '100%',
-//     display: 'block'
-//   },
-//   {
-//     duration: 200
-//   });
-//   console.log(overlay.children('.heading'));
-//   $(this).find(overlay).children('.heading').css('display', 'inline-block');
-// });
-// iconWrapper.mouseleave(function() {
-//   $(this).find(overlay).animate({
-//     height: '0',
-//     display: 'none'
-//   },
-//   {
-//     duration: 200
-//   });
-//   setTimeout(function() {
-//     $(this).find(overlay).children('.heading').css('display', 'none');
-//   }, 200);
-//
-// });
-
 $(window).scroll(function () {
 	if ($(this).scrollTop() > 100) {
 		$('.navbar').addClass("sticky ");
@@ -12337,50 +12309,6 @@ function checkImageSize() {
 }
 
 //Function to the css rule
-
-// Change location after hash for each page
-
-
-// $(function(){
-//   let links = ['/index.html', '/about.html', '/portfolio.html', '/contact.html'];
-//   let location = window.location.pathname;
-//
-//   console.log(location);
-//   $.each(links, function(i, v) {
-//     if ( location == links[v] ) {
-//       console.log(links[v]);
-//       location = '/';
-//     }
-//   });
-//
-//
-//
-//
-// });
-
-'use strict';
-
-var displayGithub = function displayGithub(data) {
-	var profile = [];
-	profile.push(data);
-	console.log(profile);
-	var avatar = profile[0].avatar_url;
-	var name = profile[0].name;
-	var location = profile[0].location;
-	var alias = profile[0].login;
-
-	console.log(avatar);
-	var avatarDiv = $('#github .container');
-
-	var githubAvatar = "";
-	githubAvatar += "\n  <div class=\"row\">\n    <div class=\"github-avatar col-xs-12 col-sm-5 col-sm-offset-1\">\n      <img class=\"img\" src=\"" + avatar + "\" alt=\"" + name + " avatar photo\">\n\n    </div>\n    <div class=\"github-repos col-xs-12 col-sm-5\">\n    <h4 class=\"heading\">" + name + "</h4>\n    <h5 class=\"heading\">" + location + "</h5>\n\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">My repos</button>\n    <button type=\"button\" class=\"btn btn-primary btn-sm\">Hire me</button>\n    </div>\n  </div>\n  ";
-	$(avatarDiv).append(githubAvatar);
-	var profileImage = $('.github-avatar img');
-
-	profileImage.click(function () {
-		$(this).draggabale;
-	});
-};
 
 'use strict';
 
