@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 
+html {
+  height: 100%;
+}
 
 body {
   @include text(1.25em, 1.5, $color: $white);
