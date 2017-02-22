@@ -6804,7 +6804,15 @@ span.next-id {
   opacity: 0; }
 
 .animation-in-bottom0 {
+  -webkit-animation: in-bottom .5s ease .2s 1 normal forwards running;
   animation: in-bottom .5s ease .2s 1 normal forwards running; }
+
+@-webkit-keyframes in-bottom {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
 
 @keyframes in-bottom {
   0% {
@@ -6814,7 +6822,15 @@ span.next-id {
     opacity: 1; } }
 
 .animation-in-bottom1 {
+  -webkit-animation: in-bottom-1 .5s ease .4s 1 normal forwards running;
   animation: in-bottom-1 .5s ease .4s 1 normal forwards running; }
+
+@-webkit-keyframes in-bottom-1 {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
 
 @keyframes in-bottom-1 {
   0% {
@@ -6824,7 +6840,15 @@ span.next-id {
     opacity: 1; } }
 
 .animation-in-bottom2 {
+  -webkit-animation: in-bottom-1-5 .5s ease .6s 1 normal forwards running;
   animation: in-bottom-1-5 .5s ease .6s 1 normal forwards running; }
+
+@-webkit-keyframes in-bottom-1-5 {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
 
 @keyframes in-bottom-1-5 {
   0% {
@@ -6834,7 +6858,15 @@ span.next-id {
     opacity: 1; } }
 
 .animation-in-bottom3 {
+  -webkit-animation: in-bottom-2 .5s ease .8s 1 normal forwards running;
   animation: in-bottom-2 .5s ease .8s 1 normal forwards running; }
+
+@-webkit-keyframes in-bottom-2 {
+  0% {
+    top: 150px; }
+  100% {
+    top: 0;
+    opacity: 1; } }
 
 @keyframes in-bottom-2 {
   0% {
@@ -6847,90 +6879,188 @@ span.next-id {
  * Animations for timeline elements
  */
 .animate-circle {
+  -webkit-transform-origin: center center;
   transform-origin: center center; }
 
 .circle-scale-in {
+  -webkit-animation: circle-scale-in .3s ease .3s 1 normal forwards running;
   animation: circle-scale-in .3s ease .3s 1 normal forwards running; }
+
+@-webkit-keyframes circle-scale-in {
+  from {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
 
 @keyframes circle-scale-in {
   from {
+    -webkit-transform: scale(0);
     transform: scale(0); }
   to {
+    -webkit-transform: scale(1);
     transform: scale(1); } }
 
 .line1-drawing {
+  -webkit-animation: line1-drawing .3s ease .6s 1 normal forwards running;
   animation: line1-drawing .3s ease .6s 1 normal forwards running; }
+
+@-webkit-keyframes line1-drawing {
+  from {
+    width: 0;
+    -webkit-transform-origin: top right;
+    transform-origin: top right; }
+  to {
+    width: 100px;
+    -webkit-transform-origin: top right;
+    transform-origin: top right; } }
 
 @keyframes line1-drawing {
   from {
     width: 0;
+    -webkit-transform-origin: top right;
     transform-origin: top right; }
   to {
     width: 100px;
+    -webkit-transform-origin: top right;
     transform-origin: top right; } }
 
 .line2-drawing {
   top: 78px; }
   @media (min-width: 768px) {
     .line2-drawing {
+      -webkit-animation: line2-drawing-sm .3s ease .9s 1 normal forwards running;
       animation: line2-drawing-sm .3s ease .9s 1 normal forwards running; } }
   @media (min-width: 1024px) {
     .line2-drawing {
+      -webkit-animation: line2-drawing-md .3s ease .9s 1 normal forwards running;
       animation: line2-drawing-md .3s ease .9s 1 normal forwards running; } }
+
+@-webkit-keyframes line2-drawing-sm {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; }
+  to {
+    width: 295px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; } }
 
 @keyframes line2-drawing-sm {
   from {
     width: 0;
+    -webkit-transform-origin: center right;
     transform-origin: center right; }
   to {
     width: 295px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; } }
+
+@-webkit-keyframes line2-drawing-md {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; }
+  to {
+    width: 432px;
+    -webkit-transform-origin: center right;
     transform-origin: center right; } }
 
 @keyframes line2-drawing-md {
   from {
     width: 0;
+    -webkit-transform-origin: center right;
     transform-origin: center right; }
   to {
     width: 432px;
+    -webkit-transform-origin: center right;
     transform-origin: center right; } }
 
 .line3-drawing {
+  -webkit-animation: line3-drawing .3s ease 1s 1 normal forwards running;
   animation: line3-drawing .3s ease 1s 1 normal forwards running; }
+
+@-webkit-keyframes line3-drawing {
+  from {
+    width: 0;
+    -webkit-transform-origin: bottom right;
+    transform-origin: bottom right; }
+  to {
+    width: 100px;
+    -webkit-transform-origin: bottom right;
+    transform-origin: bottom right; } }
 
 @keyframes line3-drawing {
   from {
     width: 0;
+    -webkit-transform-origin: bottom right;
     transform-origin: bottom right; }
   to {
     width: 100px;
+    -webkit-transform-origin: bottom right;
     transform-origin: bottom right; } }
 
 @media (min-width: 768px) {
   .line4-drawing {
+    -webkit-animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running;
     animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running; } }
 
 @media (min-width: 1024px) {
   .line4-drawing {
+    -webkit-animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running;
     animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running; } }
+
+@-webkit-keyframes line4-drawing-sm {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; }
+  to {
+    width: 295px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; } }
 
 @keyframes line4-drawing-sm {
   from {
     width: 0;
+    -webkit-transform-origin: center right;
     transform-origin: center right; }
   to {
     width: 295px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; } }
+
+@-webkit-keyframes line4-drawing-md {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right; }
+  to {
+    width: 432px;
+    -webkit-transform-origin: center right;
     transform-origin: center right; } }
 
 @keyframes line4-drawing-md {
   from {
     width: 0;
+    -webkit-transform-origin: center right;
     transform-origin: center right; }
   to {
     width: 432px;
+    -webkit-transform-origin: center right;
     transform-origin: center right; } }
 
 .animation-in-left {
+  -webkit-animation: in-left 1.3s ease .3s 1 normal forwards running;
   animation: in-left 1.3s ease .3s 1 normal forwards running; }
+
+@-webkit-keyframes in-left {
+  0% {
+    left: -300px; }
+  100% {
+    left: 0;
+    opacity: 1; } }
 
 @keyframes in-left {
   0% {
