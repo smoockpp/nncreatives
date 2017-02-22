@@ -6332,8 +6332,7 @@ header#about-header {
       flex-flow: row wrap; } }
   #techdegree .container .about-box {
     flex-direction: column;
-    padding: 2rem;
-    flex-basis: 50%; }
+    padding: 2rem; }
   #techdegree .container .btn {
     border-color: #427785;
     color: #427785;
