@@ -2,20 +2,22 @@
   position: relative;
   top: 50%;
   z-index: 9999;
+  text-align: center;
 }
 
 .typewriter h1 {
+  display: inline-block;
   font-size: 1em;
   width: auto;
   overflow: hidden;
-  border-right: .15em solid $color-3;
+  // border-right: .15em solid $color-3;
   white-space: nowrap;
   line-height: 1.6;
   margin: 0 auto;
   letter-spacing: .15em;
   animation:
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+    typing 3.5s steps(40, end);
+    // blink-caret .75s step-end infinite;
 }
 
 /* The typing effect */
@@ -25,7 +27,7 @@
 }
 
 /* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: $color-3; }
-}
+// @keyframes blink-caret {
+//   from, to { border-color: transparent }
+//   50% { border-color: $color-3; }
+// }

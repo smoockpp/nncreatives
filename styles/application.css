@@ -5835,7 +5835,8 @@ main {
   max-width: 1440px; }
 
 .container-fluid {
-  margin: 0; }
+  margin: 0;
+  width: 100%; }
 
 img {
   display: block; }
@@ -6426,18 +6427,19 @@ header#portfolio {
 .typewriter {
   position: relative;
   top: 50%;
-  z-index: 9999; }
+  z-index: 9999;
+  text-align: center; }
 
 .typewriter h1 {
+  display: inline-block;
   font-size: 1em;
   width: auto;
   overflow: hidden;
-  border-right: 0.15em solid #C6A556;
   white-space: nowrap;
   line-height: 1.6;
   margin: 0 auto;
   letter-spacing: .15em;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
+  animation: typing 3.5s steps(40, end); }
 
 /* The typing effect */
 @keyframes typing {
@@ -6447,12 +6449,6 @@ header#portfolio {
     width: 100%; } }
 
 /* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent; }
-  50% {
-    border-color: #C6A556; } }
-
 #projects-flex {
   margin: 0 auto;
   display: flex;
