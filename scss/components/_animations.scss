@@ -208,13 +208,20 @@
 .circle-scale-in {
   -webkit-animation-name: circle-scale-in;
   -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-delay: .3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: circle-scale-in .3s ease .3s 1 normal forwards running;
+  animation-name: circle-scale-in;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
 
@@ -249,13 +256,20 @@
 .line1-drawing {
   -webkit-animation-name: line1-drawing;
   -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-delay: .6s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: line1-drawing .3s ease .6s 1 normal forwards running;
+  animation-name: line1-drawing;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .6s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
 
@@ -314,24 +328,38 @@
   @media #{$brk-narrow} {
     -webkit-animation-name: line2-drawing-sm;
     -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+    -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-delay: .9s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-direction: normal;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-play-state: running;
-    animation: line2-drawing-sm .3s ease .9s 1 normal forwards running;
+    animation-name: line2-drawing-sm;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: .9s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
   }
   @media #{$brk-wide} {
     -webkit-animation-name: line2-drawing-md;
     -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+    -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-delay: .9s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-direction: normal;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-play-state: running;
-    animation: line2-drawing-md .3s ease .9s 1 normal forwards running;
+    animation-name: line2-drawing-md;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: .9s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
   }
 }
 
@@ -364,13 +392,20 @@
 .line3-drawing {
   -webkit-animation-name: line3-drawing;
   -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-delay: 1s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: line3-drawing .3s ease 1s 1 normal forwards running;
+  animation-name: line3-drawing;
+  animation-duration: .3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 1s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
 
 
@@ -427,24 +462,38 @@
   @media #{$brk-narrow} {
     -webkit-animation-name: line4-drawing-sm;
     -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+    -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-delay: 1.3s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-direction: normal;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-play-state: running;
-    animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running;
+    animation-name: line4-drawing-sm;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.3s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
   }
   @media #{$brk-wide} {
     -webkit-animation-name: line4-drawing-md;
     -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+    -webkit-animation-timing-function: ease-in-out;
     -webkit-animation-delay: 1.3s;
     -webkit-animation-iteration-count: 1;
     -webkit-animation-direction: normal;
     -webkit-animation-fill-mode: forwards;
     -webkit-animation-play-state: running;
-    animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running;
+    animation-name: line4-drawing-md;
+    animation-duration: .3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1.3s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-play-state: running;
   }
 
 
@@ -472,11 +521,18 @@
 .animation-in-left {
   -webkit-animation-name: in-left;
   -webkit-animation-duration: 1.3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-delay: .3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-left 1.3s ease .3s 1 normal forwards running;
+  animation-name: in-left;
+  animation-duration: 1.3s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .3s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }

@@ -1,6 +1,6 @@
 #techdegree {
   .container {
-    
+    align-items: center;
     padding: 5rem 0;
     @media #{$brk-narrow} {
       flex-flow: row wrap;
@@ -8,9 +8,12 @@
     .about-box {
       flex-direction: column;
       padding: 2rem;
-
+      &:nth-child(3) {
+        width: 100%;
+      }
     }
     .btn {
+
       border-color: darken($color-7, 25%);
       color: darken($color-7, 25%);
       margin: 2rem auto;
@@ -20,6 +23,7 @@
       }
     }
     .curriculum {
+      width: 100%;
       flex-basis: 100%;
       display: flex;
       flex-direction: row;

@@ -24,7 +24,8 @@
     position: relative;
     left: 0;
     opacity: 0;
-    padding: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
     text-align: center;
     .image-zoom-pan {
       position: relative;
@@ -116,8 +117,9 @@
       }
     }
     @media #{$brk-narrow} {
+      width: 50%;
       flex-basis: 50%;
-      padding: 2rem 1rem 1rem;
+
       text-align: left;
     }
   }
@@ -131,6 +133,8 @@
     }
     p {
       float: right;
+      width: 80%;
+      margin-left: 20%;
       padding-top: 2em;
       text-align: right !important;
       color: $color-5;
@@ -141,8 +145,9 @@
     @media #{$brk-narrow} {
       margin-top: -6px;
       display: block;
-      padding: calc(3rem + 6px) 1rem 1rem 3rem;
-      flex-basis: 50%;
+      float: right;
+      padding: calc(3rem + 6px) 0 0 0;
+      width: 50%;
     }
   }
 }

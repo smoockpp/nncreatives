@@ -1,9 +1,7 @@
 #tabs {
   background-color: $color-4; //darken($color-7, 25%);
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
+
     max-width: 1024px;
     padding: 5rem 0;
     @media #{$brk-narrow} {
@@ -46,6 +44,8 @@
 
   }
   .about-box {
+    width: 100%;
+    float: left;
     padding: 0;
     text-align: center;
     .heading {
@@ -53,6 +53,7 @@
       margin-bottom: 2rem;
     }
     p {
+      width: 100%;
       color: $color-5;
       font-family: $stack-montserrat;
       font-weight: lighter;
@@ -83,15 +84,14 @@
       border-radius: 25px;
     }
     &:first-child {
+
       display: flex;
       align-items: center;
     }
-    &:last-child {
-      padding: 4rem;
-    }
+
     @media #{$brk-narrow} {
       padding: 2rem;
-      flex-basis: 50%;
+      width: 50%;
     }
   }
 
