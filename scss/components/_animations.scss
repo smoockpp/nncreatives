@@ -12,20 +12,9 @@
   opacity: 0;
 }
 
-.animation-in-bottom0 {
-  -webkit-animation-name: in-bottom;
-  -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .2s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: in-bottom .5s ease .2s 1 normal forwards running;
-
-}
 @-webkit-keyframes in-bottom {
   0% {
+    opacity: 0;
     top: 150px;
   }
   100% {
@@ -35,6 +24,7 @@
 }
 @keyframes in-bottom {
   0% {
+    opacity: 0;
     top: 150px;
   }
   100% {
@@ -44,17 +34,27 @@
 }
 
 
-.animation-in-bottom1 {
-  -webkit-animation-name: in-bottom-1;
+.animation-in-bottom0 {
+  -webkit-animation-name: in-bottom;
   -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .4s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .2s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-bottom-1 .5s ease .4s 1 normal forwards running;
+  animation-name: in-bottom;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .2s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
+
+
+
 @-webkit-keyframes in-bottom-1 {
   0% {
     top: 150px;
@@ -73,18 +73,26 @@
     opacity: 1;
   }
 }
-
-.animation-in-bottom2 {
-  -webkit-animation-name: in-bottom-1-5;
+.animation-in-bottom1 {
+  -webkit-animation-name: in-bottom-1;
   -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .6s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .4s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-bottom-1-5 .5s ease .6s 1 normal forwards running;
+  animation-name: in-bottom-1;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .4s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
+
+
 @-webkit-keyframes in-bottom-1-5 {
   0% {
     top: 150px;
@@ -103,18 +111,27 @@
     opacity: 1;
   }
 }
-
-.animation-in-bottom3 {
-  -webkit-animation-name: in-bottom-2;
+.animation-in-bottom2 {
+  -webkit-animation-name: in-bottom-1-5;
   -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .8s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .6s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-bottom-2 .5s ease .8s 1 normal forwards running;
+  animation-name: in-bottom-1-5;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .6s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
 }
+
+
+
 @-webkit-keyframes in-bottom-2 {
   0% {
     top: 150px;
@@ -133,6 +150,25 @@
     opacity: 1;
   }
 }
+.animation-in-bottom3 {
+  -webkit-animation-name: in-bottom-2;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .8s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation-name: in-bottom-2;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .8s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
 
 
 
@@ -143,21 +179,7 @@
 
 
 // Animation for circle
-.animate-circle {
-  -webkit-transform-origin: center center;
-  transform-origin: center center;
-}
-.circle-scale-in {
-  -webkit-animation-name: circle-scale-in;
-  -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .3s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: circle-scale-in .3s ease .3s 1 normal forwards running;
-}
+
 @-webkit-keyframes circle-scale-in {
   from {
     -webkit-transform: scale(0);
@@ -179,19 +201,27 @@
   }
 }
 
-
-// Animation for line1
-.line1-drawing {
-  -webkit-animation-name: line1-drawing;
+.animate-circle {
+  -webkit-transform-origin: center center;
+  transform-origin: center center;
+}
+.circle-scale-in {
+  -webkit-animation-name: circle-scale-in;
   -webkit-animation-duration: .3s;
   -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .6s;
+  -webkit-animation-delay: .3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: line1-drawing .3s ease .6s 1 normal forwards running;
+  animation: circle-scale-in .3s ease .3s 1 normal forwards running;
 }
+
+
+
+// Animation for line1
+
+
 @-webkit-keyframes line1-drawing {
   from {
     width: 0;
@@ -216,8 +246,69 @@
     transform-origin: top right;
   }
 }
+.line1-drawing {
+  -webkit-animation-name: line1-drawing;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-delay: .6s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation: line1-drawing .3s ease .6s 1 normal forwards running;
+}
+
 
 // Animation for line2
+
+@-webkit-keyframes line2-drawing-sm {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+  to {
+    width: 295px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+}
+@keyframes line2-drawing-sm {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+  to {
+    width: 295px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+}
+@-webkit-keyframes line2-drawing-md {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+  to {
+    width: 432px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+}
+@keyframes line2-drawing-md {
+  from {
+    width: 0;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+  to {
+    width: 432px;
+    -webkit-transform-origin: center right;
+    transform-origin: center right;
+  }
+}
 .line2-drawing {
   top: 78px;
   @media #{$brk-narrow} {
@@ -243,67 +334,9 @@
     animation: line2-drawing-md .3s ease .9s 1 normal forwards running;
   }
 }
-@-webkit-keyframes line2-drawing-sm {
-  from {
-    width: 0;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-  to {
-    width: 295px;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-}
-@keyframes line2-drawing-sm {
-  from {
-    width: 0;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-  to {
-    width: 295px;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-}
 
-@-webkit-keyframes line2-drawing-md {
-  from {
-    width: 0;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-  to {
-    width: 432px;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-}
-@keyframes line2-drawing-md {
-  from {
-    width: 0;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-  to {
-    width: 432px;
-    -webkit-transform-origin: center right;
-    transform-origin: center right;
-  }
-}
 
-.line3-drawing {
-  -webkit-animation-name: line3-drawing;
-  -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: 1s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: line3-drawing .3s ease 1s 1 normal forwards running;
-}
+
 @-webkit-keyframes line3-drawing {
   from {
     width: 0;
@@ -328,34 +361,20 @@
     transform-origin: bottom right;
   }
 }
+.line3-drawing {
+  -webkit-animation-name: line3-drawing;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation: line3-drawing .3s ease 1s 1 normal forwards running;
+}
+
 
 // Animation for line2
-.line4-drawing {
-  @media #{$brk-narrow} {
-    -webkit-animation-name: line4-drawing-sm;
-    -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-    -webkit-animation-delay: 1.3s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-play-state: running;
-    animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running;
-  }
-  @media #{$brk-wide} {
-    -webkit-animation-name: line4-drawing-md;
-    -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-    -webkit-animation-delay: 1.3s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-play-state: running;
-    animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running;
-  }
-
-
-}
 @-webkit-keyframes line4-drawing-sm {
   from {
     width: 0;
@@ -404,19 +423,34 @@
     transform-origin: center right;
   }
 }
+.line4-drawing {
+  @media #{$brk-narrow} {
+    -webkit-animation-name: line4-drawing-sm;
+    -webkit-animation-duration: .3s;
+    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+    -webkit-animation-delay: 1.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running;
+  }
+  @media #{$brk-wide} {
+    -webkit-animation-name: line4-drawing-md;
+    -webkit-animation-duration: .3s;
+    -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+    -webkit-animation-delay: 1.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running;
+  }
 
 
-.animation-in-left {
-  -webkit-animation-name: in-left;
-  -webkit-animation-duration: 1.3s;
-  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
-  -webkit-animation-delay: .3s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: in-left 1.3s ease .3s 1 normal forwards running;
 }
+
+
 @-webkit-keyframes in-left {
   0% {
     left: -300px;
@@ -434,4 +468,15 @@
     left: 0;
     opacity: 1;
   }
+}
+.animation-in-left {
+  -webkit-animation-name: in-left;
+  -webkit-animation-duration: 1.3s;
+  -webkit-animation-timing-function: cubic-bezier(.3,.5,.7,.4);
+  -webkit-animation-delay: .3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation: in-left 1.3s ease .3s 1 normal forwards running;
 }

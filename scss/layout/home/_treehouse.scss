@@ -21,7 +21,7 @@
           float: left;
           background-color: transparent;
 
-          padding: 4em 15px;
+          padding: 4em 0;
 
           cursor: pointer;
           td {
@@ -44,10 +44,12 @@
 
           }
           @media #{$brk-narrow} {
+
             flex-basis: 25%;
           }
         }
         @media #{$brk-narrow} {
+          flex-flow: nowrap;
           padding-bottom: 4em;
           padding-top: 4em;
         }

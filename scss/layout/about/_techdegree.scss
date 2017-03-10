@@ -1,6 +1,6 @@
 #techdegree {
   .container {
-    flex: 1;
+    
     padding: 5rem 0;
     @media #{$brk-narrow} {
       flex-flow: row wrap;

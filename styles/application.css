@@ -5828,8 +5828,7 @@ body {
   line-height: 1.5;
   color: #fff;
   font-family: Helvetica, sans-serif;
-  width: 100%;
-  height: 100%;
+  overflow-x: hidden;
   margin: 0 auto; }
 
 main {
@@ -6193,7 +6192,7 @@ header#index-header {
       flex-basis: 100%;
       float: left;
       background-color: transparent;
-      padding: 4em 15px;
+      padding: 4em 0;
       cursor: pointer; }
       #treehouse .container .table tbody tr td {
         border: none;
@@ -6215,6 +6214,7 @@ header#index-header {
           flex-basis: 25%; } }
     @media (min-width: 768px) {
       #treehouse .container .table tbody {
+        flex-flow: nowrap;
         padding-bottom: 4em;
         padding-top: 4em; } }
   #treehouse .container .pagination {
@@ -6330,7 +6330,6 @@ header#about-header {
         flex-basis: 50%; } }
 
 #techdegree .container {
-  flex: 1;
   padding: 5rem 0; }
   @media (min-width: 768px) {
     #techdegree .container {
@@ -6807,19 +6806,9 @@ span.next-id {
   position: relative;
   opacity: 0; }
 
-.animation-in-bottom0 {
-  -webkit-animation-name: in-bottom;
-  -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .2s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: in-bottom .5s ease .2s 1 normal forwards running; }
-
 @-webkit-keyframes in-bottom {
   0% {
+    opacity: 0;
     top: 150px; }
   100% {
     top: 0;
@@ -6827,21 +6816,29 @@ span.next-id {
 
 @keyframes in-bottom {
   0% {
+    opacity: 0;
     top: 150px; }
   100% {
     top: 0;
     opacity: 1; } }
 
-.animation-in-bottom1 {
-  -webkit-animation-name: in-bottom-1;
+.animation-in-bottom0 {
+  -webkit-animation-name: in-bottom;
   -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .4s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .2s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-bottom-1 .5s ease .4s 1 normal forwards running; }
+  animation-name: in-bottom;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .2s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running; }
 
 @-webkit-keyframes in-bottom-1 {
   0% {
@@ -6857,16 +6854,23 @@ span.next-id {
     top: 0;
     opacity: 1; } }
 
-.animation-in-bottom2 {
-  -webkit-animation-name: in-bottom-1-5;
+.animation-in-bottom1 {
+  -webkit-animation-name: in-bottom-1;
   -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .6s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .4s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-bottom-1-5 .5s ease .6s 1 normal forwards running; }
+  animation-name: in-bottom-1;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .4s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running; }
 
 @-webkit-keyframes in-bottom-1-5 {
   0% {
@@ -6882,16 +6886,23 @@ span.next-id {
     top: 0;
     opacity: 1; } }
 
-.animation-in-bottom3 {
-  -webkit-animation-name: in-bottom-2;
+.animation-in-bottom2 {
+  -webkit-animation-name: in-bottom-1-5;
   -webkit-animation-duration: .5s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .8s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .6s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: in-bottom-2 .5s ease .8s 1 normal forwards running; }
+  animation-name: in-bottom-1-5;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .6s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running; }
 
 @-webkit-keyframes in-bottom-2 {
   0% {
@@ -6907,24 +6918,27 @@ span.next-id {
     top: 0;
     opacity: 1; } }
 
-/*
- * Animations for timeline elements
- */
-.animate-circle {
-  -webkit-transform-origin: center center;
-  transform-origin: center center; }
-
-.circle-scale-in {
-  -webkit-animation-name: circle-scale-in;
-  -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .3s;
+.animation-in-bottom3 {
+  -webkit-animation-name: in-bottom-2;
+  -webkit-animation-duration: .5s;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-delay: .8s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: circle-scale-in .3s ease .3s 1 normal forwards running; }
+  animation-name: in-bottom-2;
+  animation-duration: .5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: .8s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-play-state: running; }
 
+/*
+ * Animations for timeline elements
+ */
 @-webkit-keyframes circle-scale-in {
   from {
     -webkit-transform: scale(0);
@@ -6941,16 +6955,20 @@ span.next-id {
     -webkit-transform: scale(1);
     transform: scale(1); } }
 
-.line1-drawing {
-  -webkit-animation-name: line1-drawing;
+.animate-circle {
+  -webkit-transform-origin: center center;
+  transform-origin: center center; }
+
+.circle-scale-in {
+  -webkit-animation-name: circle-scale-in;
   -webkit-animation-duration: .3s;
   -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .6s;
+  -webkit-animation-delay: .3s;
   -webkit-animation-iteration-count: 1;
   -webkit-animation-direction: normal;
   -webkit-animation-fill-mode: forwards;
   -webkit-animation-play-state: running;
-  animation: line1-drawing .3s ease .6s 1 normal forwards running; }
+  animation: circle-scale-in .3s ease .3s 1 normal forwards running; }
 
 @-webkit-keyframes line1-drawing {
   from {
@@ -6972,30 +6990,16 @@ span.next-id {
     -webkit-transform-origin: top right;
     transform-origin: top right; } }
 
-.line2-drawing {
-  top: 78px; }
-  @media (min-width: 768px) {
-    .line2-drawing {
-      -webkit-animation-name: line2-drawing-sm;
-      -webkit-animation-duration: .3s;
-      -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-      -webkit-animation-delay: .9s;
-      -webkit-animation-iteration-count: 1;
-      -webkit-animation-direction: normal;
-      -webkit-animation-fill-mode: forwards;
-      -webkit-animation-play-state: running;
-      animation: line2-drawing-sm .3s ease .9s 1 normal forwards running; } }
-  @media (min-width: 1024px) {
-    .line2-drawing {
-      -webkit-animation-name: line2-drawing-md;
-      -webkit-animation-duration: .3s;
-      -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-      -webkit-animation-delay: .9s;
-      -webkit-animation-iteration-count: 1;
-      -webkit-animation-direction: normal;
-      -webkit-animation-fill-mode: forwards;
-      -webkit-animation-play-state: running;
-      animation: line2-drawing-md .3s ease .9s 1 normal forwards running; } }
+.line1-drawing {
+  -webkit-animation-name: line1-drawing;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+  -webkit-animation-delay: .6s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation: line1-drawing .3s ease .6s 1 normal forwards running; }
 
 @-webkit-keyframes line2-drawing-sm {
   from {
@@ -7037,16 +7041,30 @@ span.next-id {
     -webkit-transform-origin: center right;
     transform-origin: center right; } }
 
-.line3-drawing {
-  -webkit-animation-name: line3-drawing;
-  -webkit-animation-duration: .3s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: 1s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: line3-drawing .3s ease 1s 1 normal forwards running; }
+.line2-drawing {
+  top: 78px; }
+  @media (min-width: 768px) {
+    .line2-drawing {
+      -webkit-animation-name: line2-drawing-sm;
+      -webkit-animation-duration: .3s;
+      -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+      -webkit-animation-delay: .9s;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-direction: normal;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-play-state: running;
+      animation: line2-drawing-sm .3s ease .9s 1 normal forwards running; } }
+  @media (min-width: 1024px) {
+    .line2-drawing {
+      -webkit-animation-name: line2-drawing-md;
+      -webkit-animation-duration: .3s;
+      -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+      -webkit-animation-delay: .9s;
+      -webkit-animation-iteration-count: 1;
+      -webkit-animation-direction: normal;
+      -webkit-animation-fill-mode: forwards;
+      -webkit-animation-play-state: running;
+      animation: line2-drawing-md .3s ease .9s 1 normal forwards running; } }
 
 @-webkit-keyframes line3-drawing {
   from {
@@ -7068,29 +7086,16 @@ span.next-id {
     -webkit-transform-origin: bottom right;
     transform-origin: bottom right; } }
 
-@media (min-width: 768px) {
-  .line4-drawing {
-    -webkit-animation-name: line4-drawing-sm;
-    -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-    -webkit-animation-delay: 1.3s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-play-state: running;
-    animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running; } }
-
-@media (min-width: 1024px) {
-  .line4-drawing {
-    -webkit-animation-name: line4-drawing-md;
-    -webkit-animation-duration: .3s;
-    -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-    -webkit-animation-delay: 1.3s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-    -webkit-animation-play-state: running;
-    animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running; } }
+.line3-drawing {
+  -webkit-animation-name: line3-drawing;
+  -webkit-animation-duration: .3s;
+  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+  -webkit-animation-delay: 1s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation: line3-drawing .3s ease 1s 1 normal forwards running; }
 
 @-webkit-keyframes line4-drawing-sm {
   from {
@@ -7132,16 +7137,29 @@ span.next-id {
     -webkit-transform-origin: center right;
     transform-origin: center right; } }
 
-.animation-in-left {
-  -webkit-animation-name: in-left;
-  -webkit-animation-duration: 1.3s;
-  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
-  -webkit-animation-delay: .3s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-direction: normal;
-  -webkit-animation-fill-mode: forwards;
-  -webkit-animation-play-state: running;
-  animation: in-left 1.3s ease .3s 1 normal forwards running; }
+@media (min-width: 768px) {
+  .line4-drawing {
+    -webkit-animation-name: line4-drawing-sm;
+    -webkit-animation-duration: .3s;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+    -webkit-animation-delay: 1.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation: line4-drawing-sm .3s ease 1.3s 1 normal forwards running; } }
+
+@media (min-width: 1024px) {
+  .line4-drawing {
+    -webkit-animation-name: line4-drawing-md;
+    -webkit-animation-duration: .3s;
+    -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+    -webkit-animation-delay: 1.3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+    -webkit-animation-play-state: running;
+    animation: line4-drawing-md .3s ease 1.3s 1 normal forwards running; } }
 
 @-webkit-keyframes in-left {
   0% {
@@ -7156,5 +7174,16 @@ span.next-id {
   100% {
     left: 0;
     opacity: 1; } }
+
+.animation-in-left {
+  -webkit-animation-name: in-left;
+  -webkit-animation-duration: 1.3s;
+  -webkit-animation-timing-function: cubic-bezier(0.3, 0.5, 0.7, 0.4);
+  -webkit-animation-delay: .3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+  -webkit-animation-play-state: running;
+  animation: in-left 1.3s ease .3s 1 normal forwards running; }
 
 /*# sourceMappingURL=application.css.map */
