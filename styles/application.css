@@ -6424,11 +6424,15 @@ header#portfolio {
         display: block;
         flex-basis: 100%; } }
 
-.typewriter {
-  position: relative;
-  top: 50%;
-  z-index: 9999;
-  text-align: center; }
+.container-fluid {
+  position: relative; }
+  .container-fluid .typewriter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    text-align: center; }
 
 .typewriter h1 {
   display: inline-block;
