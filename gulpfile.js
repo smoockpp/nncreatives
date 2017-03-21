@@ -1,6 +1,7 @@
 'use strict';
 
 var    gulp = require('gulp'),
+        rev = require('gulp-rev'),
       babel = require("gulp-babel"),
      concat = require('gulp-concat'),
      uglify = require('gulp-uglify'),
@@ -32,9 +33,8 @@ gulp.task('concatScripts', function() {
       'scripts/fixes.js',
       'scripts/contact/contact.js',
       'scripts/main.js'])
-
-
   .pipe(concat('app.js'))
+  .pipe(maps.write('./'))
   .pipe(babel({
           presets: ['es2015']
       }))
@@ -89,6 +89,18 @@ gulp.task('watchFiles', function() {
   gulp.watch('scripts/sticky-nav.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/fixes.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/contact/contact.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+});
+
+gulp.task('versioning', function() {
+	gulp.src(['dist/styles/*.css', 'dist/scripts/*.js'], {base: 'dist'})
+		.pipe(gulp.dest('dist/'))  // copy original assets to build dir
+		.pipe(rev())
+		.pipe(gulp.dest('dist/'))  // write rev'd assets to build dir
+		.pipe(rev.manifest({
+        base: 'build/assets',
+			  merge: true // merge with the existing manifest if one exists
+		}))
+		.pipe(gulp.dest('dist/'))  // write manifest to build dir
 });
 
 
