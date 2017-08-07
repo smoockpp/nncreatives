@@ -1,62 +1,13 @@
-#approaches {
-  background:
-    /* top, transparent red */
-    linear-gradient(
-      darken(transparentize($color-7, .05), 20%),
-      darken(transparentize($color-7, .05), 20%)
-    ),
-    /* your image */
-    url('../data/images/creative.jpg') no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-
-  padding-top: 4em;
-  padding-bottom: 4em;
-
-  .container {
-    max-width: 1024px;
-
-  }
-  .approaches-flex {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    @media #{$brk-narrow} {
-      flex-direction: row;
-      flex: 1;
+#london-map {
+    background: linear-gradient(0deg, transparentize($boston-blue, .2), transparentize($boston-blue, .2)), url(../data/images/london-bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-attachment:  fixed;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    box-shadow: 0 1px 1px 0 transparentize($black, .6);
+    svg {
+        max-height: 600px;
     }
-  }
-  .heading {
-    font-family: $stack-play;
-  }
-  .sub-heading {
-    color: $color-4;
-  }
-  .icon-wrapper {
-    @extend %user-select-no;
-    cursor: default;
-    font-family: $stack-montserrat;
-    padding: 3em;
-    .heading {
-      font-size: 20px;
-      font-weight: 300;
-    }
-    .underline {
-      height: 3px;
-      background-color: $color-4;
-      width: 30px;
-    }
-    .icon-box {
 
-      .icons {
-
-        width: 50%;
-        max-width: 128px;
-        margin: 1em auto;
-      }
-    }
-    @media #{$brk-narrow} {
-      flex-basis: 33.333%;
-    }
-  }
 }

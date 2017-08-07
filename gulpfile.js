@@ -22,9 +22,11 @@ function swallowError (error) {
 
 gulp.task('concatScripts', function() {
   return gulp.src([
-      'bower_components/jquery/dist/jquery.js',
+    //   'bower_components/jquery/dist/jquery.js',
+    'scripts/carousel-template.js',
+    'scripts/media-queries.js',
       'scripts/visibility.js',
-      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+    //   'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'scripts/animations.js',
       'scripts/ajax/ajax-function.js',
       'scripts/ajax/treehouse-request.js',
@@ -34,6 +36,7 @@ gulp.task('concatScripts', function() {
       'scripts/contact/contact.js',
       'scripts/main.js'])
   .pipe(concat('app.js'))
+  .on('error', swallowError)
   .pipe(maps.write('./'))
   .pipe(babel({
           presets: ['es2015']
@@ -82,6 +85,7 @@ gulp.task('watchFiles', function() {
 
   gulp.watch('*.html').on('change', reload);
   gulp.watch('scripts/main.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/carousel-template.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/animations.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/ajax/ajax-function.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/ajax/projects-request.js', ['concatScripts', 'minifyScripts']).on('change', reload);
@@ -89,6 +93,7 @@ gulp.task('watchFiles', function() {
   gulp.watch('scripts/sticky-nav.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/fixes.js', ['concatScripts', 'minifyScripts']).on('change', reload);
   gulp.watch('scripts/contact/contact.js', ['concatScripts', 'minifyScripts']).on('change', reload);
+  gulp.watch('scripts/media-queries.js', ['concatScripts', 'minifyScripts']).on('change', reload);
 });
 
 gulp.task('versioning', function() {

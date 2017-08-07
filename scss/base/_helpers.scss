@@ -1,0 +1,80 @@
+.img {
+    width: 100%;
+    max-width: 100%;
+}
+
+.img-responsive {
+    &.by-width {
+        width: 100%;
+    }
+}
+
+.scroll-down {
+    position: absolute;
+    display: block;
+    top: auto;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4em;
+}
+
+.item {
+    .img-responsive {
+        max-width: 320px !important;
+        margin: 0 auto;
+        @media (min-width: 768px) {
+            display: inline-block !important;
+            // max-width: 330px !important;
+            width: 50% !important;
+        }
+        @media (min-width: 991px) {
+            width: 33.333% !important;
+            // max-width: 357px !important;
+        }
+    }
+}
+
+svg#london {
+    path {
+        transition: all .3s ease-in-out;
+        transform-origin: center;
+        position: relative;
+        z-index: 1;
+        &:hover {
+            cursor: pointer;
+            // pointer-events: visible;
+        }
+    }
+    use {
+        position: absolute;
+        display: block;
+    }
+}
+
+.nn-tooltip {
+    display: block;
+    position: absolute;
+    padding: 1rem;
+    background-color: #333;
+    border-radius: 5px;
+    top: 0;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    .media {
+        max-width: 300px;
+        min-width: 280px;
+        p {
+            margin: 0;
+            text-align: left;
+            color: $white;
+        }
+        .media-object {
+            max-width: 75px;
+        }
+        h4, h5 {
+            text-align: left;
+        }
+    }
+}

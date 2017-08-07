@@ -1,0 +1,19 @@
+#deliveries-counter {
+    height: 400px;
+    background-image: radial-gradient(circle at center, lighten($buttered-rum, 20%), $buttered-rum 100%);
+    #counter-placeholder {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        .counter-number {
+            display: block;
+            text-align: center;
+            transform:  scale(.5);
+            text-align: center;
+            font-size: 6em;
+            font-family: 'Source Serif Pro', serif;
+            text-shadow: 0 0 10px transparentize($black, .8);
+        }
+    }
+}

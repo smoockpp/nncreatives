@@ -1,55 +1,27 @@
 /* Header starts here */
 header#index-header {
-  width: 100%;
-  height: 100vh;
-  background:
-    /* top, transparent red */
-    linear-gradient(
-      transparentize($color-5, .3),
-      transparentize($color-5, .3)
-    ),
-    /* your image */
-    url('../data/images/header-bg.jpg') no-repeat;
-  background-size: cover;
-  background-attachment: fixed;
-  .container {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80%;
-    text-align: center;
-    z-index: 1;
-    .heading:first-child {
-      font-size: 34px;
-      font-weight: bold;
-      @media #{$brk-narrow} {
-        font-size: 3.5em;
-      }
-      @media #{$brk-full-width} {
-        font-size: 4.5em;
-      }
-    }
-    p {
-      font-family: $stack-montserrat;
-      font-weight: lighter;
-      font-style: italic;
-      font-size: 1.2em;
-      @media #{$brk-narrow} {
-        font-size: 1.5em;
-      }
-      @media #{$brk-full-width} {
-        font-size: 1.8em;
-      }
-    }
-    @media only (orientation: landscape) {
-      transform: translate(-50%, -50%);
-    }
-  }
-  @media only (orientation: landscape) {
+    width: 100%;
     height: 100vh;
-    .container {
-      top: 50%;
+    background:
+        /* top, transparent red */
+        linear-gradient(
+            transparentize($color-5, .3),
+            transparentize($color-5, .3)
+        ),
+            url('../data/images/home-bg.jpg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    .img-logo {
+        transition: all .3s ease-in-out;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-height: 40%;
+        width: auto;
+        @media #{$brk-narrow} {
+
+        }
     }
-  }
 }

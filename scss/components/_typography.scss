@@ -1,26 +1,55 @@
 /* Sections Heading style */
+.heading-panel {
+    margin: 3em auto;
+}
+
 .heading {
-  font-family: $stack-play;
-  text-align: center;
-  color: $color-4;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  cursor: default;
-  text-rendering: optimizeLegibility;
+    font-family: 'Source Serif pro', serif;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 0 0 7px transparentize($black, .8);
+    &.black {
+        color: $black;
+    }
+    &.no-shadow {
+        text-shadow: none;
+    }
 }
 
 .sub-heading {
-  font-family: $stack-montserrat;
+  font-family: 'Slabo 27px', sans-serif;
   color: $color-5;
   text-align: center;
 }
 
 div.underline {
-  margin: -15px auto 0;
+  margin: 2rem auto 1rem;
   display: block;
   height: 5px;
   width: 50px;
   background-color: $color-3;
+  &.blue {
+      background-color: $boston-blue;
+  }
+  &.white {
+      background-color: $white;
+  }
+  & + .heading {
+      margin-top: .5rem;
+  }
+}
+
+.paragraph {
+    color: #333;
+    font-size: 1.25em;
+    font-family: 'Slabo 27px';
+    text-align: center;
+    margin: 1em auto;
+}
+
+.copyright {
+    font-size: 11px;
+    text-align: center;
 }
 
 
